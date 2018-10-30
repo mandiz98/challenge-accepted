@@ -25,7 +25,7 @@
                                 <color key="backgroundColor" red="1" green="0.95800306859999995" blue="0.0020097530459999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="AyZ-ap-rtb"/>
-                                    <constraint firstAttribute="width" constant="200" id="zha-nA-ose"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="zha-nA-ose"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="30"/>
                                 <state key="normal" title="Login">
@@ -37,12 +37,15 @@
                                         <integer key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="LoginBtn:" destination="sX1-s4-OgM" eventType="touchUpInside" id="egZ-Qi-gdu"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M0O-zD-UMG">
                                 <rect key="frame" x="107" y="519" width="200" height="50"/>
                                 <color key="backgroundColor" red="1" green="0.95800306859999995" blue="0.0020097530459999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="Fir-fr-UWf"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="Fir-fr-UWf"/>
                                     <constraint firstAttribute="height" constant="50" id="qRk-JT-Ob6"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="30"/>
@@ -70,7 +73,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="eLF-QI-zrp"/>
                     <connections>
-                        <segue destination="aMI-fm-Thz" kind="show" id="x3s-ux-NtT"/>
+                        <segue destination="aMI-fm-Thz" kind="show" identifier="LaunchSegue" id="x3s-ux-NtT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fHJ-u2-kke" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -94,7 +97,7 @@
                                 <color key="backgroundColor" red="1" green="0.95800306859999995" blue="0.0020097530459999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="OFU-X2-EqL"/>
-                                    <constraint firstAttribute="width" constant="200" id="lo2-YR-VKQ"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="lo2-YR-VKQ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="30"/>
                                 <state key="normal" title="Create">
@@ -114,7 +117,7 @@
                                 <rect key="frame" x="107" y="583" width="200" height="50"/>
                                 <color key="backgroundColor" red="1" green="0.95800306859999995" blue="0.0020097530459999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="UAO-nl-Nhn"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="UAO-nl-Nhn"/>
                                     <constraint firstAttribute="height" constant="50" id="wLQ-3B-LFb"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="30"/>
@@ -136,7 +139,7 @@
                                 <color key="backgroundColor" red="1" green="0.95800306859999995" blue="0.0020097530459999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="GaP-hh-cYu"/>
-                                    <constraint firstAttribute="width" constant="200" id="SIe-sM-wuU"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="SIe-sM-wuU"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="30"/>
                                 <state key="normal" title="Challenges">
@@ -207,7 +210,7 @@
                                 <rect key="frame" x="32" y="242" width="350" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="350" id="3Z5-mo-Nvi"/>
-                                    <constraint firstAttribute="width" constant="350" id="yDR-dI-uVi"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="350" id="yDR-dI-uVi"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -228,7 +231,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xIt-Ck-dHI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3681" y="809"/>
+            <point key="canvasLocation" x="3681" y="824"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Soh-4V-NHh">
@@ -239,10 +242,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create Challenge" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TwV-2J-eIw">
-                                <rect key="frame" x="57" y="88" width="300" height="50"/>
+                                <rect key="frame" x="57" y="104" width="300" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="AdR-tJ-oKs"/>
-                                    <constraint firstAttribute="width" constant="300" id="yDA-fM-NzU"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="yDA-fM-NzU"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="30"/>
                                 <color key="textColor" red="1" green="0.95800306859999995" blue="0.0020097530459999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -252,14 +255,14 @@
                         <color key="backgroundColor" red="0.19215686269999999" green="0.19215686269999999" blue="0.19215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="TwV-2J-eIw" firstAttribute="centerX" secondItem="d9q-dU-XfB" secondAttribute="centerX" id="Dwq-Kq-8Ko"/>
-                            <constraint firstItem="TwV-2J-eIw" firstAttribute="top" secondItem="beV-GI-9pk" secondAttribute="top" id="Rww-zM-toS"/>
+                            <constraint firstItem="TwV-2J-eIw" firstAttribute="top" secondItem="beV-GI-9pk" secondAttribute="top" constant="16" id="Rww-zM-toS"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="beV-GI-9pk"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KlG-BR-HQz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4730" y="485"/>
+            <point key="canvasLocation" x="4857" y="-745"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="WIM-4M-FpO">
@@ -270,10 +273,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Challenges" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yYm-fl-Kcb">
-                                <rect key="frame" x="57" y="88" width="300" height="50"/>
+                                <rect key="frame" x="57" y="104" width="300" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Gdz-F0-yZQ"/>
-                                    <constraint firstAttribute="width" constant="300" id="hsM-Vf-d70"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="hsM-Vf-d70"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="30"/>
                                 <color key="textColor" red="1" green="0.95800306859999995" blue="0.0020097530459999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -282,7 +285,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.19215686269999999" green="0.19215686269999999" blue="0.19215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="yYm-fl-Kcb" firstAttribute="top" secondItem="JRC-g7-uIQ" secondAttribute="top" id="DrR-Qr-NWu"/>
+                            <constraint firstItem="yYm-fl-Kcb" firstAttribute="top" secondItem="JRC-g7-uIQ" secondAttribute="top" constant="16" id="DrR-Qr-NWu"/>
                             <constraint firstItem="yYm-fl-Kcb" firstAttribute="centerX" secondItem="5UZ-N9-Qbb" secondAttribute="centerX" id="LS8-18-ftU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="JRC-g7-uIQ"/>
@@ -290,7 +293,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PzK-Ko-LAg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4730.434782608696" y="-386.38392857142856"/>
+            <point key="canvasLocation" x="4857" y="25"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ANb-Qi-JzT">

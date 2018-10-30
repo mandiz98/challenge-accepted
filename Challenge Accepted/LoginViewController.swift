@@ -18,7 +18,10 @@ class LoginViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func LoginBtn(_ sender: UIButton) {
+        performSegue(withIdentifier: "LaunchSegue", sender: self)
+    }
+    
     /*
     // MARK: - Navigation
 
