@@ -12,7 +12,7 @@
         <!--Launch-->
         <scene sceneID="dC6-ej-Fzh">
             <objects>
-                <viewController title="Launch" id="sX1-s4-OgM" sceneMemberID="viewController">
+                <viewController title="Launch" id="sX1-s4-OgM" customClass="LoginViewController" customModule="Challenge_Accepted" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nSU-C7-loO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
