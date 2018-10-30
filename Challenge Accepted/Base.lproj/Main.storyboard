@@ -185,21 +185,31 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fcd-S3-oay">
-                                <rect key="frame" x="57" y="88" width="300" height="50"/>
+                                <rect key="frame" x="57" y="104" width="300" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="9XL-dM-ad3"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="zat-D8-0h0"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="30"/>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="31"/>
                                 <color key="textColor" red="1" green="0.95800306859999995" blue="0.0020097530459999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="highlightedColor" red="1" green="0.95800306859999995" blue="0.0020097530459999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vDQ-mi-BLc">
-                                <rect key="frame" x="32" y="154" width="350" height="21"/>
+                                <rect key="frame" x="32" y="186" width="350" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="350" id="iWZ-J1-DB1"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TLf-h3-dks">
+                                <rect key="frame" x="32" y="242" width="350" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="350" id="3Z5-mo-Nvi"/>
+                                    <constraint firstAttribute="width" constant="350" id="yDR-dI-uVi"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -207,9 +217,11 @@
                         <color key="backgroundColor" red="0.19215686269999999" green="0.19215686269999999" blue="0.19215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="fcd-S3-oay" firstAttribute="centerX" secondItem="aUC-iZ-mrw" secondAttribute="centerX" id="7XX-nQ-0Zi"/>
-                            <constraint firstItem="vDQ-mi-BLc" firstAttribute="top" secondItem="fcd-S3-oay" secondAttribute="bottom" constant="16" id="UE1-qY-fed"/>
+                            <constraint firstItem="TLf-h3-dks" firstAttribute="top" secondItem="vDQ-mi-BLc" secondAttribute="bottom" constant="32" id="BgS-qY-Y0a"/>
+                            <constraint firstItem="vDQ-mi-BLc" firstAttribute="top" secondItem="fcd-S3-oay" secondAttribute="bottom" constant="32" id="UE1-qY-fed"/>
                             <constraint firstItem="vDQ-mi-BLc" firstAttribute="centerX" secondItem="aUC-iZ-mrw" secondAttribute="centerX" id="VYT-kX-W8u"/>
-                            <constraint firstItem="fcd-S3-oay" firstAttribute="top" secondItem="R7e-Tn-Tyo" secondAttribute="top" id="odE-PN-LnG"/>
+                            <constraint firstItem="fcd-S3-oay" firstAttribute="top" secondItem="R7e-Tn-Tyo" secondAttribute="top" constant="16" id="odE-PN-LnG"/>
+                            <constraint firstItem="TLf-h3-dks" firstAttribute="centerX" secondItem="aUC-iZ-mrw" secondAttribute="centerX" id="qFg-gh-zGL"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="R7e-Tn-Tyo"/>
                     </view>
