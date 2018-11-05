@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sX1-s4-OgM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sX1-s4-OgM">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -150,6 +150,7 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="ChallengeBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="suw-Oh-wsi"/>
+                                    <segue destination="BEP-WV-Snd" kind="show" identifier="ChallengeSegue" id="PuT-5i-YYW"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -167,7 +168,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="rzj-qo-cb2"/>
                     <connections>
-                        <segue destination="8f7-uR-uKp" kind="show" identifier="ChallengesSegue" id="xjv-kQ-TXm"/>
                         <segue destination="v4X-LC-6Db" kind="show" identifier="CreateChallengeSegue" id="bAy-ie-6QV"/>
                         <segue destination="tfK-Jf-rDi" kind="show" identifier="ProfileSegue" id="9qx-So-hdo"/>
                     </connections>
@@ -249,10 +249,10 @@
             </objects>
             <point key="canvasLocation" x="4730" y="485"/>
         </scene>
-        <!--View Controller-->
+        <!--Inbox-->
         <scene sceneID="WIM-4M-FpO">
             <objects>
-                <viewController id="8f7-uR-uKp" sceneMemberID="viewController">
+                <viewController title="Inbox" id="8f7-uR-uKp" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5UZ-N9-Qbb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -275,10 +275,27 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="JRC-g7-uIQ"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Inbox" id="HtK-mH-Wra"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PzK-Ko-LAg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4730.434782608696" y="-386.38392857142856"/>
+            <point key="canvasLocation" x="6557.971014492754" y="-569.19642857142856"/>
+        </scene>
+        <!--Sent-->
+        <scene sceneID="04S-zG-72m">
+            <objects>
+                <viewController title="Sent" id="UwB-Nc-VJo" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zyL-gj-ADR">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="56r-uI-UMY"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="VD9-dZ-LfO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZJf-D5-IVb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6557.971014492754" y="135.9375"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ANb-Qi-JzT">
@@ -299,6 +316,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tyM-Fu-1Is" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2771.0144927536235" y="26.116071428571427"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="S6q-hq-vE4">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="BEP-WV-Snd" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="MCF-KB-esi">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.19215686269999999" green="0.19215686269999999" blue="0.19215686269999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="barTintColor" red="0.25098039220000001" green="0.25098039220000001" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="8f7-uR-uKp" kind="relationship" relationship="viewControllers" id="WHM-sl-MSd"/>
+                        <segue destination="UwB-Nc-VJo" kind="relationship" relationship="viewControllers" id="qPh-Te-tbw"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o4S-3Y-UY3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5647.826086956522" y="-216.96428571428569"/>
         </scene>
     </scenes>
     <resources>
