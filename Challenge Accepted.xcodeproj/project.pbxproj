@@ -17,6 +17,7 @@
 		D6F8F4B82191D74C00F30CE8 /* Challenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F8F4B72191D74C00F30CE8 /* Challenge.swift */; };
 		D6F8F4BE2191DE6100F30CE8 /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F8F4BD2191DE6100F30CE8 /* CreateViewController.swift */; };
 		D6F8F4C02191F06900F30CE8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F8F4BF2191F06900F30CE8 /* User.swift */; };
+		D6F8F4C22191FE2900F30CE8 /* DummyDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F8F4C12191FE2900F30CE8 /* DummyDatabase.swift */; };
 		D79DD31D21885F35001F3824 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79DD31C21885F35001F3824 /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +36,7 @@
 		D6F8F4B72191D74C00F30CE8 /* Challenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenge.swift; sourceTree = "<group>"; };
 		D6F8F4BD2191DE6100F30CE8 /* CreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CreateViewController.swift; path = ../CreateViewController.swift; sourceTree = "<group>"; };
 		D6F8F4BF2191F06900F30CE8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		D6F8F4C12191FE2900F30CE8 /* DummyDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyDatabase.swift; sourceTree = "<group>"; };
 		D729BC9921919770004A880E /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D729BC9B219197C7004A880E /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D79DD31C21885F35001F3824 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 				02B19E41218730EF00118C70 /* HomeScreenViewController.swift */,
 				D6F8F4B72191D74C00F30CE8 /* Challenge.swift */,
 				D6F8F4BF2191F06900F30CE8 /* User.swift */,
+				D6F8F4C12191FE2900F30CE8 /* DummyDatabase.swift */,
 			);
 			path = "Challenge Accepted";
 			sourceTree = "<group>";
@@ -254,6 +257,7 @@
 				02B19E42218730EF00118C70 /* HomeScreenViewController.swift in Sources */,
 				D6F8F4B82191D74C00F30CE8 /* Challenge.swift in Sources */,
 				D6F8F4C02191F06900F30CE8 /* User.swift in Sources */,
+				D6F8F4C22191FE2900F30CE8 /* DummyDatabase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
