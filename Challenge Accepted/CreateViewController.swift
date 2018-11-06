@@ -14,11 +14,10 @@ class CreateViewController: UIViewController {
     @IBOutlet weak var challengeDescription: UITextView!
     @IBOutlet weak var createButton: UIButton!
     
-    var user: User = User(name: "Jacob", points: 10000)
     
     @IBAction func buttonPressed(_ sender: Any) {
         if(challengeTitle.text != nil && challengeDescription.text != nil){
-            user.addChallenge(challenge: Challenge(title: challengeTitle.text!, description: challengeDescription.text, creator: user))
+            userJacob.addChallenge(challenge: Challenge(title: challengeTitle.text!, description: challengeDescription.text, creator: userJacob))
         }
         
         
