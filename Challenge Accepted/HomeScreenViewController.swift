@@ -20,10 +20,6 @@ class HomeScreenViewController: UIViewController {
         performSegue(withIdentifier: "CreateChallengeSegue", sender: self)
     }
     
-     @IBAction func ChallengeBtn(_ sender: UIButton) {
-        performSegue(withIdentifier: "ChallengeSegue", sender: self)
-     }
-    
     @IBAction func ProfileBtn(_ sender: UIButton) {
         performSegue(withIdentifier: "ProfileSegue", sender: self)
     }
