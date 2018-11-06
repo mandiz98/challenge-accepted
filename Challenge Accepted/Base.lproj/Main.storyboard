@@ -20,59 +20,22 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="v3" translatesAutoresizingMaskIntoConstraints="NO" id="lj7-Ca-2m6">
                                 <rect key="frame" x="57" y="172" width="300" height="86"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d4Y-FZ-w0d">
-                                <rect key="frame" x="107" y="437" width="200" height="50"/>
-                                <color key="backgroundColor" red="1" green="0.95800306859999995" blue="0.0020097530459999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="AyZ-ap-rtb"/>
-                                    <constraint firstAttribute="width" constant="200" id="zha-nA-ose"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="30"/>
-                                <state key="normal" title="Login">
-                                    <color key="titleColor" red="0.19215686269999999" green="0.19215686269999999" blue="0.19215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.makesToBounds" value="YES"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M0O-zD-UMG">
-                                <rect key="frame" x="107" y="519" width="200" height="50"/>
-                                <color key="backgroundColor" red="1" green="0.95800306859999995" blue="0.0020097530459999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="Fir-fr-UWf"/>
-                                    <constraint firstAttribute="height" constant="50" id="qRk-JT-Ob6"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="30"/>
-                                <state key="normal" title="Sign up">
-                                    <color key="titleColor" red="0.19215686269999999" green="0.19215686269999999" blue="0.19215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.makesToBounds" value="YES"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.19215686274509802" green="0.19215686274509802" blue="0.19215686274509802" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="d4Y-FZ-w0d" firstAttribute="centerX" secondItem="nSU-C7-loO" secondAttribute="centerX" id="8Gn-0r-PZe"/>
-                            <constraint firstItem="M0O-zD-UMG" firstAttribute="top" secondItem="d4Y-FZ-w0d" secondAttribute="bottom" constant="32" id="BEY-TF-7l0"/>
                             <constraint firstItem="lj7-Ca-2m6" firstAttribute="top" secondItem="BM6-jV-tho" secondAttribute="top" constant="128" id="HBL-4W-Dmc"/>
-                            <constraint firstItem="M0O-zD-UMG" firstAttribute="centerX" secondItem="nSU-C7-loO" secondAttribute="centerX" id="df0-BO-4lA"/>
-                            <constraint firstItem="BM6-jV-tho" firstAttribute="bottom" secondItem="M0O-zD-UMG" secondAttribute="bottom" constant="293" id="e1z-il-Q79"/>
                             <constraint firstItem="lj7-Ca-2m6" firstAttribute="centerX" secondItem="nSU-C7-loO" secondAttribute="centerX" id="mKN-jw-mSI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="BM6-jV-tho"/>
                     </view>
                     <navigationItem key="navigationItem" id="eLF-QI-zrp"/>
+                    <connections>
+                        <segue destination="bP5-m7-WDH" kind="show" identifier="loginSegue" id="cYA-AM-LDh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fHJ-u2-kke" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1164" y="25"/>
+            <point key="canvasLocation" x="3201" y="-1011"/>
         </scene>
         <!--Home Screen View Controller-->
         <scene sceneID="tne-QT-ifu">
