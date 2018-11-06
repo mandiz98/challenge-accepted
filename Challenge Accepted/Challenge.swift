@@ -10,29 +10,60 @@ import Foundation
 
 class Challenge {
     
-    init(titel: String, description: String, status: String){
-        self.titel = titel
+    init(title: String, description: String, creator: User){
+        self.creator = creator
+        self.title = title
         self.description = description
-        self.status = status
+        self.state = Status.unread
+        
     }
     
     
-    func setStatus(status: String){
-        self.status = status
+    func getChallenge() -> Challenge{
+        return self
+    }
+    
+    func setStatus(status: Status){
+        switch status {
+        case .done:
+            self.state = Status.done
+        case .accepted:
+            self.state = Status.accepted
+        case .denied:
+            self.state = Status.denied
+        case .pending:
+            self.state = Status.pending
+        case .unread:
+            self.state = Status.unread
+            
+        }
+    }
+    func setTitle(title: String){
+        self.title = title
+    }
+    func setDescription(description: String){
+        self.description = description
     }
     
     func getTitel() -> String {
-        return self.titel
+        return self.title
     }
     func getDescription() -> String {
         return self.description
     }
-    func getStatus() -> String {
-        return self.status
+    func getStatus() -> Status {
+        return self.state
     }
     
-    
-    var titel: String
+    var creator: User
+    var title: String
     var description: String
-    var status: String
+    var state: Status
+    enum Status{
+        case done
+        case accepted
+        case denied
+        case unread
+        case pending
+    }
 }
