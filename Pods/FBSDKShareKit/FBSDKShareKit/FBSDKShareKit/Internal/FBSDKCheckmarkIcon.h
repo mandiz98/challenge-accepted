@@ -16,39 +16,10 @@
 // IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 // CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
-@class FBSDKURLConnection;
+#import "FBSDKCoreKit+Internal.h"
 
-typedef void (^FBSDKURLConnectionHandler)(FBSDKURLConnection *connection,
-                                          NSError *error,
-                                          NSURLResponse *response,
-                                          NSData *responseData);
-
-@protocol FBSDKURLConnectionDelegate <NSObject>
-
-@optional
-
-- (void)facebookURLConnection:(FBSDKURLConnection *)connection
-              didSendBodyData:(NSInteger)bytesWritten
-            totalBytesWritten:(NSInteger)totalBytesWritten
-    totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite;
-
-@end
-
-@interface FBSDKURLConnection : NSObject
-
-- (instancetype)init NS_UNAVAILABLE;
-+ (instancetype)new NS_UNAVAILABLE;
-
-- (FBSDKURLConnection *)initWithRequest:(NSURLRequest *)request
-                      completionHandler:(FBSDKURLConnectionHandler)handler
-NS_DESIGNATED_INITIALIZER;
-
-@property (nonatomic, weak) id<FBSDKURLConnectionDelegate> delegate;
-
-- (void)cancel;
-- (void)start;
-- (void)setDelegateQueue:(NSOperationQueue *)queue;
+@interface FBSDKCheckmarkIcon : FBSDKIcon
 
 @end
