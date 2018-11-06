@@ -17,13 +17,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="v3" translatesAutoresizingMaskIntoConstraints="NO" id="lj7-Ca-2m6">
-                                <rect key="frame" x="57" y="172" width="300" height="86"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="lj7-Ca-2m6">
+                                <rect key="frame" x="16" y="60" width="382" height="159"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="lj7-Ca-2m6" secondAttribute="height" multiplier="1200:500" id="LC5-Mc-1W7"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.19215686274509802" green="0.19215686274509802" blue="0.19215686274509802" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="lj7-Ca-2m6" firstAttribute="top" secondItem="BM6-jV-tho" secondAttribute="top" constant="128" id="HBL-4W-Dmc"/>
+                            <constraint firstItem="lj7-Ca-2m6" firstAttribute="leading" secondItem="BM6-jV-tho" secondAttribute="leading" constant="16" id="5mJ-Bg-sFb"/>
+                            <constraint firstItem="lj7-Ca-2m6" firstAttribute="top" secondItem="BM6-jV-tho" secondAttribute="top" constant="16" id="clT-gM-4fr"/>
+                            <constraint firstItem="BM6-jV-tho" firstAttribute="trailing" secondItem="lj7-Ca-2m6" secondAttribute="trailing" constant="16" id="k32-Re-9SW"/>
                             <constraint firstItem="lj7-Ca-2m6" firstAttribute="centerX" secondItem="nSU-C7-loO" secondAttribute="centerX" id="mKN-jw-mSI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="BM6-jV-tho"/>
@@ -35,7 +40,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fHJ-u2-kke" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3201" y="-1011"/>
+            <point key="canvasLocation" x="3200.0000000000005" y="-1011.1607142857142"/>
         </scene>
         <!--Home Screen View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -45,9 +50,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="v3" translatesAutoresizingMaskIntoConstraints="NO" id="X7t-RT-3ds">
-                                <rect key="frame" x="57" y="163" width="300" height="86"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="X7t-RT-3ds">
+                                <rect key="frame" x="32" y="152" width="350" height="146"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="X7t-RT-3ds" secondAttribute="height" multiplier="1200:500" id="9qj-1r-bt1"/>
+                                </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HkM-AI-m1M">
                                 <rect key="frame" x="107" y="383" width="200" height="50"/>
@@ -118,11 +125,14 @@
                         <constraints>
                             <constraint firstItem="Lwy-6U-q4r" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="FWd-hG-sd0"/>
                             <constraint firstItem="HkM-AI-m1M" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="LUl-l3-Aoq"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="X7t-RT-3ds" secondAttribute="trailing" constant="32" id="MW3-mr-q6Y"/>
                             <constraint firstItem="Ysh-vX-97n" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="WjL-0s-1KW"/>
                             <constraint firstItem="Lwy-6U-q4r" firstAttribute="top" secondItem="Ysh-vX-97n" secondAttribute="bottom" constant="50" id="XEX-C1-s0G"/>
                             <constraint firstItem="Ysh-vX-97n" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="aNM-2O-uCX"/>
                             <constraint firstItem="Ysh-vX-97n" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="60" id="jAw-Wv-ni9"/>
                             <constraint firstItem="Ysh-vX-97n" firstAttribute="top" secondItem="HkM-AI-m1M" secondAttribute="bottom" constant="50" id="ldw-1a-Q9q"/>
+                            <constraint firstItem="X7t-RT-3ds" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="64" id="qGH-g9-4dY"/>
+                            <constraint firstItem="X7t-RT-3ds" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="yLl-aF-Z2R"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -168,8 +178,8 @@
         <!--Create Challenge-->
         <scene sceneID="Soh-4V-NHh">
             <objects>
-                <viewController title="Create Challenge" id="v4X-LC-6Db" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="d9q-dU-XfB">
+                <viewController title="Create Challenge" id="v4X-LC-6Db" customClass="CreateViewController" customModule="Challenge_Accepted" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="d9q-dU-XfB" customClass="Create">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -182,10 +192,38 @@
                                     <color key="textColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </textAttributes>
                             </navigationBar>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qYd-gR-g2t">
+                                <rect key="frame" x="106" y="253" width="203" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                                <textInputTraits key="textInputTraits" textContentType="name"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="pLZ-4c-3dh">
+                                <rect key="frame" x="87" y="345" width="240" height="187"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4XE-LC-SxY">
+                                <rect key="frame" x="87" y="620" width="240" height="67"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Create"/>
+                                <connections>
+                                    <action selector="buttonPressed:" destination="v4X-LC-6Db" eventType="touchUpInside" id="fsb-2A-mon"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.19215686269999999" green="0.19215686269999999" blue="0.19215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="beV-GI-9pk"/>
                     </view>
+                    <connections>
+                        <outlet property="challengeDescription" destination="pLZ-4c-3dh" id="mRU-XC-8ag"/>
+                        <outlet property="challengeTitle" destination="qYd-gR-g2t" id="Y8n-we-GLg"/>
+                        <outlet property="createButton" destination="4XE-LC-SxY" id="vgD-fE-wd1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KlG-BR-HQz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -207,7 +245,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PzK-Ko-LAg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7468" y="-538"/>
+            <point key="canvasLocation" x="7467" y="-291"/>
         </scene>
         <!--Sent-->
         <scene sceneID="04S-zG-72m">
@@ -225,7 +263,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZJf-D5-IVb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7468.115942028986" y="115.84821428571428"/>
+            <point key="canvasLocation" x="7467" y="382"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="S6q-hq-vE4">
@@ -272,9 +310,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="inboxIcon" width="32" height="24"/>
+        <image name="inboxIcon" width="32" height="23"/>
+        <image name="logo" width="1200" height="500"/>
         <image name="sentIcon" width="32" height="32"/>
-        <image name="v3" width="300" height="86"/>
     </resources>
     <color key="tintColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
