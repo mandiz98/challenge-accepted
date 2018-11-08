@@ -81,7 +81,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     }
     
     func fetchProfile(){
-        let parameters = ["fields": "id, name, email, friends"]
+        let parameters = ["fields": "first_name, last_name"]
         FBSDKGraphRequest(graphPath: "/me/friends", parameters: parameters).start{
             (connection, result, err) in
             
@@ -90,8 +90,18 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
                 return
             }
             
-            let data:[String:AnyObject] = result as! [String : AnyObject]
-            print(data)
+            let data:[String:Any] = result as! [String : Any]
+            print(data["data"]!)
+            
+            
+            /*if
+                let fields = result as? [String:Any],
+                let firstName = fields["first_name"] as? String,
+                let lastName = fields["last_name"] as? String
+            {
+                print("firstName -> \(firstName)")
+                print("lastName -> \(lastName)")
+            }*/
             
         }
     }
