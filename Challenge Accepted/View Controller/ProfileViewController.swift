@@ -9,11 +9,9 @@
 import UIKit
 
 class ProfileViewController: UIViewController {
-    @IBOutlet weak var profileImage: RoundImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        profileImage.image = userJacob.getImage()
         // Do any additional setup after loading the view.
     }
     

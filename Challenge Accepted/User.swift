@@ -12,7 +12,6 @@ class User {
     
     var name: String
     var points: Int
-    var profileImage: String
     var challenges: [Challenge]
     
     init(name: String, points: Int) {
@@ -38,10 +37,6 @@ class User {
     }
     func getPoints() -> Int{
         return self.points
-    }
-    
-    func getImage(<#parameters#>) -> <#return type#> {
-        <#function body#>
     }
     
     func getAllChallenges() -> [Challenge]{
