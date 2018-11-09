@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="lj7-Ca-2m6">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="lj7-Ca-2m6">
                                 <rect key="frame" x="16" y="60.000000000000014" width="382" height="159.33333333333337"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="lj7-Ca-2m6" secondAttribute="height" multiplier="1200:500" id="LC5-Mc-1W7"/>
@@ -51,7 +51,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="X7t-RT-3ds">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="X7t-RT-3ds">
                                 <rect key="frame" x="32" y="152" width="350" height="146"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="X7t-RT-3ds" secondAttribute="height" multiplier="1200:500" id="9qj-1r-bt1"/>
@@ -328,10 +328,10 @@
                                 <exclude reference="uQk-uZ-pyD"/>
                                 <exclude reference="RBh-MD-7eT"/>
                                 <exclude reference="fmY-aI-XUg"/>
-                                <exclude reference="gb3-xE-k7Z"/>
                                 <exclude reference="35h-pJ-qgd"/>
                                 <exclude reference="VwN-FI-2dK"/>
                                 <exclude reference="caA-fS-lhC"/>
+                                <exclude reference="gb3-xE-k7Z"/>
                                 <exclude reference="ICn-SA-HbH"/>
                                 <exclude reference="JNr-Zm-6wu"/>
                                 <exclude reference="WwY-Fu-CWd"/>
@@ -344,9 +344,9 @@
                                 <include reference="EgV-RX-nCP"/>
                                 <include reference="uQk-uZ-pyD"/>
                                 <include reference="fmY-aI-XUg"/>
-                                <include reference="gb3-xE-k7Z"/>
                                 <include reference="35h-pJ-qgd"/>
                                 <include reference="caA-fS-lhC"/>
+                                <include reference="gb3-xE-k7Z"/>
                                 <include reference="ICn-SA-HbH"/>
                                 <include reference="WwY-Fu-CWd"/>
                             </mask>
@@ -596,7 +596,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="InboxTableViewCell" rowHeight="164" id="uZ4-kB-bTQ">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="InboxTableViewCell" rowHeight="164" id="uZ4-kB-bTQ" customClass="InboxTableViewCell" customModule="Challenge_Accepted" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="164"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uZ4-kB-bTQ" id="ojd-eM-2NT">
@@ -657,6 +657,12 @@
                                         <constraint firstItem="bqF-UR-rO5" firstAttribute="leading" secondItem="w2n-lv-Or6" secondAttribute="trailing" constant="8" id="mzY-Kj-eJI"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="CreatorLabel" destination="AAM-5q-LsV" id="Iy1-Fs-rj9"/>
+                                    <outlet property="TitleLabel" destination="gEV-Oh-vcZ" id="LZf-IZ-LaL"/>
+                                    <outlet property="nameLabel" destination="dbc-dG-tsW" id="Sky-nd-5tL"/>
+                                    <outlet property="stateImageView" destination="bqF-UR-rO5" id="8gn-Oe-JPG"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -699,7 +705,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SentTableViewCell" rowHeight="164" id="R9R-xB-3hM">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SentTableViewCell" rowHeight="164" id="R9R-xB-3hM" customClass="SentTableViewCell" customModule="Challenge_Accepted" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="164"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="R9R-xB-3hM" id="X3G-9O-2cZ">
@@ -760,6 +766,12 @@
                                         <constraint firstAttribute="bottomMargin" secondItem="Qb9-Yz-M9K" secondAttribute="bottom" constant="8" id="zgF-2v-l5C"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="CreatorLabel" destination="Hc8-ok-vhU" id="pkf-Y9-qZj"/>
+                                    <outlet property="NameLabel" destination="l5B-cO-9WS" id="VEU-Lq-DmO"/>
+                                    <outlet property="TitleLabel" destination="vrq-nu-qb2" id="NYp-2l-A4S"/>
+                                    <outlet property="stateImageView" destination="5NQ-HN-gkd" id="Fzu-FB-xCd"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -818,8 +830,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Logo" width="1200" height="500"/>
         <image name="inboxIcon" width="42" height="30"/>
-        <image name="logo" width="1200" height="500"/>
         <image name="sentIcon" width="42" height="42"/>
         <namedColor name="BackgroundGrayByAmanda">
             <color red="0.19200000166893005" green="0.19200000166893005" blue="0.19200000166893005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

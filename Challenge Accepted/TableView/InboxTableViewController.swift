@@ -15,6 +15,11 @@ class InboxTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // MARK: - get inboxed challenges from database : AMANDA
+        challenges = [
+            Challenge(title: "String", description: "String", creator: userJacob)
+        ]
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -24,14 +29,21 @@ class InboxTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        if let destination = segue.destination as? InboxDetailViewController {
+            if let indexPath = sender as? IndexPath {
+                let inbox = challenges[IndexPath.row]
+                destination.Cha
+            }
+        }
+    }
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return challenges.count
     }
 
     /*
