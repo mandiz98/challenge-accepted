@@ -36,7 +36,7 @@ class InboxTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "InboxTableViewCell", for: indexPath) as? InboxTableViewCell{
             let challenge = inboxChallenges[indexPath.row]
-            cell.nameLabel.text = challenge.creator.getName()
+            cell.nameLabel.text = challenge.getCreator()
             cell.titleLabel.text = challenge.getTitel()
             cell.stateImageView.image = challenge.getStatusImage()
             

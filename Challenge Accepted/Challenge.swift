@@ -65,6 +65,9 @@ class Challenge {
     func setDescription(description: String){
         self.description = description
     }
+    func getCreator() -> String {
+        return self.creator.getName()
+    }
     
     func getTitel() -> String {
         return self.title
