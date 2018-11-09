@@ -8,4 +8,10 @@ target 'Challenge Accepted' do
   # Pods for Challenge Accepted
 
   pod 'FBSDKLoginKit'
+  
+  use_frameworks!
+  
+  pod 'FacebookCore'
+  pod 'FacebookLogin'
+  pod 'FacebookShare'
 end
