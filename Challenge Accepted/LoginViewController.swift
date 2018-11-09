@@ -28,23 +28,6 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         print("utloggad")
     }
     
-   /*
-    func loginButtonDidCompleteLogin(_ loginButton: LoginButton, result: LoginResult) {
-        switch result{
-        case .failed(let error):
-            print("error")
-            print(error)
-            break
-        case .cancelled:
-            print("cancelled")
-            break
-        case .success(_,_,_):
-            print("login")
-            fbLoginSuccess = true
-            break
-        }
-        
-    }*/
     
     override func viewDidAppear(_ animated: Bool) {
         if(fbLoginSuccess){
@@ -52,10 +35,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         }
     }
     
-    
-    /*func loginButtonDidLogOut(_ loginButton: LoginButton) {
-        print("utloggad")
-    }*/
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -90,22 +70,14 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
             }
             
             let data:[String:Any] = result as! [String : Any]
-            print(data["data"]!)
+            //print(data["data"]!)
             
-            for a in data{
-                if a.key == "data"{
-                    print(a.value)
+            
+            if let users = data["data"] as? [[String : Any]] {
+                for user in users {
+                    print(user["first_name"]!,user["last_name"]!)
                 }
             }
-            
-            /*if
-                let fields = result as? [String:Any],
-                let firstName = fields["first_name"] as? String,
-                let lastName = fields["last_name"] as? String
-            {
-                print("firstName -> \(firstName)")
-                print("lastName -> \(lastName)")
-            }*/
             
         }
     }
