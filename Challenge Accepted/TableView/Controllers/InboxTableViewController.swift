@@ -10,13 +10,13 @@ import UIKit
 
 class InboxTableViewController: UITableViewController {
     
-    var challenges: [Challenge] = []
+    var inboxChallenges: [Challenge] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // MARK: - get inboxed challenges from database : AMANDA
-        challenges = [
+        inboxChallenges = [
             Challenge(title: "String", description: "String", creator: userJacob,imageState: UIImage(named: "unread")!)
         ]
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
@@ -30,12 +30,12 @@ class InboxTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return challenges.count
+        return inboxChallenges.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "InboxTableViewCell", for: indexPath) as? InboxTableViewCell{
-            let challenge = challenges[indexPath.row]
+            let challenge = inboxChallenges[indexPath.row]
             cell.nameLabel.text = challenge.creator.getName()
             cell.titleLabel.text = challenge.getTitel()
             cell.stateImageView.image = challenge.getStatusImage()
