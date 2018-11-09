@@ -19,7 +19,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
         print("inloggad")
         fbLoginSuccess = true
-        
+        fetchProfile()
         
         
     }
@@ -72,12 +72,11 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         
         if AccessToken.current != nil {
             // User is logged in, use 'accessToken' here.
-            fbLoginSuccess = false
+            fbLoginSuccess = true
             fetchProfile()
         }
         
         
-
     }
     
     func fetchProfile(){
@@ -93,6 +92,12 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
             let data:[String:Any] = result as! [String : Any]
             print(data["data"]!)
             
+            
+           /* for a in data{
+                if a.key == "data"{
+                    print(a.)
+                }
+            }*/
             
             /*if
                 let fields = result as? [String:Any],
