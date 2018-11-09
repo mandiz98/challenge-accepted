@@ -130,7 +130,7 @@ static const CFTimeInterval kBFViewAnimationDuration = 0.25f;
         if (CGRectGetHeight(newFrame) == 40) {
             UIViewAnimationOptions options = UIViewAnimationOptionBeginFromCurrentState;
             [UIView animateWithDuration:kBFViewAnimationDuration delay:0.0 options:options animations:^{
-                _view.frame = CGRectMake(0.0, 0.0, CGRectGetWidth(_view.bounds), 0.0);
+                self->_view.frame = CGRectMake(0.0, 0.0, CGRectGetWidth(_view.bounds), 0.0);
             } completion:nil];
         }
     }
@@ -145,7 +145,7 @@ static const CFTimeInterval kBFViewAnimationDuration = 0.25f;
         if (CGRectGetHeight(newFrame) == 40) {
             UIViewAnimationOptions options = UIViewAnimationOptionBeginFromCurrentState;
             [UIView animateWithDuration:kBFViewAnimationDuration delay:0.0 options:options animations:^{
-                [_view sizeToFit];
+                [self->_view sizeToFit];
                 [self moveNavigationBar];
             } completion:nil];
         }
@@ -186,7 +186,7 @@ static const CFTimeInterval kBFViewAnimationDuration = 0.25f;
 
 - (void)closeViewAnimated:(BOOL)animated explicitlyClosed:(BOOL)explicitlyClosed {
     void (^closer)(void) = ^{
-        if (_navigationController) {
+        if (self->_navigationController) {
             [self updateNavigationBarY:_view.statusBarHeight];
         }
 

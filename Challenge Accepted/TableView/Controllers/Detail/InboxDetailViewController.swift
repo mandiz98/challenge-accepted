@@ -10,7 +10,7 @@ import UIKit
 
 class InboxDetailViewController: UIViewController {
 
-    var inbox: Challenge = Challenge(title: "", description: "", creator: userJacob)
+    var inbox: Challenge = Challenge(title: "", description: "", creator: userJacob,imageState: UIImage(named: "unread")!)
     
     override func viewDidLoad() {
         super.viewDidLoad()

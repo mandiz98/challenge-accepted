@@ -11,32 +11,19 @@ import UIKit
 class InboxTableViewController: UITableViewController {
     
     var challenges: [Challenge] = []
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // MARK: - get inboxed challenges from database : AMANDA
         challenges = [
-            Challenge(title: "String", description: "String", creator: userJacob)
+            Challenge(title: "String", description: "String", creator: userJacob,imageState: UIImage(named: "unread")!)
         ]
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     // MARK: - Table view data source
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
-        if let destination = segue.destination as? InboxDetailViewController {
-            if let indexPath = sender as? IndexPath {
-                let inbox = challenges[IndexPath.row]
-                destination.Cha
-            }
-        }
-    }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -46,15 +33,19 @@ class InboxTableViewController: UITableViewController {
         return challenges.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "InboxTableViewCell", for: indexPath) as? InboxTableViewCell{
+            let challenge = challenges[indexPath.row]
+            cell.nameLabel.text = challenge.creator.getName()
+            cell.titleLabel.text = challenge.getTitel()
+            cell.stateImageView.image = challenge.getStatusImage()
+            
+            
+            return cell
+        }else{
+            return UITableViewCell()
+        }
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.
