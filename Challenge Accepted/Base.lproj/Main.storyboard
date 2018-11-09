@@ -52,11 +52,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="X7t-RT-3ds">
-<<<<<<< HEAD
-                                <rect key="frame" x="32" y="138" width="960" height="400"/>
-=======
+
                                 <rect key="frame" x="32" y="152" width="350" height="146"/>
->>>>>>> Layout
+
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="X7t-RT-3ds" secondAttribute="height" multiplier="1200:500" id="9qj-1r-bt1"/>
                                 </constraints>
@@ -718,11 +716,7 @@
         </scene>
     </scenes>
     <resources>
-<<<<<<< HEAD
         <image name="inboxIcon" width="32" height="23"/>
-=======
-        <image name="inboxIcon" width="42" height="30"/>
->>>>>>> Layout
         <image name="logo" width="1200" height="500"/>
         <image name="sentIcon" width="32" height="32"/>
         <namedColor name="BackgroundGrayByAmanda">
