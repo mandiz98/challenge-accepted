@@ -11,11 +11,16 @@ import FacebookLogin
 import FacebookCore
 import FBSDKCoreKit
 import FBSDKLoginKit
+import SQLite
 
 
 
 class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     var fbLoginSuccess = false
+    var db: OpaquePointer?
+
+    
+    
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
         print("inloggad")
         fbLoginSuccess = true

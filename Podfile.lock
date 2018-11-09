@@ -24,12 +24,16 @@ PODS:
     - FBSDKCoreKit
   - FBSDKShareKit (4.38.1):
     - FBSDKCoreKit
+  - SQLite.swift (0.11.5):
+    - SQLite.swift/standard (= 0.11.5)
+  - SQLite.swift/standard (0.11.5)
 
 DEPENDENCIES:
   - FacebookCore
   - FacebookLogin
   - FacebookShare
   - FBSDKLoginKit
+  - SQLite.swift
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -40,6 +44,7 @@ SPEC REPOS:
     - FBSDKCoreKit
     - FBSDKLoginKit
     - FBSDKShareKit
+    - SQLite.swift
 
 SPEC CHECKSUMS:
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
@@ -49,7 +54,8 @@ SPEC CHECKSUMS:
   FBSDKCoreKit: 8d47857400e2f5bdea697a80daff882e91c84ef6
   FBSDKLoginKit: 4621c690d9dd8628031a4791497062183ea34b0d
   FBSDKShareKit: 6ffe22f0a0618eb7424d4104ab0ef3ce9643d42a
+  SQLite.swift: 6e5356850bb1791459f8c16d6ee9195b28714a2e
 
-PODFILE CHECKSUM: 8ba3617765c22def86c6820a78bc4e9a7a0ba1ac
+PODFILE CHECKSUM: 672ac5aa703452c401c3ed8f2d544b43a2f1c142
 
 COCOAPODS: 1.5.3
