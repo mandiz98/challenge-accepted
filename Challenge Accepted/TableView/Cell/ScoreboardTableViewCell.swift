@@ -1,14 +1,14 @@
 //
-//  InboxTableViewCell.swift
+//  ScoreboardTableViewCell.swift
 //  Challenge Accepted
 //
-//  Created by Amanda Axelsson on 2018-11-06.
+//  Created by Jacob Carlquist on 2018-11-09.
 //  Copyright © 2018 Amanda Axelsson. All rights reserved.
 //
 
 import UIKit
 
-class InboxTableViewCell: UITableViewCell {
+class ScoreboardTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()

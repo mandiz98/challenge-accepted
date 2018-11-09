@@ -10,9 +10,15 @@ import UIKit
 
 class SentTableViewController: UITableViewController {
 
+    var sentChallenges: [Challenge] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // MARK: - get sent challlenges from database: Amanda
+        sentChallenges = [
+            Challenge(title: "Hjälp", description: "Mig", creator: userJacob, imageState: UIImage(named: "unread")!)
+        ]
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -23,24 +29,26 @@ class SentTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return sentChallenges.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "SentTableViewCell", for: indexPath) as? SentTableViewCell{
+            let challenge = sentChallenges[indexPath.row]
+            cell.nameLabel.text = challenge.creator.getName()
+            cell.titleLabel.text = challenge.getTitel()
+            cell.stateImageView.image = challenge.getStatusImage()
+            
+            
+            return cell
+        }else{
+            return UITableViewCell()
+        }
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.

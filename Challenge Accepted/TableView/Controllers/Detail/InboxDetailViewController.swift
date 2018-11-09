@@ -1,25 +1,24 @@
 //
-//  SentViewController.swift
+//  InboxDetailViewController.swift
 //  Challenge Accepted
 //
-//  Created by Amanda Axelsson on 2018-11-06.
+//  Created by Amanda Axelsson on 2018-11-09.
 //  Copyright © 2018 Amanda Axelsson. All rights reserved.
 //
 
 import UIKit
 
-class SentViewController: UIViewController {
+class InboxDetailViewController: UIViewController {
 
+    var inbox: Challenge = Challenge(title: "", description: "", creator: userJacob,imageState: UIImage(named: "unread")!)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func LoginBtn(_ sender: UIButton) {
-        performSegue(withIdentifier: "LaunchSegue", sender: self)
-    }
-    
+
     /*
     // MARK: - Navigation
 

@@ -12,6 +12,8 @@
 		027DC32A219211D900D6520E /* SentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027DC329219211D900D6520E /* SentTableViewCell.swift */; };
 		027DC32D2192124A00D6520E /* InboxTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027DC32C2192124A00D6520E /* InboxTableViewCell.swift */; };
 		027DC3312192181100D6520E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027DC3302192181100D6520E /* ProfileViewController.swift */; };
+		02A63D192195AAC4004E11C9 /* SentDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A63D182195AAC4004E11C9 /* SentDetailViewController.swift */; };
+		02A63D1B2195AAD5004E11C9 /* InboxDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A63D1A2195AAD5004E11C9 /* InboxDetailViewController.swift */; };
 		02B19E42218730EF00118C70 /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B19E41218730EF00118C70 /* HomeScreenViewController.swift */; };
 		02BCA79821834D9C006B4AC6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BCA79721834D9C006B4AC6 /* AppDelegate.swift */; };
 		02BCA79A21834D9C006B4AC6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BCA79921834D9C006B4AC6 /* ViewController.swift */; };
@@ -19,6 +21,7 @@
 		02BCA79F21834D9C006B4AC6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02BCA79E21834D9C006B4AC6 /* Assets.xcassets */; };
 		02BCA7A221834D9C006B4AC6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02BCA7A021834D9C006B4AC6 /* LaunchScreen.storyboard */; };
 		7952927D9143F3092067F86A /* Pods_Challenge_Accepted.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F520964C188D48A777720F5 /* Pods_Challenge_Accepted.framework */; };
+		D6C5E4C02195D62C00DB8100 /* ScoreboardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C5E4BF2195D62C00DB8100 /* ScoreboardTableViewCell.swift */; };
 		D6F8F4B82191D74C00F30CE8 /* Challenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F8F4B72191D74C00F30CE8 /* Challenge.swift */; };
 		D6F8F4BE2191DE6100F30CE8 /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F8F4BD2191DE6100F30CE8 /* CreateViewController.swift */; };
 		D6F8F4C02191F06900F30CE8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F8F4BF2191F06900F30CE8 /* User.swift */; };
@@ -32,6 +35,8 @@
 		027DC329219211D900D6520E /* SentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentTableViewCell.swift; sourceTree = "<group>"; };
 		027DC32C2192124A00D6520E /* InboxTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxTableViewCell.swift; sourceTree = "<group>"; };
 		027DC3302192181100D6520E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		02A63D182195AAC4004E11C9 /* SentDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentDetailViewController.swift; sourceTree = "<group>"; };
+		02A63D1A2195AAD5004E11C9 /* InboxDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxDetailViewController.swift; sourceTree = "<group>"; };
 		02B19E41218730EF00118C70 /* HomeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewController.swift; sourceTree = "<group>"; };
 		02BCA79421834D9C006B4AC6 /* Challenge Accepted.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Challenge Accepted.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		02BCA79721834D9C006B4AC6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -43,6 +48,7 @@
 		173AC59D1419B78CD900D3E9 /* Pods-Challenge Accepted.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Challenge Accepted.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Challenge Accepted/Pods-Challenge Accepted.debug.xcconfig"; sourceTree = "<group>"; };
 		2F520964C188D48A777720F5 /* Pods_Challenge_Accepted.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Challenge_Accepted.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4823A33109429525CC7ADC1F /* Pods-Challenge Accepted.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Challenge Accepted.release.xcconfig"; path = "Pods/Target Support Files/Pods-Challenge Accepted/Pods-Challenge Accepted.release.xcconfig"; sourceTree = "<group>"; };
+		D6C5E4BF2195D62C00DB8100 /* ScoreboardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreboardTableViewCell.swift; sourceTree = "<group>"; };
 		D6F8F4B72191D74C00F30CE8 /* Challenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenge.swift; sourceTree = "<group>"; };
 		D6F8F4BD2191DE6100F30CE8 /* CreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CreateViewController.swift; path = ../CreateViewController.swift; sourceTree = "<group>"; };
 		D6F8F4BF2191F06900F30CE8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -67,10 +73,8 @@
 		027DC32B2192122400D6520E /* TableView */ = {
 			isa = PBXGroup;
 			children = (
-				027DC329219211D900D6520E /* SentTableViewCell.swift */,
-				027DC3252191E56F00D6520E /* InboxTableViewController.swift */,
-				027DC3272191E58E00D6520E /* SentTableViewController.swift */,
-				027DC32C2192124A00D6520E /* InboxTableViewCell.swift */,
+				D6C5E4C32195D66300DB8100 /* Controllers */,
+				D6C5E4C12195D64700DB8100 /* Cell */,
 			);
 			path = TableView;
 			sourceTree = "<group>";
@@ -108,6 +112,35 @@
 				D6F8F4C12191FE2900F30CE8 /* DummyDatabase.swift */,
 			);
 			path = "Challenge Accepted";
+			sourceTree = "<group>";
+		};
+		D6C5E4C12195D64700DB8100 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				027DC329219211D900D6520E /* SentTableViewCell.swift */,
+				027DC32C2192124A00D6520E /* InboxTableViewCell.swift */,
+				D6C5E4BF2195D62C00DB8100 /* ScoreboardTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		D6C5E4C32195D66300DB8100 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D6C5E4C42195D67600DB8100 /* Detail */,
+				027DC3252191E56F00D6520E /* InboxTableViewController.swift */,
+				027DC3272191E58E00D6520E /* SentTableViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		D6C5E4C42195D67600DB8100 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				02A63D182195AAC4004E11C9 /* SentDetailViewController.swift */,
+				02A63D1A2195AAD5004E11C9 /* InboxDetailViewController.swift */,
+			);
+			path = Detail;
 			sourceTree = "<group>";
 		};
 		D6F8F4BC2191DAD600F30CE8 /* View Controller */ = {
@@ -277,7 +310,9 @@
 				02BCA79A21834D9C006B4AC6 /* ViewController.swift in Sources */,
 				027DC32D2192124A00D6520E /* InboxTableViewCell.swift in Sources */,
 				D6F8F4BE2191DE6100F30CE8 /* CreateViewController.swift in Sources */,
+				02A63D1B2195AAD5004E11C9 /* InboxDetailViewController.swift in Sources */,
 				027DC3312192181100D6520E /* ProfileViewController.swift in Sources */,
+				02A63D192195AAC4004E11C9 /* SentDetailViewController.swift in Sources */,
 				027DC32A219211D900D6520E /* SentTableViewCell.swift in Sources */,
 				02BCA79821834D9C006B4AC6 /* AppDelegate.swift in Sources */,
 				027DC3282191E58E00D6520E /* SentTableViewController.swift in Sources */,
@@ -286,6 +321,7 @@
 				D6F8F4B82191D74C00F30CE8 /* Challenge.swift in Sources */,
 				D6F8F4C02191F06900F30CE8 /* User.swift in Sources */,
 				D6F8F4C22191FE2900F30CE8 /* DummyDatabase.swift in Sources */,
+				D6C5E4C02195D62C00DB8100 /* ScoreboardTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
