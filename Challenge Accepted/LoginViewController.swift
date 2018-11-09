@@ -92,12 +92,11 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
             let data:[String:Any] = result as! [String : Any]
             print(data["data"]!)
             
-            
-           /* for a in data{
+            for a in data{
                 if a.key == "data"{
-                    print(a.)
+                    print(a.value)
                 }
-            }*/
+            }
             
             /*if
                 let fields = result as? [String:Any],
