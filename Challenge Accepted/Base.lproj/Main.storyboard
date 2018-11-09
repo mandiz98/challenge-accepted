@@ -235,7 +235,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FirstName LastName" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v77-x0-NOa">
-                                <rect key="frame" x="0.0" y="502" width="834" height="36"/>
+                                <rect key="frame" x="281.5" y="502" width="271" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" name="YellowByAmanda"/>
                                 <nil key="highlightedColor"/>
@@ -311,8 +311,8 @@
                             <constraint firstItem="Clg-Ca-Gel" firstAttribute="top" secondItem="v77-x0-NOa" secondAttribute="bottom" constant="16" id="gb3-xE-k7Z"/>
                             <constraint firstItem="R7e-Tn-Tyo" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="v77-x0-NOa" secondAttribute="trailing" id="uQk-uZ-pyD"/>
                             <constraint firstItem="R7e-Tn-Tyo" firstAttribute="trailing" secondItem="Clg-Ca-Gel" secondAttribute="trailing" constant="128" id="w5I-te-dpm"/>
-                            <constraint firstItem="v77-x0-NOa" firstAttribute="leading" secondItem="R7e-Tn-Tyo" secondAttribute="leading" id="wfH-uM-OwX"/>
-                            <constraint firstItem="R7e-Tn-Tyo" firstAttribute="trailing" secondItem="v77-x0-NOa" secondAttribute="trailing" id="yNL-gA-bjj"/>
+                            <constraint firstItem="v77-x0-NOa" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="R7e-Tn-Tyo" secondAttribute="leading" id="wfH-uM-OwX"/>
+                            <constraint firstItem="R7e-Tn-Tyo" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="v77-x0-NOa" secondAttribute="trailing" id="yNL-gA-bjj"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="R7e-Tn-Tyo"/>
                         <variation key="default">
