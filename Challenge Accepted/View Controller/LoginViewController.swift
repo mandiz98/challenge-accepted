@@ -9,27 +9,25 @@
 import UIKit
 import FacebookLogin
 import FacebookCore
+import FBSDKCoreKit
+import FBSDKLoginKit
 
 
-class LoginViewController: UIViewController, LoginButtonDelegate {
-   var fbLoginSuccess = false
-    func loginButtonDidCompleteLogin(_ loginButton: LoginButton, result: LoginResult) {
-        switch result{
-        case .failed(let error):
-            print("error")
-            print(error)
-            break
-        case .cancelled:
-            print("cancelled")
-            break
-        case .success(_,_,_):
-            print("login")
-            print("after segue")
-            fbLoginSuccess = true
-            break
-        }
+
+class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
+    var fbLoginSuccess = false
+    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
+        print("inloggad")
+        fbLoginSuccess = true
+        fetchProfile()
+        
         
     }
+    
+    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
+        print("utloggad")
+    }
+    
     
     override func viewDidAppear(_ animated: Bool) {
         if(fbLoginSuccess){
@@ -37,27 +35,58 @@ class LoginViewController: UIViewController, LoginButtonDelegate {
         }
     }
     
-    
-    func loginButtonDidLogOut(_ loginButton: LoginButton) {
-        print("utloggad")
-    }
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         if AccessToken.current != nil {
             // User is logged in, use 'accessToken' here.
-            fbLoginSuccess = true
+            fbLoginSuccess = false
         }
 
-        let loginButton = LoginButton(readPermissions: [ .publicProfile, .email, .userFriends ])
+        let loginButton = FBSDKLoginButton()
         loginButton.delegate = self
+        loginButton.readPermissions = ["email", "public_profile", "user_friends"]
         loginButton.center = view.center
         
         view.addSubview(loginButton)
         // Do any additional setup after loading the view.
-
+        
+        
+        
+        if AccessToken.current != nil {
+            // User is logged in, use 'accessToken' here.
+            fbLoginSuccess = true
+            fetchProfile()
+        }
+        
+        
     }
+    
+    func fetchProfile(){
+        let parameters = ["fields": "first_name, last_name"]
+        FBSDKGraphRequest(graphPath: "/me/friends", parameters: parameters).start{
+            (connection, result, err) in
+            
+            if err != nil{
+                print(err!)
+                return
+            }
+            
+            let data:[String:Any] = result as! [String : Any]
+            //print(data["data"]!)
+            
+            
+            if let users = data["data"] as? [[String : Any]] {
+                for user in users {
+                    print(user["first_name"]!,user["last_name"]!)
+                }
+            }
+            
+        }
+    }
+    
     
 
     
