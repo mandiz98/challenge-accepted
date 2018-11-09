@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bP5-m7-WDH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sX1-s4-OgM">
     <device id="ipad11_0rounded" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="834" height="1194"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="lj7-Ca-2m6">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="lj7-Ca-2m6">
                                 <rect key="frame" x="16" y="40" width="802" height="334"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="lj7-Ca-2m6" secondAttribute="height" multiplier="1200:500" id="LC5-Mc-1W7"/>
@@ -51,7 +51,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="834" height="1194"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="X7t-RT-3ds">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="X7t-RT-3ds">
                                 <rect key="frame" x="32" y="138" width="770" height="321"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="X7t-RT-3ds" secondAttribute="height" multiplier="1200:500" id="9qj-1r-bt1"/>
@@ -321,10 +321,10 @@
                                 <exclude reference="EgV-RX-nCP"/>
                                 <exclude reference="uQk-uZ-pyD"/>
                                 <exclude reference="fmY-aI-XUg"/>
+                                <exclude reference="gb3-xE-k7Z"/>
                                 <exclude reference="35h-pJ-qgd"/>
                                 <exclude reference="VwN-FI-2dK"/>
                                 <exclude reference="caA-fS-lhC"/>
-                                <exclude reference="gb3-xE-k7Z"/>
                                 <exclude reference="ICn-SA-HbH"/>
                                 <exclude reference="WwY-Fu-CWd"/>
                                 <exclude reference="Xvj-UL-z92"/>
@@ -336,10 +336,10 @@
                                 <include reference="EgV-RX-nCP"/>
                                 <include reference="uQk-uZ-pyD"/>
                                 <include reference="fmY-aI-XUg"/>
+                                <include reference="gb3-xE-k7Z"/>
                                 <include reference="35h-pJ-qgd"/>
                                 <include reference="VwN-FI-2dK"/>
                                 <include reference="caA-fS-lhC"/>
-                                <include reference="gb3-xE-k7Z"/>
                                 <include reference="ICn-SA-HbH"/>
                                 <include reference="WwY-Fu-CWd"/>
                                 <include reference="Xvj-UL-z92"/>
@@ -699,8 +699,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Logo" width="1200" height="500"/>
         <image name="inboxIcon" width="32" height="23"/>
-        <image name="logo" width="1200" height="500"/>
         <image name="sentIcon" width="32" height="32"/>
         <namedColor name="BackgroundGrayByAmanda">
             <color red="0.19200000166893005" green="0.19200000166893005" blue="0.19200000166893005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

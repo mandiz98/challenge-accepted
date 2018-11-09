@@ -47,7 +47,7 @@ class LoginViewController: UIViewController, LoginButtonDelegate {
         
         if AccessToken.current != nil {
             // User is logged in, use 'accessToken' here.
-            fbLoginSuccess = true
+            fbLoginSuccess = false
         }
 
         let loginButton = LoginButton(readPermissions: [ .publicProfile, .email, .userFriends ])
