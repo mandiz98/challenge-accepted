@@ -98,7 +98,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lwy-6U-q4r">
-                                <rect key="frame" x="47" y="648" width="320" height="64"/>
+                                <rect key="frame" x="89.666666666666686" y="584" width="235" height="47"/>
                                 <color key="backgroundColor" red="1" green="0.95800306859999995" blue="0.0020097530459999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Lwy-6U-q4r" secondAttribute="height" multiplier="5:1" id="AG4-Sr-u0a"/>
@@ -118,6 +118,7 @@
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="AG4-Sr-u0a"/>
+                                        <exclude reference="JQX-c8-hHU"/>
                                         <exclude reference="yzX-tY-bBQ"/>
                                     </mask>
                                 </variation>
@@ -128,6 +129,7 @@
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=regular">
                                     <mask key="constraints">
+                                        <include reference="JQX-c8-hHU"/>
                                         <include reference="yzX-tY-bBQ"/>
                                     </mask>
                                 </variation>
@@ -136,7 +138,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ysh-vX-97n">
-                                <rect key="frame" x="89.666666666666686" y="537" width="235" height="47"/>
+                                <rect key="frame" x="89.666666666666686" y="473" width="235" height="47"/>
                                 <color key="backgroundColor" red="1" green="0.95800306859999995" blue="0.0020097530459999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="AAW-YZ-YCp"/>
@@ -197,8 +199,10 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="erc-fc-cp0"/>
                                 <exclude reference="rFb-i8-nMI"/>
                                 <exclude reference="pOB-QN-Nrm"/>
+                                <exclude reference="s43-6u-bBc"/>
                                 <exclude reference="gjp-ht-48Y"/>
                                 <exclude reference="j5a-EP-7q1"/>
                             </mask>
@@ -212,6 +216,8 @@
                         </variation>
                         <variation key="heightClass=regular-widthClass=regular">
                             <mask key="constraints">
+                                <include reference="erc-fc-cp0"/>
+                                <include reference="s43-6u-bBc"/>
                                 <include reference="gjp-ht-48Y"/>
                             </mask>
                         </variation>
