@@ -235,7 +235,7 @@
         <!--Profile-->
         <scene sceneID="xjA-FC-zvj">
             <objects>
-                <viewController title="Profile" id="tfK-Jf-rDi" sceneMemberID="viewController">
+                <viewController title="Profile" id="tfK-Jf-rDi" customClass="ProfileViewController" customModule="Challenge_Accepted" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleAspectFit" id="aUC-iZ-mrw">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -300,7 +300,7 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="16c-iK-813">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="16c-iK-813" customClass="RoundImageView" customModule="Challenge_Accepted" customModuleProvider="target">
                                 <rect key="frame" x="362" y="138" width="300" height="300"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="AjY-mp-2AG"/>
@@ -386,6 +386,10 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="ProfileName" destination="v77-x0-NOa" id="afo-tJ-TuR"/>
+                        <outlet property="ProfilePicture" destination="16c-iK-813" id="xMu-GD-g9D"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xIt-Ck-dHI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
