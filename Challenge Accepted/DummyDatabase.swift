@@ -9,4 +9,4 @@
 import Foundation
 import FBSDKCoreKit
 
-var userJacob: User = User(name: "Jacob", points: 10000, profileImage: "giraffe"/*, profileImage: FBSDKProfilePictureView*/)
+var defaultUser: User = User(name: "Bob", points: 12345, profileImage: "giraffe"/*, profileImage: FBSDKProfilePictureView*/)
