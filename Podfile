@@ -15,4 +15,7 @@ target 'Challenge Accepted' do
   pod 'FacebookLogin'
   pod 'FacebookShare'
   pod 'SQLite.swift'
+  pod 'Firebase/Core'
+  pod 'Firebase/Database'
+
 end

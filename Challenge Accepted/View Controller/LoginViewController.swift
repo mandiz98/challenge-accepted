@@ -11,14 +11,15 @@ import FacebookLogin
 import FacebookCore
 import FBSDKCoreKit
 import FBSDKLoginKit
-import SQLite
+import Firebase
 
 
 
 class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     var fbLoginSuccess = false
-    var db: OpaquePointer?
 
+    
+    
     
     
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
@@ -45,6 +46,14 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+/*      var ref: DatabaseReference!
+        
+        ref = Database.database().reference()
+        
+       // ref.childByAutoId().setValue(["fname":"Erik", "lname":"Andreasson"])
+        ref.child("users").childByAutoId().setValue(["fname": "Erik"])
+ */
+        
         let loginButton = FBSDKLoginButton()
         loginButton.delegate = self
         loginButton.readPermissions = ["email", "public_profile", "user_friends"]
@@ -65,7 +74,38 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     }
     
     func fetchProfile(){
-        let parameters = ["fields": "first_name, last_name"]
+        var ref: DatabaseReference!
+        
+        ref = Database.database().reference()
+        let parameters = ["fields": "first_name, last_name, email, id, picture"]
+
+        
+        FBSDKGraphRequest(graphPath: "/me", parameters: parameters).start{
+            (connection, result, err) in
+            
+            if err != nil{
+                print(err!)
+                return
+            }
+            
+            let data:[String:Any] = result as! [String : Any]
+            
+
+            ref.child("users").observeSingleEvent(of: .value, with: { (snapshot) in
+                if snapshot.hasChild(data["id"] as! String){
+                    
+                    print("User exist")
+                    
+                }else{
+                    print("User added to database")
+                    
+                    ref.child("users").child(data["id"] as! String).setValue(["fname": data["first_name"], "lname":data["last_name"], "email":data["email"], "score":0, "profileImage":data["picture"]])
+                }
+                
+                
+            })
+        }
+        
         FBSDKGraphRequest(graphPath: "/me/friends", parameters: parameters).start{
             (connection, result, err) in
             
@@ -75,7 +115,6 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
             }
             
             let data:[String:Any] = result as! [String : Any]
-            //print(data["data"]!)
             
             
             if let users = data["data"] as? [[String : Any]] {
@@ -83,7 +122,6 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
                     print(user["first_name"]!,user["last_name"]!)
                 }
             }
-            
         }
     }
     
