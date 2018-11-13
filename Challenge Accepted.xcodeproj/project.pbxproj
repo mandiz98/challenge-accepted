@@ -22,13 +22,13 @@
 		02BCA7A221834D9C006B4AC6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02BCA7A021834D9C006B4AC6 /* LaunchScreen.storyboard */; };
 		7952927D9143F3092067F86A /* Pods_Challenge_Accepted.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F520964C188D48A777720F5 /* Pods_Challenge_Accepted.framework */; };
 		D6C5E4C02195D62C00DB8100 /* ScoreboardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C5E4BF2195D62C00DB8100 /* ScoreboardTableViewCell.swift */; };
-		D6EC79F72199D1BA001D1D19 /* RoundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EC79F62199D1BA001D1D19 /* RoundImageView.swift */; };
 		D6F8F4B82191D74C00F30CE8 /* Challenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F8F4B72191D74C00F30CE8 /* Challenge.swift */; };
 		D6F8F4BE2191DE6100F30CE8 /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F8F4BD2191DE6100F30CE8 /* CreateViewController.swift */; };
 		D6F8F4C02191F06900F30CE8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F8F4BF2191F06900F30CE8 /* User.swift */; };
 		D6F8F4C22191FE2900F30CE8 /* DummyDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F8F4C12191FE2900F30CE8 /* DummyDatabase.swift */; };
 		D7661A6D2199A17E00405E18 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7661A6C2199A17D00405E18 /* CoreData.framework */; };
 		D7661A712199BA8C00405E18 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D7661A702199BA8C00405E18 /* GoogleService-Info.plist */; };
+		D76E76CD219B03340040A702 /* RoundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76E76CC219B03330040A702 /* RoundImageView.swift */; };
 		D79DD31D21885F35001F3824 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79DD31C21885F35001F3824 /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -52,7 +52,6 @@
 		2F520964C188D48A777720F5 /* Pods_Challenge_Accepted.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Challenge_Accepted.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4823A33109429525CC7ADC1F /* Pods-Challenge Accepted.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Challenge Accepted.release.xcconfig"; path = "Pods/Target Support Files/Pods-Challenge Accepted/Pods-Challenge Accepted.release.xcconfig"; sourceTree = "<group>"; };
 		D6C5E4BF2195D62C00DB8100 /* ScoreboardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreboardTableViewCell.swift; sourceTree = "<group>"; };
-		D6EC79F62199D1BA001D1D19 /* RoundImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RoundImageView.swift; path = ../../../Downloads/MVCDemo/MVCDemo/RoundImageView.swift; sourceTree = "<group>"; };
 		D6F8F4B72191D74C00F30CE8 /* Challenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenge.swift; sourceTree = "<group>"; };
 		D6F8F4BD2191DE6100F30CE8 /* CreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CreateViewController.swift; path = ../CreateViewController.swift; sourceTree = "<group>"; };
 		D6F8F4BF2191F06900F30CE8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -61,6 +60,7 @@
 		D729BC9B219197C7004A880E /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7661A6C2199A17D00405E18 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		D7661A702199BA8C00405E18 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D76E76CC219B03330040A702 /* RoundImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundImageView.swift; sourceTree = "<group>"; };
 		D79DD31C21885F35001F3824 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -116,8 +116,8 @@
 				02BCA7A321834D9C006B4AC6 /* Info.plist */,
 				D6F8F4B72191D74C00F30CE8 /* Challenge.swift */,
 				D6F8F4BF2191F06900F30CE8 /* User.swift */,
-				D6EC79F62199D1BA001D1D19 /* RoundImageView.swift */,
 				D6F8F4C12191FE2900F30CE8 /* DummyDatabase.swift */,
+				D76E76CC219B03330040A702 /* RoundImageView.swift */,
 				D7661A702199BA8C00405E18 /* GoogleService-Info.plist */,
 			);
 			path = "Challenge Accepted";
@@ -340,7 +340,7 @@
 				D6F8F4B82191D74C00F30CE8 /* Challenge.swift in Sources */,
 				D6F8F4C02191F06900F30CE8 /* User.swift in Sources */,
 				D6F8F4C22191FE2900F30CE8 /* DummyDatabase.swift in Sources */,
-				D6EC79F72199D1BA001D1D19 /* RoundImageView.swift in Sources */,
+				D76E76CD219B03340040A702 /* RoundImageView.swift in Sources */,
 				D6C5E4C02195D62C00DB8100 /* ScoreboardTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
