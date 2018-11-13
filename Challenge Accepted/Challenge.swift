@@ -16,7 +16,8 @@ class Challenge {
     var description: String
     var state: Status
     var imageState: UIImage
-    //var media: UIImage
+    var media: [UIImage]
+    
     enum Status{
         case done
         case accepted
@@ -25,16 +26,18 @@ class Challenge {
         case pending
     }
     
-    init(title: String, description: String, creator: User, imageState: UIImage/*, media: UIImage*/){
+    init(title: String, description: String, creator: User, imageState: UIImage){
         self.creator = creator
         self.title = title
         self.description = description
         self.state = Status.unread
         self.imageState = imageState
-        //self.media = media
-        
+        self.media = []
     }
     
+    func addMedia(photo: UIImage){
+        self.media.append(photo)
+    }
     
     func getChallenge() -> Challenge{
         return self

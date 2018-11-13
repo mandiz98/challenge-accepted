@@ -10,6 +10,9 @@ import UIKit
 
 class PreviewViewController: UIViewController {
     
+    
+    //self.image is the current photo taken by user.
+    
     var image: UIImage!
     @IBOutlet weak var photo: UIImageView!
     
@@ -18,7 +21,7 @@ class PreviewViewController: UIViewController {
     }
     
     @IBAction func saveButton(_ sender: Any) {
-        
+        //User.getchallange.addMedia(self.image)
     }
     
     
