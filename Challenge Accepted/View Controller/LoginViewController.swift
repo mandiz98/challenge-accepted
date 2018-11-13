@@ -112,7 +112,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
             }
             
             let data:[String:Any] = result as! [String : Any]
-            print(data["data"]!)
+            //print(data["data"]!)
             
             
             if let users = data["data"] as? [[String : Any]] {
