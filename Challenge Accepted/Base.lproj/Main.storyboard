@@ -542,6 +542,12 @@
                                         <constraint firstItem="bqF-UR-rO5" firstAttribute="leading" secondItem="w2n-lv-Or6" secondAttribute="trailing" constant="8" id="mzY-Kj-eJI"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="creatorLabel" destination="AAM-5q-LsV" id="Dkp-6y-Kue"/>
+                                    <outlet property="nameLabel" destination="dbc-dG-tsW" id="hpO-pz-EHm"/>
+                                    <outlet property="stateImageView" destination="bqF-UR-rO5" id="A3Q-HG-RSa"/>
+                                    <outlet property="titleLabel" destination="gEV-Oh-vcZ" id="KMy-XD-DAc"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -645,6 +651,12 @@
                                         <constraint firstAttribute="bottomMargin" secondItem="Qb9-Yz-M9K" secondAttribute="bottom" constant="8" id="zgF-2v-l5C"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="creatorLabel" destination="Hc8-ok-vhU" id="0SM-TR-5kO"/>
+                                    <outlet property="nameLabel" destination="l5B-cO-9WS" id="EHA-rL-uNx"/>
+                                    <outlet property="stateImageView" destination="5NQ-HN-gkd" id="aiZ-5j-gue"/>
+                                    <outlet property="titleLabel" destination="vrq-nu-qb2" id="vXR-Mx-FpV"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
