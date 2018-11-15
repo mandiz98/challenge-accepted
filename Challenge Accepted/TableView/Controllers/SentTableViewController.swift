@@ -49,6 +49,19 @@ class SentTableViewController: UITableViewController {
             return UITableViewCell()
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? SentDetailViewController {
+            if let indexPath = sender as? IndexPath {
+                let challenge = sentChallenges[indexPath.row]
+                destination.challenge = challenge
+            }
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "pendingSegue", sender: indexPath)
+    }
 
     /*
     // Override to support conditional editing of the table view.

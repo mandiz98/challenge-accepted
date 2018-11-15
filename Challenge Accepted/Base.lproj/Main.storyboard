@@ -264,7 +264,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Score" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lZL-AJ-2dL">
-                                                    <rect key="frame" x="433" y="46" width="309" height="24"/>
+                                                    <rect key="frame" x="223" y="46" width="99" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -277,7 +277,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lHr-xg-kul">
-                                                    <rect key="frame" x="116" y="46" width="309" height="24"/>
+                                                    <rect key="frame" x="116" y="46" width="99" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -596,7 +596,6 @@
                     </tabBarItem>
                     <connections>
                         <segue destination="8OZ-pN-DHO" kind="show" identifier="unreadSegue" id="USl-i9-K7j"/>
-                        <segue destination="d1I-gb-0mw" kind="show" identifier="cameraSegue" id="PM0-FB-Wr5"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nxn-bq-fpW" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -789,59 +788,6 @@
             </objects>
             <point key="canvasLocation" x="7057.971014492754" y="115.84821428571428"/>
         </scene>
-        <!--Camera View Controller-->
-        <scene sceneID="mIJ-Ct-py2">
-            <objects>
-                <viewController id="d1I-gb-0mw" customClass="CameraViewController" customModule="Challenge_Accepted" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="qTH-xh-1hh">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="20g-Ex-i8W">
-                                <rect key="frame" x="177" y="802" width="60" height="60"/>
-                                <color key="backgroundColor" name="YellowByAmanda"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="hfT-Dz-txw"/>
-                                    <constraint firstAttribute="width" constant="60" id="wFe-hg-Tt5"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="30"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="CameraButton:" destination="d1I-gb-0mw" eventType="touchUpInside" id="Oi8-fA-WQh"/>
-                                    <segue destination="RSD-45-Llp" kind="show" identifier="PhotoSegue" id="0kf-xN-M44"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" name="BackgroundGrayByAmanda"/>
-                        <constraints>
-                            <constraint firstItem="20g-Ex-i8W" firstAttribute="centerX" secondItem="qTH-xh-1hh" secondAttribute="centerX" id="6VS-b9-gNm"/>
-                            <constraint firstItem="20g-Ex-i8W" firstAttribute="bottom" secondItem="xZM-vi-nhk" secondAttribute="bottom" id="i48-SV-lMt"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="xZM-vi-nhk"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3Nh-SP-YuA" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="7058" y="-544"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="mV8-DG-j4q">
-            <objects>
-                <viewController id="RSD-45-Llp" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="zgV-cw-1Ry">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="PXv-kH-9W9"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fiX-9l-QF3" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="8036" y="-544"/>
-        </scene>
         <!--Sent-->
         <scene sceneID="7PR-DG-4PF">
             <objects>
@@ -936,10 +882,10 @@
             </objects>
             <point key="canvasLocation" x="6142" y="834"/>
         </scene>
-        <!--View Controller-->
+        <!--Sent Detail View Controller-->
         <scene sceneID="gxH-sx-vmX">
             <objects>
-                <viewController id="Orf-1d-Slf" sceneMemberID="viewController">
+                <viewController id="Orf-1d-Slf" customClass="SentDetailViewController" customModule="Challenge_Accepted" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2DC-9a-ShV">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1130,6 +1076,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="d8h-Dx-tED"/>
                     </view>
+                    <connections>
+                        <outlet property="NameLabel" destination="gp7-5X-HUB" id="D3B-8n-AEC"/>
+                        <outlet property="StateImage" destination="Pai-Cq-o00" id="wGM-X6-DEm"/>
+                        <outlet property="StateLabel" destination="r7m-kA-Dge" id="WR1-QD-rVX"/>
+                        <outlet property="TitleLabel" destination="scd-R8-8pj" id="hXz-Kf-icx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UNC-ZY-hoO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

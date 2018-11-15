@@ -8,7 +8,7 @@
 
 import UIKit
 
-class InboxTableViewController: UITableViewController {
+class InboxTableViewController: UITableViewController  {
     
     var inboxChallenges: [Challenge] = []
     
@@ -45,6 +45,19 @@ class InboxTableViewController: UITableViewController {
         }else{
             return UITableViewCell()
         }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? InboxDetailViewController {
+            if let indexPath = sender as? IndexPath {
+                let challenge = inboxChallenges[indexPath.row]
+                destination.challenge = challenge
+            }
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "unreadSegue", sender: indexPath)
     }
 
     /*

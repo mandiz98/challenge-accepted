@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		022734482199CAB200AEFC01 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022734472199CAB200AEFC01 /* CameraViewController.swift */; };
 		027DC3262191E56F00D6520E /* InboxTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027DC3252191E56F00D6520E /* InboxTableViewController.swift */; };
 		027DC3282191E58E00D6520E /* SentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027DC3272191E58E00D6520E /* SentTableViewController.swift */; };
 		027DC32A219211D900D6520E /* SentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027DC329219211D900D6520E /* SentTableViewCell.swift */; };
@@ -31,7 +30,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		022734472199CAB200AEFC01 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		027DC3252191E56F00D6520E /* InboxTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxTableViewController.swift; sourceTree = "<group>"; };
 		027DC3272191E58E00D6520E /* SentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentTableViewController.swift; sourceTree = "<group>"; };
 		027DC329219211D900D6520E /* SentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentTableViewCell.swift; sourceTree = "<group>"; };
@@ -153,7 +151,6 @@
 				D6F8F4BD2191DE6100F30CE8 /* CreateViewController.swift */,
 				02B19E41218730EF00118C70 /* HomeScreenViewController.swift */,
 				027DC3302192181100D6520E /* ProfileViewController.swift */,
-				022734472199CAB200AEFC01 /* CameraViewController.swift */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -312,7 +309,6 @@
 				D79DD31D21885F35001F3824 /* LoginViewController.swift in Sources */,
 				02BCA79A21834D9C006B4AC6 /* ViewController.swift in Sources */,
 				027DC32D2192124A00D6520E /* InboxTableViewCell.swift in Sources */,
-				022734482199CAB200AEFC01 /* CameraViewController.swift in Sources */,
 				D6F8F4BE2191DE6100F30CE8 /* CreateViewController.swift in Sources */,
 				02A63D1B2195AAD5004E11C9 /* InboxDetailViewController.swift in Sources */,
 				027DC3312192181100D6520E /* ProfileViewController.swift in Sources */,
