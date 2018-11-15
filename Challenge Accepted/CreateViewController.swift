@@ -12,6 +12,8 @@ import FBSDKCoreKit
 import Firebase
 var names:[String]=[]
 
+var selectedCellTapped = false
+
 class CreateViewController: UIViewController {
     let parameters = ["fields": "first_name, last_name, email, id, picture"]
 
@@ -62,6 +64,7 @@ class CreateViewController: UIViewController {
         
     }
 
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,14 +86,33 @@ extension CreateViewController: UICollectionViewDelegate, UICollectionViewDataSo
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FriendCollectionViewCell", for: indexPath) as? FriendCollectionViewCell {
             let name: String = names[indexPath.row]
-            cell.friendLable.text = name
-            
+            cell.friendLabel.text = name
+            cell.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tap(_:))))
             
             return cell
         }
         return UICollectionViewCell()
     }
     
-    
+    @objc func tap(_ sender: UITapGestureRecognizer) {
+        let location = sender.location(in: self.collectionView)
+        let indexPath = self.collectionView.indexPathForItem(at: location)
+        
+        let selectedCell:UICollectionViewCell = collectionView.cellForItem(at: indexPath!)!
+        
+        if !selectedCellTapped{
+            selectedCell.layer.cornerRadius = 5
+            selectedCell.layer.borderWidth = 5
+            selectedCell.layer.borderColor = UIColor(named: "YellowByAmanda")?.cgColor
+            selectedCellTapped=true
+        }
+        else{
+            let selectedCell:UICollectionViewCell = collectionView.cellForItem(at: indexPath!)!
+            selectedCell.layer.cornerRadius = 5
+            selectedCell.layer.borderWidth = 5
+            selectedCell.layer.borderColor = UIColor(named: "SecondaryGrayByAmanda")?.cgColor
+            selectedCellTapped=false
+        }
+    }
 }
 

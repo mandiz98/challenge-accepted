@@ -10,5 +10,5 @@ import UIKit
 
 class FriendCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var friendLable: UILabel!
+    @IBOutlet weak var friendLabel: UILabel!
 }
