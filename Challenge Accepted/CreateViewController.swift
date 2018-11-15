@@ -17,10 +17,8 @@ class CreateViewController: UIViewController {
     
     @IBAction func buttonPressed(_ sender: Any) {
         if(challengeTitle.text != "" && challengeDescription.text != ""){
-            
-            userJacob.addChallenge(challenge: Challenge(title: challengeTitle.text!, description: challengeDescription.text, creator: userJacob, imageState: UIImage(named: "unread")!))
-            
-            print(userJacob.getAllChallenges().count)
+            print(defaultUser.getAllChallenges().count)
+            defaultUser.addChallenge(challenge: Challenge(title: challengeTitle.text!, description: challengeDescription.text, creator: defaultUser, imageState: UIImage(named: "unread")!))
         }
         
         else {print("Didn't add challenge")}

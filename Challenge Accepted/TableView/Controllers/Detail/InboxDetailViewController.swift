@@ -9,8 +9,11 @@
 import UIKit
 
 class InboxDetailViewController: UIViewController {
-
-    var inbox: Challenge = Challenge(title: "", description: "", creator: userJacob,imageState: UIImage(named: "unread")!)
+    
+    @IBOutlet weak var TitleLabel: UILabel!
+    @IBOutlet weak var NameLabel: UILabel!
+    @IBOutlet weak var StateImage: UIImageView!
+    @IBOutlet weak var StateLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
