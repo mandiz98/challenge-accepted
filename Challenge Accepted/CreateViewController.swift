@@ -10,9 +10,9 @@ import UIKit
 import FacebookCore
 import FBSDKCoreKit
 import Firebase
+var names:[String]=[]
 
 class CreateViewController: UIViewController {
-    var names:[String]=[]
     let parameters = ["fields": "first_name, last_name, email, id, picture"]
 
     
@@ -67,28 +67,6 @@ class CreateViewController: UIViewController {
         super.viewDidLoad()
 
         
-        
-        
-        FBSDKGraphRequest(graphPath: "/me/friends", parameters: parameters).start{
-            (connection, result, err) in
-            
-            if err != nil{
-                print(err!)
-                return
-            }
-            
-            let data:[String:Any] = result as! [String : Any]
-            //print(data["data"]!)
-            
-            
-            if let users = data["data"] as? [[String : Any]] {
-                for user in users {
-                    self.names.append(user["first_name"] as! String)
-
-                    print(user["first_name"]!,user["last_name"]!)
-                }
-            }
-        }
 
         
         // Do any additional setup after loading the view.
