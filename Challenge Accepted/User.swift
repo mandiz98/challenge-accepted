@@ -14,12 +14,10 @@ class User {
     var name: String
     var points: Int
     var challenges: [Challenge]
-    var profileImage: String
     
     init(name: String, points: Int, profileImage: String) {
         self.name = name
         self.points = points
-        self.profileImage = profileImage
         self.challenges = []
     }
     
@@ -32,9 +30,6 @@ class User {
         self.points = points
     }
     
-    func setImage(imageName: String){
-        self.profileImage = imageName
-    }
     
     func addChallenge(challenge: Challenge){
         self.challenges.append(challenge)
@@ -48,10 +43,6 @@ class User {
     }
     func getPoints() -> Int{
         return self.points
-    }
-    
-    func getImage() -> String {
-        return self.profileImage
     }
     
     func getAllChallenges() -> [Challenge]{

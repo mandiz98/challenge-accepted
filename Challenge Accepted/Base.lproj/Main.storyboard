@@ -602,7 +602,109 @@
             </objects>
             <point key="canvasLocation" x="6141" y="116"/>
         </scene>
-        <!--Inbox Detail View Controller-->
+        <!--Camera View Controller-->
+        <scene sceneID="FaQ-5E-Uu2">
+            <objects>
+                <viewController id="BYg-6O-jj1" customClass="CameraViewController" customModule="Challenge_Accepted" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Y5N-6C-HEk">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pJW-a6-72P">
+                                <rect key="frame" x="177" y="660" width="60" height="60"/>
+                                <color key="backgroundColor" name="YellowByAmanda"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="3eT-fk-j8t"/>
+                                    <constraint firstAttribute="height" constant="60" id="fSY-o5-PJT"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="cameraButton:" destination="BYg-6O-jj1" eventType="touchUpInside" id="Q2N-qw-WaH"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" name="BackgroundGrayByAmanda"/>
+                        <constraints>
+                            <constraint firstItem="pJW-a6-72P" firstAttribute="centerX" secondItem="Y5N-6C-HEk" secondAttribute="centerX" id="Dbs-Va-uVy"/>
+                            <constraint firstItem="uGd-yu-BRM" firstAttribute="bottom" secondItem="pJW-a6-72P" secondAttribute="bottom" constant="16" id="eK5-V9-q6X"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="uGd-yu-BRM"/>
+                    </view>
+                    <connections>
+                        <segue destination="RsA-TO-9qr" kind="presentation" identifier="photoSegue" id="iI8-it-uW0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sVO-W8-pOO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6866.666666666667" y="-757.33695652173924"/>
+        </scene>
+        <!--Preview View Controller-->
+        <scene sceneID="rmB-hD-5xf">
+            <objects>
+                <viewController id="RsA-TO-9qr" customClass="PreviewViewController" customModule="Challenge_Accepted" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xoJ-It-bWj">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="giraffe" translatesAutoresizingMaskIntoConstraints="NO" id="Sb0-4u-J8b">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e2p-Mb-ES2">
+                                <rect key="frame" x="0.0" y="676" width="414" height="60"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XPo-H7-L6L">
+                                        <rect key="frame" x="16" y="0.0" width="48" height="60"/>
+                                        <state key="normal" title="Cancel"/>
+                                        <connections>
+                                            <action selector="cancelButton:" destination="RsA-TO-9qr" eventType="touchUpInside" id="Qky-a3-F9S"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EYY-BL-xDH">
+                                        <rect key="frame" x="364" y="0.0" width="34" height="60"/>
+                                        <state key="normal" title="Save"/>
+                                        <connections>
+                                            <action selector="saveButton:" destination="RsA-TO-9qr" eventType="touchUpInside" id="rls-Hb-yEJ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" name="SecondaryGrayByAmanda"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="XPo-H7-L6L" secondAttribute="bottom" id="0RN-8B-d1A"/>
+                                    <constraint firstAttribute="trailing" secondItem="EYY-BL-xDH" secondAttribute="trailing" constant="16" id="0yC-Hk-SsK"/>
+                                    <constraint firstItem="XPo-H7-L6L" firstAttribute="top" secondItem="e2p-Mb-ES2" secondAttribute="top" id="1br-Oj-fL8"/>
+                                    <constraint firstAttribute="height" constant="60" id="3BF-m0-XGM"/>
+                                    <constraint firstAttribute="bottom" secondItem="EYY-BL-xDH" secondAttribute="bottom" id="3LM-hg-iDY"/>
+                                    <constraint firstItem="EYY-BL-xDH" firstAttribute="top" secondItem="e2p-Mb-ES2" secondAttribute="top" id="3aG-kG-DFH"/>
+                                    <constraint firstItem="EYY-BL-xDH" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="XPo-H7-L6L" secondAttribute="trailing" constant="8" symbolic="YES" id="Bos-hk-xi0"/>
+                                    <constraint firstItem="XPo-H7-L6L" firstAttribute="leading" secondItem="e2p-Mb-ES2" secondAttribute="leading" constant="16" id="Ymr-6t-Ghu"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Sb0-4u-J8b" firstAttribute="trailing" secondItem="VHO-9O-tHj" secondAttribute="trailing" id="7Lq-Xt-Evb"/>
+                            <constraint firstItem="Sb0-4u-J8b" firstAttribute="bottom" secondItem="VHO-9O-tHj" secondAttribute="bottom" id="8FL-f1-MBx"/>
+                            <constraint firstAttribute="bottom" secondItem="e2p-Mb-ES2" secondAttribute="bottom" id="BDT-Qm-QSu"/>
+                            <constraint firstItem="e2p-Mb-ES2" firstAttribute="leading" secondItem="VHO-9O-tHj" secondAttribute="leading" id="N4V-jc-IDW"/>
+                            <constraint firstItem="Sb0-4u-J8b" firstAttribute="top" secondItem="xoJ-It-bWj" secondAttribute="top" id="UTs-jN-8XF"/>
+                            <constraint firstItem="VHO-9O-tHj" firstAttribute="trailing" secondItem="e2p-Mb-ES2" secondAttribute="trailing" id="agq-nv-vsz"/>
+                            <constraint firstItem="Sb0-4u-J8b" firstAttribute="leading" secondItem="VHO-9O-tHj" secondAttribute="leading" id="rIw-Rw-mbM"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="VHO-9O-tHj"/>
+                    </view>
+                    <connections>
+                        <outlet property="photo" destination="Sb0-4u-J8b" id="N3Q-p9-OaC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ncY-DU-Rcn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7757.971014492754" y="-757.33695652173924"/>
+        </scene>
+        <!--View Controller-->
         <scene sceneID="Uxw-cq-Jkr">
             <objects>
                 <viewController id="8OZ-pN-DHO" customClass="InboxDetailViewController" customModule="Challenge_Accepted" customModuleProvider="target" sceneMemberID="viewController">
