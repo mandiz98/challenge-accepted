@@ -56,10 +56,6 @@ class CreateViewController: UIViewController {
                     ref.child("challenges").childByAutoId().setValue(["description": self.challengeDescription.text!, "title":self.challengeTitle.text!, "state": 0, "creatorId": data["id"]!, "receiverId": a])
                 }
                 
-                
-                    
-                    
-                
             }
             
             performSegue(withIdentifier: "goBackAfterCreate", sender: Any?.self)
