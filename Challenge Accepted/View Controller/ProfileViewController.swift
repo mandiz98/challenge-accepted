@@ -9,7 +9,7 @@
 import UIKit
 import FacebookCore
 import FBSDKCoreKit
-
+import Firebase
 
 class ProfileViewController: UIViewController {
     
@@ -23,6 +23,21 @@ class ProfileViewController: UIViewController {
         getFacebookPic()
         // Do any additional setup after loading the view.
     }
+    /*
+    func profilePicture(){
+        var userID = userIDCache
+        var ref: DatabaseReference! = Database.database().reference()
+        ref.child("users").child(userID!).child("profileImage").child("data").observeSingleEvent(of: .value, with: { (snapshot) in
+            let value = snapshot.value as? NSDictionary
+            let imageURL = value?["url"]
+            let data = NSData(contentsOf: URL(string: imageURL! as! String)!)
+        })
+    }*/
+    
+    
+    
+    
+    
     
     func getFacebookName(){
         let parameters = ["fields": "first_name, last_name"]

@@ -90,7 +90,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
 
             ref.child("users").observeSingleEvent(of: .value, with: { (snapshot) in
                 if snapshot.hasChild(data["id"] as! String){
-                    
+                    userIDCache = data["id"] as? String
                     print("User exist")
                     
                 }else{
