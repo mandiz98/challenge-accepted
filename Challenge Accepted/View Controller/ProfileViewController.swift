@@ -19,25 +19,43 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getFacebookName()
-        getFacebookPic()
+        //getFacebookName()
+        //getFacebookPic()
+        profilePicture()
+        profileName()
         // Do any additional setup after loading the view.
     }
-    /*
+    
     func profilePicture(){
-        var userID = userIDCache
-        var ref: DatabaseReference! = Database.database().reference()
+        self.ProfilePicture.image = profileCache.image
+        /*
+        let userID = userIDCache
+        let ref: DatabaseReference! = Database.database().reference()
         ref.child("users").child(userID!).child("profileImage").child("data").observeSingleEvent(of: .value, with: { (snapshot) in
             let value = snapshot.value as? NSDictionary
             let imageURL = value?["url"]
             let data = NSData(contentsOf: URL(string: imageURL! as! String)!)
-        })
-    }*/
+            self.ProfilePicture.image = UIImage(data: data! as Data)
+ 
+        })*/
+    }
+    func profileName(){
+        self.ProfileName.text = profileCache.name
+        /*
+        let userID = userIDCache
+        let ref: DatabaseReference! = Database.database().reference()
+        ref.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
+            let value = snapshot.value as? NSDictionary
+            let name =  "\(value?["fname"] as! String) \(value?["lname"] as! String)"
+            self.ProfileName.text = name
+        })*/
+ 
+    }
+ 
     
     
     
-    
-    
+    /*
     
     func getFacebookName(){
         let parameters = ["fields": "first_name, last_name"]
@@ -52,6 +70,8 @@ class ProfileViewController: UIViewController {
             self.ProfileName.text = "\(data["first_name"] as! String) \(data["last_name"] as! String)"
         }
     }
+    */
+    /*
     func getFacebookPic(){
         let parameters = ["fields": "picture.width(512).height(512)"]
         FBSDKGraphRequest(graphPath: "/me", parameters: parameters).start{
@@ -69,7 +89,7 @@ class ProfileViewController: UIViewController {
         }
 
     }
-    
+    */
     /*
     // MARK: - Navigation
 

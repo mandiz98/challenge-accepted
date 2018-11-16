@@ -20,6 +20,7 @@
 		02BCA79D21834D9C006B4AC6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02BCA79B21834D9C006B4AC6 /* Main.storyboard */; };
 		02BCA79F21834D9C006B4AC6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02BCA79E21834D9C006B4AC6 /* Assets.xcassets */; };
 		02BCA7A221834D9C006B4AC6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02BCA7A021834D9C006B4AC6 /* LaunchScreen.storyboard */; };
+		23F75D6E219F271100F969BC /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F75D6D219F271100F969BC /* Profile.swift */; };
 		7952927D9143F3092067F86A /* Pods_Challenge_Accepted.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F520964C188D48A777720F5 /* Pods_Challenge_Accepted.framework */; };
 		D6C5E4C02195D62C00DB8100 /* ScoreboardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C5E4BF2195D62C00DB8100 /* ScoreboardTableViewCell.swift */; };
 		D6F8F4B82191D74C00F30CE8 /* Challenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F8F4B72191D74C00F30CE8 /* Challenge.swift */; };
@@ -50,6 +51,7 @@
 		02BCA7A121834D9C006B4AC6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		02BCA7A321834D9C006B4AC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		173AC59D1419B78CD900D3E9 /* Pods-Challenge Accepted.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Challenge Accepted.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Challenge Accepted/Pods-Challenge Accepted.debug.xcconfig"; sourceTree = "<group>"; };
+		23F75D6D219F271100F969BC /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		2F520964C188D48A777720F5 /* Pods_Challenge_Accepted.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Challenge_Accepted.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4823A33109429525CC7ADC1F /* Pods-Challenge Accepted.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Challenge Accepted.release.xcconfig"; path = "Pods/Target Support Files/Pods-Challenge Accepted/Pods-Challenge Accepted.release.xcconfig"; sourceTree = "<group>"; };
 		D6C5E4BF2195D62C00DB8100 /* ScoreboardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreboardTableViewCell.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 				D76E76CC219B03330040A702 /* RoundImageView.swift */,
 				D7661A702199BA8C00405E18 /* GoogleService-Info.plist */,
 				D76E76CE219B23F50040A702 /* FriendCollectionViewCell.swift */,
+				23F75D6D219F271100F969BC /* Profile.swift */,
 			);
 			path = "Challenge Accepted";
 			sourceTree = "<group>";
@@ -344,6 +347,7 @@
 				D6F8F4B82191D74C00F30CE8 /* Challenge.swift in Sources */,
 				D6F8F4C02191F06900F30CE8 /* User.swift in Sources */,
 				D6F8F4C22191FE2900F30CE8 /* DummyDatabase.swift in Sources */,
+				23F75D6E219F271100F969BC /* Profile.swift in Sources */,
 				D76E76CD219B03340040A702 /* RoundImageView.swift in Sources */,
 				D6C5E4C02195D62C00DB8100 /* ScoreboardTableViewCell.swift in Sources */,
 			);

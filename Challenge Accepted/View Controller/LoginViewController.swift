@@ -90,7 +90,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
 
             ref.child("users").observeSingleEvent(of: .value, with: { (snapshot) in
                 if snapshot.hasChild(data["id"] as! String){
-                    userIDCache = data["id"] as? String
+                    
                     print("User exist")
                     
                 }else{
@@ -99,6 +99,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
                     ref.child("users").child(data["id"] as! String).setValue(["fname": data["first_name"], "lname":data["last_name"], "email":data["email"], "score":0, "profileImage":data["picture"]])
                 }
                 
+                self.cacheProfile(ref: ref, userID: data["id"] as! String)
                 
             })
         }
@@ -124,7 +125,22 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         }
     }
     
-    
+    func cacheProfile(ref: DatabaseReference, userID: String){
+        ref.child("users").child(userID).child("profileImage").child("data").observeSingleEvent(of: .value, with: { (snapshot) in
+            let value = snapshot.value as? NSDictionary
+            let imageURL = value?["url"]
+            let data = NSData(contentsOf: URL(string: imageURL! as! String)!)
+            profileCache.image = UIImage(data: data! as Data)
+        })
+        ref.child("users").child(userID).observeSingleEvent(of: .value, with: { (snapshot) in
+            let value = snapshot.value as? NSDictionary
+            let name = "\(value?["fname"] as! String) \(value?["lname"] as! String)"
+            let points = value?["score"]
+            profileCache.name = name
+            profileCache.points = points as? String
+            profileCache.userID = userID
+        })
+    }
 
     
 
