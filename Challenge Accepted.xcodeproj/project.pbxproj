@@ -26,6 +26,9 @@
 		D6F8F4BE2191DE6100F30CE8 /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F8F4BD2191DE6100F30CE8 /* CreateViewController.swift */; };
 		D6F8F4C02191F06900F30CE8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F8F4BF2191F06900F30CE8 /* User.swift */; };
 		D6F8F4C22191FE2900F30CE8 /* DummyDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F8F4C12191FE2900F30CE8 /* DummyDatabase.swift */; };
+		D7661A6D2199A17E00405E18 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7661A6C2199A17D00405E18 /* CoreData.framework */; };
+		D7661A712199BA8C00405E18 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D7661A702199BA8C00405E18 /* GoogleService-Info.plist */; };
+		D76E76CD219B03340040A702 /* RoundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76E76CC219B03330040A702 /* RoundImageView.swift */; };
 		D79DD31D21885F35001F3824 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79DD31C21885F35001F3824 /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +58,9 @@
 		D6F8F4C12191FE2900F30CE8 /* DummyDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyDatabase.swift; sourceTree = "<group>"; };
 		D729BC9921919770004A880E /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D729BC9B219197C7004A880E /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D7661A6C2199A17D00405E18 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		D7661A702199BA8C00405E18 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D76E76CC219B03330040A702 /* RoundImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundImageView.swift; sourceTree = "<group>"; };
 		D79DD31C21885F35001F3824 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -63,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7661A6D2199A17E00405E18 /* CoreData.framework in Frameworks */,
 				7952927D9143F3092067F86A /* Pods_Challenge_Accepted.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -110,6 +117,8 @@
 				D6F8F4B72191D74C00F30CE8 /* Challenge.swift */,
 				D6F8F4BF2191F06900F30CE8 /* User.swift */,
 				D6F8F4C12191FE2900F30CE8 /* DummyDatabase.swift */,
+				D76E76CC219B03330040A702 /* RoundImageView.swift */,
+				D7661A702199BA8C00405E18 /* GoogleService-Info.plist */,
 			);
 			path = "Challenge Accepted";
 			sourceTree = "<group>";
@@ -167,6 +176,7 @@
 		F3DAD79915192DD69019BD1C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D7661A6C2199A17D00405E18 /* CoreData.framework */,
 				D729BC9B219197C7004A880E /* FBSDKLoginKit.framework */,
 				D729BC9921919770004A880E /* FBSDKLoginKit.framework */,
 				2F520964C188D48A777720F5 /* Pods_Challenge_Accepted.framework */,
@@ -237,6 +247,7 @@
 				02BCA7A221834D9C006B4AC6 /* LaunchScreen.storyboard in Resources */,
 				02BCA79F21834D9C006B4AC6 /* Assets.xcassets in Resources */,
 				02BCA79D21834D9C006B4AC6 /* Main.storyboard in Resources */,
+				D7661A712199BA8C00405E18 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,6 +292,10 @@
 				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
 				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
 				"${BUILT_PRODUCTS_DIR}/FacebookShare/FacebookShare.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/SQLite.swift/SQLite.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -293,6 +308,10 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookShare.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SQLite.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -321,6 +340,7 @@
 				D6F8F4B82191D74C00F30CE8 /* Challenge.swift in Sources */,
 				D6F8F4C02191F06900F30CE8 /* User.swift in Sources */,
 				D6F8F4C22191FE2900F30CE8 /* DummyDatabase.swift in Sources */,
+				D76E76CD219B03340040A702 /* RoundImageView.swift in Sources */,
 				D6C5E4C02195D62C00DB8100 /* ScoreboardTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -470,7 +490,9 @@
 			baseConfigurationReference = 173AC59D1419B78CD900D3E9 /* Pods-Challenge Accepted.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Challenge Accepted/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -478,6 +500,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Amanda.Challenge-Accepted";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -488,7 +511,9 @@
 			baseConfigurationReference = 4823A33109429525CC7ADC1F /* Pods-Challenge Accepted.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Challenge Accepted/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -496,6 +521,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Amanda.Challenge-Accepted";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
