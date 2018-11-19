@@ -13,7 +13,6 @@ import FBSDKCoreKit
 import FBSDKLoginKit
 import Firebase
 
-var userID = ""
 
 class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     var fbLoginSuccess = false

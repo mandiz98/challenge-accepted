@@ -15,7 +15,7 @@ class InboxDetailViewController: UIViewController {
     @IBOutlet weak var StateImage: UIImageView!
     @IBOutlet weak var StateLabel: UILabel!
     
-    var challenge = Challenge(title:"",description:"",creator: defaultUser,imageState: UIImage(named:"unread")!)
+    var challenge = Challenge(title:"",description:"",creator: userJacob,imageState: UIImage(named:"unread")!)
 
     
     override func viewDidLoad() {

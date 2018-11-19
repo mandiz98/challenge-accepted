@@ -17,7 +17,7 @@ class SentTableViewController: UITableViewController {
 
         // MARK: - get sent challlenges from database: Amanda
         sentChallenges = [
-            Challenge(title: "Hjälp", description: "Mig", creator: defaultUser, imageState: UIImage(named: "unread")!)
+            Challenge(title: "Hjälp", description: "Mig", creator: userJacob, imageState: UIImage(named: "unread")!)
         ]
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
