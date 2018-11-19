@@ -16,9 +16,7 @@ class SentTableViewController: UITableViewController {
         super.viewDidLoad()
 
         // MARK: - get sent challlenges from database: Amanda
-        sentChallenges = [
-            Challenge(title: "Hjälp", description: "Mig", creator: userJacob, imageState: UIImage(named: "unread")!)
-        ]
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -39,7 +37,7 @@ class SentTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "SentTableViewCell", for: indexPath) as? SentTableViewCell{
             let challenge = sentChallenges[indexPath.row]
-            cell.nameLabel.text = challenge.creator.getName()
+            cell.nameLabel.text = challenge.getCreator()
             cell.titleLabel.text = challenge.getTitel()
             cell.stateImageView.image = challenge.getStatusImage()
             
@@ -54,7 +52,7 @@ class SentTableViewController: UITableViewController {
         if let destination = segue.destination as? SentDetailViewController {
             if let indexPath = sender as? IndexPath {
                 let challenge = sentChallenges[indexPath.row]
-                destination.challenge = challenge
+                //destination.challenge = challenge
             }
         }
     }

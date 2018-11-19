@@ -14,8 +14,9 @@ class InboxDetailViewController: UIViewController {
     @IBOutlet weak var NameLabel: UILabel!
     @IBOutlet weak var StateImage: UIImageView!
     @IBOutlet weak var StateLabel: UILabel!
+    @IBOutlet weak var DescriptionLabel: UILabel!
     
-    var challenge = Challenge(title:"",description:"",creator: userJacob,imageState: UIImage(named:"unread")!)
+    var challenge = Challenge(title:"",description:"",creator: "",imageState: UIImage(named:"unread")!)
 
     
     override func viewDidLoad() {
@@ -24,6 +25,7 @@ class InboxDetailViewController: UIViewController {
         TitleLabel.text = challenge.title
         NameLabel.text = challenge.getCreator()
         StateImage.image = challenge.imageState
+        DescriptionLabel.text = challenge.getDescription()
         
         // Do any additional setup after loading the view.
     }

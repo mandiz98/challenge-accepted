@@ -97,10 +97,9 @@ extension CreateViewController: UICollectionViewDelegate, UICollectionViewDataSo
                 if snapshot.childrenCount>0{
                     for user in snapshot.children.allObjects as! [DataSnapshot]{
                         if user.key == name{
-                            let abc = user.value as? [String:Any]
-                            cell.friendLabel.text = abc!["fname"]! as? String
+                            let attr = user.value as? [String:Any]
+                            cell.friendLabel.text = attr!["fname"]! as? String
                         }
-                        
                     }
                 }
             })

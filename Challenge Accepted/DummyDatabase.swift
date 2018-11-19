@@ -9,7 +9,7 @@
 import Foundation
 import FBSDKCoreKit
 
-var userJacob: User = User(name: "Jacob", points: 10000, profileImage: "giraffe"/*, profileImage: FBSDKProfilePictureView*/)
+var userJacob: User = User(name: "Jacob", points: 10000, profileImage: "giraffe")
 
 
 var globalUserID: String = ""

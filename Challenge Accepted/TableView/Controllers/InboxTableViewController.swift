@@ -7,18 +7,17 @@
 //
 
 import UIKit
+import Firebase
 
 class InboxTableViewController: UITableViewController  {
     
-    var inboxChallenges: [Challenge] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // MARK: - get inboxed challenges from database : AMANDA
-        inboxChallenges = [
-            Challenge(title: "String", description: "String", creator: userJacob,imageState: UIImage(named: "unread")!)
-        ]
+ 
+        
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
