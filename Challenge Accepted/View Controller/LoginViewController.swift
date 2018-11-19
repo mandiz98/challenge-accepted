@@ -13,7 +13,7 @@ import FBSDKCoreKit
 import FBSDKLoginKit
 import Firebase
 
-
+var userID = ""
 
 class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     var fbLoginSuccess = false
@@ -86,7 +86,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
             }
             
             let data:[String:Any] = result as! [String : Any]
-            
+            userID = data["id"] as! String
 
             ref.child("users").observeSingleEvent(of: .value, with: { (snapshot) in
                 if snapshot.hasChild(data["id"] as! String){
