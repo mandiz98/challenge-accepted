@@ -58,7 +58,10 @@ class CreateViewController: UIViewController {
                 
             }
             
-            performSegue(withIdentifier: "goBackAfterCreate", sender: Any?.self)
+            if let navController = self.navigationController {
+                navController.popViewController(animated: true)
+            }
+            
         }
         
         else {print("Didn't add challenge")}
