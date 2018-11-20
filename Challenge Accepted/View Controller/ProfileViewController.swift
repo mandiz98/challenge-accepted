@@ -16,33 +16,43 @@ class ProfileViewController: UIViewController {
     
     @IBOutlet weak var ProfilePicture: UIImageView!
     @IBOutlet weak var ProfileName: UILabel!
+    @IBOutlet weak var ProfileScore: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getNameFromDatabase()
-        getPicFromDatabase()
+        self.ProfileName.text = profileCache.name
+        self.ProfilePicture.image = profileCache.image
+        self.ProfileScore.text = "Score: \(profileCache.score!)"
+        
     }
-    
-    func getPicFromDatabase(){
-        var ref: DatabaseReference
-        ref = Database.database().reference()
-        ref.child("users").child(globalUserID).child("profileImage").child("data").observeSingleEvent(of: .value, with: { (snapshot) in
-            let value = snapshot.value as? NSDictionary
-            let imageURL = value?["url"] as! String
-            let data = NSData(contentsOf: URL(string: imageURL)!)
-            let image = UIImage(data: data! as Data)
-            self.ProfilePicture.image = image
-        })
-    }
-    func getNameFromDatabase(){
-        var ref: DatabaseReference
-        ref = Database.database().reference()
-        ref.child("users").child(globalUserID).observeSingleEvent(of: .value, with: { (snapshot) in
-            let value = snapshot.value as? NSDictionary
-            let name = "\(value?["fname"] as! String) \(value?["lname"] as! String)"
-            self.ProfileName.text = name
-        })
-    }
+//    override func didReceiveMemoryWarning() {
+//        getNameFromDatabase()
+//        getPicFromDatabase()
+//    }
+//
+//
+//
+//
+//    func getPicFromDatabase(){
+//        var ref: DatabaseReference
+//        ref = Database.database().reference()
+//        ref.child("users").child(profileCache.userID!).child("profileImage").child("data").observeSingleEvent(of: .value, with: { (snapshot) in
+//            let value = snapshot.value as? NSDictionary
+//            let imageURL = value?["url"] as! String
+//            let data = NSData(contentsOf: URL(string: imageURL)!)
+//            let image = UIImage(data: data! as Data)
+//            self.ProfilePicture.image = image
+//        })
+//    }
+//    func getNameFromDatabase(){
+//        var ref: DatabaseReference
+//        ref = Database.database().reference()
+//        ref.child("users").child(profileCache.userID!).observeSingleEvent(of: .value, with: { (snapshot) in
+//            let value = snapshot.value as? NSDictionary
+//            let name = "\(value?["fname"] as! String) \(value?["lname"] as! String)"
+//            self.ProfileName.text = name
+//        })
+//    }
     
     /*
     // MARK: - Navigation

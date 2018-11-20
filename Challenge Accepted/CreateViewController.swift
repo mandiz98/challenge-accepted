@@ -31,12 +31,9 @@ class CreateViewController: UIViewController {
     @IBAction func buttonPressed(_ sender: Any) {
         if(challengeTitle.text != "" && challengeDescription.text != "" && !sendTo.isEmpty){
             
-            
-            
             var ref: DatabaseReference!
             
             ref = Database.database().reference()
-            
             
             FBSDKGraphRequest(graphPath: "/me", parameters: parameters).start{
                 (connection, result, err) in

@@ -389,6 +389,7 @@
                     <connections>
                         <outlet property="ProfileName" destination="v77-x0-NOa" id="2vL-YC-6Z3"/>
                         <outlet property="ProfilePicture" destination="16c-iK-813" id="SAf-Z4-MPs"/>
+                        <outlet property="ProfileScore" destination="Clg-Ca-Gel" id="NHX-6D-wg4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xIt-Ck-dHI" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -529,6 +530,7 @@
                         <outlet property="challengeTitle" destination="qYd-gR-g2t" id="Y8n-we-GLg"/>
                         <outlet property="collectionView" destination="Qu8-pS-wfb" id="Khw-RJ-Mgw"/>
                         <outlet property="createButton" destination="4XE-LC-SxY" id="vgD-fE-wd1"/>
+                        <segue destination="BYZ-38-t0r" kind="show" id="WIK-vE-v3E"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KlG-BR-HQz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1415,5 +1417,8 @@
             <color red="1" green="0.95686274509803926" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="BPC-gr-hxU"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
