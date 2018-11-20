@@ -15,7 +15,7 @@ class SentDetailViewController: UIViewController {
     @IBOutlet weak var StateImage: UIImageView!
     @IBOutlet weak var StateLabel: UILabel!
     
-    var challenge = Challenge(title: "", description: "", creator: "", imageState: UIImage(named: "unread")!)
+    var challenge = Challenge(title: "", description: "", creator: "", imageState: UIImage(named: "unread")!, state: Challenge.Status(rawValue: "")!)
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -17,20 +17,18 @@ class Challenge {
     var state: Status
     var imageState: UIImage
     enum Status: String{
-        case done = "done"
         case accepted = "accepted"
         case denied = "denied"
         case unread = "unread"
         case pending = "pending"
     }
     
-    init(title: String, description: String, creator: String, imageState: UIImage){
+    init(title: String, description: String, creator: String, imageState: UIImage, state: Status){
         self.creator = creator
         self.title = title
         self.description = description
-        self.state = Status.unread
         self.imageState = imageState
-        
+        self.state = state
     }
     
     
@@ -40,9 +38,6 @@ class Challenge {
     
     func setStatus(status: Status){
         switch status {
-        case .done:
-            self.state = Status.done
-            self.imageState = UIImage(named: "done")!
         case .accepted:
             self.state = Status.accepted
             self.imageState = UIImage(named: "accepted")!

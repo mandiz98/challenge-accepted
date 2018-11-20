@@ -50,10 +50,22 @@ class InboxTableViewController: UITableViewController  {
                 destination.challenge = challenge
             }
         }
+        if let destination = segue.destination as? SendViewController {
+            if let indexPath = sender as? IndexPath {
+                let challenge = inboxChallenges[indexPath.row]
+                destination.challenge = challenge
+            }
+        }
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "unreadSegue", sender: indexPath)
+        if inboxChallenges[indexPath.row].getStatus() == "unread"{
+            performSegue(withIdentifier: "unreadSegue", sender: indexPath)
+        }
+        if inboxChallenges[indexPath.row].getStatus() == "accepted" || inboxChallenges[indexPath.row].getStatus() == "pending"
+        {
+            performSegue(withIdentifier: "acceptedSegue", sender: indexPath)
+        }
     }
 
     /*
