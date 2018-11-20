@@ -12,38 +12,58 @@ import AVFoundation //The api we use are available in the AVFoundation framework
 class CameraViewController: UIViewController {
     
     
+    @IBOutlet var tapRecognizer: UITapGestureRecognizer!
+    var tapGesture = UITapGestureRecognizer()
     //Koden som är "bortkommenterad" funkar troligen på mobilkamera.
+    
+    var captureSession = AVCaptureSession() //instnace of AVcaptureSession
+    
+    var backCamera: AVCaptureDevice?
+    var frontCamera: AVCaptureDevice?
+    var currentCamera: AVCaptureDevice?
+    
+    var photoOutput: AVCapturePhotoOutput?
+    var cameraPreviewLayer: AVCaptureVideoPreviewLayer? //Display video as its being capture by an input device, the layer is then added to the views layer to display on the screen.
+    var image: UIImage?
+    
 
-    //var captureSession = AVCaptureSession() //instnace of AVcaptureSession
     
-    //var backCamera: AVCaptureDevice?
-    //var frontCamera: AVCaptureDevice
-   // var currentCamera: AVCaptureDevice?
-    //var photoOutput: AVCapturePhotoOutput?
-    //var cameraPreviewLayer: AVCaptureVideoPreviewLayer? //Display video as its being capture by an input device, the layer is then added to the views layer to display on the screen.
-    //var image: UIImage?
-    
-    
-    
-    
-    @IBAction func cameraButton(_ sender: Any) {
-        performSegue(withIdentifier: "photoSegue", sender: nil) //sender is the object we want to use to initiate the segue
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        //setupCaptureSession() //Creating Capture session
+        setupCaptureSession() //Creating Capture session
+        setupDevice() //Configuring the nessesary capture devices
+        setupInputOutput() // Creating Inputs using the capture devices
+        setupPreviewLayer() //Configureing a photo output object to prosess capture images
+        startRunningCaptureSess() //Capture session will start running when we have finnished the configuration
         
-        //setupDevice() //Configuring the nessesary capture devices
-        //setupInputOutput() // Creating Inputs using the capture devices
+        let tap = UITapGestureRecognizer(target: self, action: #selector(doubleTapped))
+        tap.numberOfTapsRequired = 2
+        view.addGestureRecognizer(tap)
         
-        //setupPreviewLayer() //Configureing a photo output object to prosess capture images
-        //startRunningCaptureSess() //Capture session will start running when we have finnished the configuration
+        
+    }
+    
+    @IBAction func cameraButton(_ sender: Any) {
+        let settings = AVCapturePhotoSettings()
+        photoOutput?.capturePhoto(with: settings, delegate: self)
+        //performSegue(withIdentifier: "photoSegue", sender: nil) //sender is the object we want to use to initiate the segue
+    }
+    
+    @objc func doubleTapped() {
+        if currentCamera == backCamera{
+            print("front")
+            currentCamera = frontCamera
+            
+        }
+        else {
+            print("back")
+            currentCamera = backCamera
+            
+        }
     }
     
     
-    
-    /*
      
      //CODE DO NOT WORK IN SIMULATOR SINCE THERE IS NO CAMERA
      
@@ -77,43 +97,54 @@ class CameraViewController: UIViewController {
     
     
     func setupDevice(){
-     let deviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [AVCaptureDevice.DeviceType.builtInWideAngleCamera], mediaType: AVMediaType.video, position: AVCaptureDevice.Position.unspecified)
-     let devices = deviceDiscoverySession.devices
+         let deviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [AVCaptureDevice.DeviceType.builtInWideAngleCamera], mediaType: AVMediaType.video, position: AVCaptureDevice.Position.unspecified)
+         let devices = deviceDiscoverySession.devices
      
-     for device in devices {
-     if device.position == AVCaptureDevice.Position.back{
-     backCamera = device
-     } else if device.position == AVCaptureDevice.Position.front{
-     frontCamera = device
-     
+         for device in devices {
+             if device.position == AVCaptureDevice.Position.back{
+                backCamera = device
+             } else if device.position == AVCaptureDevice.Position.front{
+                frontCamera = device
+             }
+         }
+        if currentCamera == nil{
+            currentCamera = frontCamera
+        }
      }
-     }
-     
-     currentCamera = backCamera
-     
-     }*/
     
-    /*func setupInputOutput(){
+    func setupInputOutput(){
      do{
-     if currentCamera == nil {print("fel")}
-     let captureDeviceInput = try AVCaptureDeviceInput(device: /* error because no camera on computer simulator. always nil */ currentCamera!)
-     captureSession.addInput(captureDeviceInput)
-     photoOutput = AVCapturePhotoOutput()
-     photoOutput?.setPreparedPhotoSettingsArray([AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecType.jpeg])], completionHandler: nil)
-     captureSession.addOutput(photoOutput!)
+         if currentCamera == nil {print("fel")}
+             let captureDeviceInput = try AVCaptureDeviceInput(device: /* error because no camera on computer simulator. always nil */ currentCamera!)
+             captureSession.addInput(captureDeviceInput)
+             photoOutput = AVCapturePhotoOutput()
+             photoOutput?.setPreparedPhotoSettingsArray([AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecType.jpeg])], completionHandler: nil)
+             captureSession.addOutput(photoOutput!)
      }catch {
-     print(error)
+        print(error)
      }
      
      }
-   
+    
+    /*func switchCamera(){
+        switch currentPosition{
+            case .unspecified, .back:
+                preferredPosition = .front
+                preferredDeviceType = .builtInDualCamera
+            
+            case .front:
+                preferredPosition = .back
+                preferredDeviceType = .builtInTrueDepthCamera
+            }
+        }
+   */
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "photoSegue"{
             let previewVC = segue.destination as! PreviewViewController
             previewVC.image = self.image
         }
     }
-
 }
 
 extension CameraViewController: AVCapturePhotoCaptureDelegate{
@@ -123,5 +154,7 @@ extension CameraViewController: AVCapturePhotoCaptureDelegate{
             performSegue(withIdentifier: "photoSegue", sender: nil)
         }
         
-    }*/
+    }
 }
+
+
