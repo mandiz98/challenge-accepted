@@ -74,7 +74,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         var ref: DatabaseReference!
         
         ref = Database.database().reference()
-        let parameters = ["fields": "first_name, last_name, email, id, picture"]
+        let parameters = ["fields": "first_name, last_name, email, id, picture.width(512).height(512)"]
 
         
         FBSDKGraphRequest(graphPath: "/me", parameters: parameters).start{
@@ -87,6 +87,8 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
             
             let data:[String:Any] = result as! [String : Any]
             
+            // ***** USING GLOBAL VARIABLE FOR DATABASE USER ID!!! *****
+            globalUserID = data["id"] as! String
 
             ref.child("users").observeSingleEvent(of: .value, with: { (snapshot) in
                 if snapshot.hasChild(data["id"] as! String){
