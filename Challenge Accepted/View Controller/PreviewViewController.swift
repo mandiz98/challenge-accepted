@@ -28,7 +28,7 @@ class PreviewViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        //photo.image = self.image
+        photo.image = self.image
     }
 
 }
