@@ -16,12 +16,12 @@ class Challenge {
     var description: String
     var state: Status
     var imageState: UIImage
-    enum Status{
-        case done
-        case accepted
-        case denied
-        case unread
-        case pending
+    enum Status: String{
+        case done = "done"
+        case accepted = "accepted"
+        case denied = "denied"
+        case unread = "unread"
+        case pending = "pending"
     }
     
     init(title: String, description: String, creator: String, imageState: UIImage){
@@ -66,15 +66,14 @@ class Challenge {
     func getCreator()->String{
         return self.creator
     }
-    
     func getTitel() -> String {
         return self.title
     }
     func getDescription() -> String {
         return self.description
     }
-    func getStatus() -> Status {
-        return self.state
+    func getStatus() -> String {
+        return self.state.rawValue
     }
     func getStatusImage() -> UIImage {
         return self.imageState

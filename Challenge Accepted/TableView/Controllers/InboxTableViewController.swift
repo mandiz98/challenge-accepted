@@ -15,9 +15,6 @@ class InboxTableViewController: UITableViewController  {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // MARK: - get inboxed challenges from database : AMANDA
- 
-        
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }

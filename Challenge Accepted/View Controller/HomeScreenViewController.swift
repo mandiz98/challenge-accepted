@@ -24,7 +24,7 @@ class HomeScreenViewController: UIViewController {
             if snapshot.childrenCount>0{
                 for challenge in snapshot.children.allObjects as! [DataSnapshot]{
                     let attr = challenge.value as? [String:Any]
-                    if attr!["receiverId"] as! String == globalUserID{
+                    if attr!["receiverId"] as? String == globalUserID{
                         var creatorName = "hahfjsd"
                         ref.child("users").observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
                             if snapshot.childrenCount>0{

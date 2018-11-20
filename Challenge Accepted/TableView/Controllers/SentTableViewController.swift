@@ -9,13 +9,9 @@
 import UIKit
 
 class SentTableViewController: UITableViewController {
-
-    var sentChallenges: [Challenge] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // MARK: - get sent challlenges from database: Amanda
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -52,7 +48,7 @@ class SentTableViewController: UITableViewController {
         if let destination = segue.destination as? SentDetailViewController {
             if let indexPath = sender as? IndexPath {
                 let challenge = sentChallenges[indexPath.row]
-                //destination.challenge = challenge
+                destination.challenge = challenge
             }
         }
     }
