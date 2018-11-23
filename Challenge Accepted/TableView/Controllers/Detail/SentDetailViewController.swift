@@ -11,19 +11,19 @@ import UIKit
 class SentDetailViewController: UIViewController {
 
     @IBOutlet weak var TitleLabel: UILabel!
-    @IBOutlet weak var NameLabel: UILabel!
     @IBOutlet weak var StateImage: UIImageView!
     @IBOutlet weak var StateLabel: UILabel!
+    @IBOutlet weak var DescriptionLabel: UILabel!
     
-    var challenge = Challenge(title: "", description: "", creator: "", imageState: UIImage(named: "unread")!, state: Challenge.Status(rawValue: "")!)
+    var challenge = Challenge(title: "", description: "", creator: "", imageState: UIImage(named: "unread")!, state: Challenge.Status(rawValue: "unread")!)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         TitleLabel.text = challenge.title
-        NameLabel.text = challenge.getCreator()
         StateImage.image = challenge.imageState
         StateLabel.text = challenge.getStatus()
+        DescriptionLabel.text = challenge.getDescription()
        
         
         // Do any additional setup after loading the view.
