@@ -23,7 +23,7 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         self.ProfileName.text = profileCache.name
         self.ProfilePicture.image = profileCache.image
-        self.ProfileScore.text = "Score: \(profileCache.score!)"
+        self.ProfileScore.text = "Score: \(profileCache.score ?? 0)"
         scoreTableView.tableFooterView = UIView()
         
     }

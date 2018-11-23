@@ -37,7 +37,7 @@ class SendViewController: UIViewController {
             if snapshot.childrenCount>0{
                 for challenge in snapshot.children.allObjects as! [DataSnapshot]{
                     let attr = challenge.value as? [String:Any]
-                    if (attr!["receiverId"] as? String == globalUserID && attr!["title"] as? String == self.challengeTitle.text){
+                    if (attr!["receiverId"] as? String == profileCache.userID && attr!["title"] as? String == self.challengeTitle.text){
                         challengeKey = challenge.key
                         ref.child("challenges/\(challengeKey)/state").setValue("accepted")
                     }

@@ -32,7 +32,7 @@ class HomeScreenViewController: UIViewController {
             if snapshot.childrenCount>0{
                 for challenge in snapshot.children.allObjects as! [DataSnapshot]{
                     let attr = challenge.value as? [String:Any]
-                    if attr!["receiverId"] as? String == globalUserID{
+                    if attr!["receiverId"] as? String == profileCache.userID{
                         var creatorName = ""
                         
                         ref.child("users").observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
@@ -70,7 +70,7 @@ class HomeScreenViewController: UIViewController {
             if snapshot.childrenCount>0{
                 for challenge in snapshot.children.allObjects as! [DataSnapshot]{
                     let attr = challenge.value as? [String:Any]
-                    if attr!["creatorId"] as? String == globalUserID{
+                    if attr!["creatorId"] as? String == profileCache.userID{
                         var sentName = ""
                         
                         ref.child("users").observeSingleEvent(of: DataEventType.value, with: { (snapshot) in

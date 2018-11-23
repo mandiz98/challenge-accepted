@@ -10,12 +10,11 @@ import UIKit
 
 class SentTableViewController: UITableViewController {
     
-    @IBOutlet var sentTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        sentTableView.tableFooterView = UIView()
+        //sentTableView.tableFooterView = UIView()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

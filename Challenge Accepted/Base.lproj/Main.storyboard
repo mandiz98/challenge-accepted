@@ -389,6 +389,8 @@
                     <connections>
                         <outlet property="ProfileName" destination="v77-x0-NOa" id="2vL-YC-6Z3"/>
                         <outlet property="ProfilePicture" destination="16c-iK-813" id="SAf-Z4-MPs"/>
+                        <outlet property="ProfileScore" destination="Clg-Ca-Gel" id="SHs-gH-GB0"/>
+                        <outlet property="scoreTableView" destination="ok3-q6-0U1" id="t3o-8w-UTs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xIt-Ck-dHI" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -45,10 +45,6 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if AccessToken.current != nil {
-            // User is logged in, use 'accessToken' here.
-            fbLoginSuccess = false
-        }
 
         let loginButton = FBSDKLoginButton()
         loginButton.delegate = self
