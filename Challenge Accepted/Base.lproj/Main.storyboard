@@ -268,7 +268,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Score" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lZL-AJ-2dL">
-                                                    <rect key="frame" x="223" y="46" width="99" height="24"/>
+                                                    <rect key="frame" x="205.5" y="46" width="81.5" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <color key="textColor" name="YellowByAmanda"/>
                                                     <nil key="highlightedColor"/>
@@ -281,7 +281,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lHr-xg-kul">
-                                                    <rect key="frame" x="116" y="46" width="99" height="24"/>
+                                                    <rect key="frame" x="116" y="46" width="81.5" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <color key="textColor" name="YellowByAmanda"/>
                                                     <nil key="highlightedColor"/>
@@ -396,6 +396,7 @@
                         <outlet property="ProfileName" destination="v77-x0-NOa" id="2vL-YC-6Z3"/>
                         <outlet property="ProfilePicture" destination="16c-iK-813" id="SAf-Z4-MPs"/>
                         <outlet property="ProfileScore" destination="Clg-Ca-Gel" id="NHX-6D-wg4"/>
+                        <outlet property="scoreTableView" destination="ok3-q6-0U1" id="bwb-Dq-5H4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xIt-Ck-dHI" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -661,6 +662,7 @@
                         <color key="badgeColor" name="YellowByAmanda"/>
                     </tabBarItem>
                     <connections>
+                        <outlet property="inboxTableView" destination="VDI-Xn-K56" id="Fro-Ru-O73"/>
                         <segue destination="8OZ-pN-DHO" kind="show" identifier="unreadSegue" id="USl-i9-K7j"/>
                         <segue destination="AcV-Ui-EtW" kind="show" identifier="acceptedSegue" id="FK5-N0-hgk"/>
                     </connections>
@@ -1229,6 +1231,7 @@
                         <color key="badgeColor" name="YellowByAmanda"/>
                     </tabBarItem>
                     <connections>
+                        <outlet property="sentTableView" destination="zkM-iS-eHM" id="wDQ-qf-1TH"/>
                         <segue destination="Orf-1d-Slf" kind="show" identifier="pendingSegue" id="SlA-fq-JEd"/>
                     </connections>
                 </tableViewController>
@@ -1408,6 +1411,7 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="bAy-ie-6QV"/>
         <segue reference="WIK-vE-v3E"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

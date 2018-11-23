@@ -11,9 +11,12 @@ import Firebase
 
 class InboxTableViewController: UITableViewController  {
     
+    @IBOutlet var inboxTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        inboxTableView.tableFooterView = UIView()
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem

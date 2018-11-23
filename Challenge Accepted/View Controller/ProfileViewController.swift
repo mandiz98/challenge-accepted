@@ -17,12 +17,14 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var ProfilePicture: UIImageView!
     @IBOutlet weak var ProfileName: UILabel!
     @IBOutlet weak var ProfileScore: UILabel!
+    @IBOutlet weak var scoreTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.ProfileName.text = profileCache.name
         self.ProfilePicture.image = profileCache.image
         self.ProfileScore.text = "Score: \(profileCache.score!)"
+        scoreTableView.tableFooterView = UIView()
         
     }
 //    override func didReceiveMemoryWarning() {
