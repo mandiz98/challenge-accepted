@@ -25,8 +25,6 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         print("inloggad")
         fbLoginSuccess = true
         fetchProfile()
-        
-        
     }
     
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
@@ -34,12 +32,18 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     }
     
     
-    override func viewDidAppear(_ animated: Bool) {
-        if(fbLoginSuccess){
-            performSegue(withIdentifier: "loginSegue", sender: self)
+
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+
+        if FBSDKAccessToken.currentAccessTokenIsActive() {
+            // User is logged in, use 'accessToken' here.
+            fbLoginSuccess = true
+            fetchProfile()
+        }else{
+            fbLoginSuccess = false
         }
     }
-    
 
 
     override func viewDidLoad() {
@@ -55,16 +59,16 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         // Do any additional setup after loading the view.
         
         
-        
-        if AccessToken.current != nil {
-            // User is logged in, use 'accessToken' here.
-            fbLoginSuccess = true
-            fetchProfile()
-        }
+
         
         
     }
     
+    @IBAction func startPressed(_ sender: Any) {
+        if(fbLoginSuccess){
+            performSegue(withIdentifier: "loginSegue", sender: self)
+        }
+    }
     func fetchProfile(){
         var ref: DatabaseReference!
         
