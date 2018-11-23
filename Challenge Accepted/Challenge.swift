@@ -11,28 +11,24 @@ import UIKit
 
 class Challenge {
     
-    var creator: User
+    var creator: String
     var title: String
     var description: String
     var state: Status
     var imageState: UIImage
-    //var media: UIImage
-    enum Status{
-        case done
-        case accepted
-        case denied
-        case unread
-        case pending
+    enum Status: String{
+        case accepted = "accepted"
+        case denied = "denied"
+        case unread = "unread"
+        case pending = "pending"
     }
     
-    init(title: String, description: String, creator: User, imageState: UIImage/*, media: UIImage*/){
+    init(title: String, description: String, creator: String, imageState: UIImage, state: Status){
         self.creator = creator
         self.title = title
         self.description = description
-        self.state = Status.unread
         self.imageState = imageState
-        //self.media = media
-        
+        self.state = state
     }
     
     
@@ -42,9 +38,6 @@ class Challenge {
     
     func setStatus(status: Status){
         switch status {
-        case .done:
-            self.state = Status.done
-            self.imageState = UIImage(named: "done")!
         case .accepted:
             self.state = Status.accepted
             self.imageState = UIImage(named: "accepted")!
@@ -65,18 +58,17 @@ class Challenge {
     func setDescription(description: String){
         self.description = description
     }
-    func getCreator() -> String {
-        return self.creator.getName()
+    func getCreator()->String{
+        return self.creator
     }
-    
     func getTitel() -> String {
         return self.title
     }
     func getDescription() -> String {
         return self.description
     }
-    func getStatus() -> Status {
-        return self.state
+    func getStatus() -> String {
+        return self.state.rawValue
     }
     func getStatusImage() -> UIImage {
         return self.imageState

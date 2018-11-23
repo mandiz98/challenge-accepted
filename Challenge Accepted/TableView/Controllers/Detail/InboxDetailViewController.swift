@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class InboxDetailViewController: UIViewController {
     
@@ -14,8 +15,11 @@ class InboxDetailViewController: UIViewController {
     @IBOutlet weak var NameLabel: UILabel!
     @IBOutlet weak var StateImage: UIImageView!
     @IBOutlet weak var StateLabel: UILabel!
+    @IBOutlet weak var DescriptionLabel: UILabel!
+    @IBOutlet weak var AcceptButton: UIButton!
+    @IBOutlet weak var DenyButton: UIButton!
     
-    var challenge = Challenge(title:"",description:"",creator: userJacob,imageState: UIImage(named:"unread")!)
+    var challenge = Challenge(title:"",description:"",creator: "",imageState: UIImage(named:"unread")!, state: Challenge.Status(rawValue: "unread")!)
 
     
     override func viewDidLoad() {
@@ -24,11 +28,62 @@ class InboxDetailViewController: UIViewController {
         TitleLabel.text = challenge.title
         NameLabel.text = challenge.getCreator()
         StateImage.image = challenge.imageState
+        DescriptionLabel.text = challenge.getDescription()
+        StateLabel.text = challenge.getStatus()
         
         // Do any additional setup after loading the view.
     }
     
+    
+    @IBAction func AcceptPressed(_ sender: Any) {
+        var ref: DatabaseReference!
+        ref = Database.database().reference()
+        var challengeKey = ""
+        
+        ref.child("challenges").observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
+            if snapshot.childrenCount>0{
+                for challenge in snapshot.children.allObjects as! [DataSnapshot]{
+                    let attr = challenge.value as? [String:Any]
+                    if (attr!["receiverId"] as? String == globalUserID && attr!["title"] as? String == self.TitleLabel.text){
+                        challengeKey = challenge.key
+                        ref.child("challenges/\(challengeKey)/state").setValue("pending")
+                    }
+                }
+            }
+        })
+        
+        if let navController = self.navigationController {
+            navController.popViewController(animated: false)
+            navController.popViewController(animated: true)
+            
+        }
 
+    }
+    @IBAction func DenyPressed(_ sender: Any) {
+        var ref: DatabaseReference!
+        ref = Database.database().reference()
+        var challengeKey = ""
+        
+        ref.child("challenges").observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
+            if snapshot.childrenCount>0{
+                for challenge in snapshot.children.allObjects as! [DataSnapshot]{
+                    let attr = challenge.value as? [String:Any]
+                    if (attr!["receiverId"] as? String == globalUserID && attr!["title"] as? String == self.TitleLabel.text){
+                        challengeKey = challenge.key
+                        ref.child("challenges").child(challengeKey).removeValue()
+                    }
+                }
+            }
+        })
+        
+        if let navController = self.navigationController {
+            navController.popViewController(animated: false)
+            navController.popViewController(animated: true)
+
+        }
+        
+    }
+    
     /*
     // MARK: - Navigation
 

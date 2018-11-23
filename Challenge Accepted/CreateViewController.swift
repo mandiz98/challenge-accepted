@@ -50,12 +50,15 @@ class CreateViewController: UIViewController {
                 print("Challenge added to database")
                 
                 for a in sendTo{
-                    ref.child("challenges").childByAutoId().setValue(["description": self.challengeDescription.text!, "title":self.challengeTitle.text!, "state": 0, "creatorId": data["id"]!, "receiverId": a])
+                    ref.child("challenges").childByAutoId().setValue(["description": self.challengeDescription.text!, "title":self.challengeTitle.text!, "state": "unread", "creatorId": data["id"]!, "receiverId": a])
                 }
                 
             }
             
-            performSegue(withIdentifier: "goBackAfterCreate", sender: Any?.self)
+            if let navController = self.navigationController {
+                navController.popViewController(animated: true)
+            }
+            
         }
         
         else {print("Didn't add challenge")}
@@ -94,10 +97,9 @@ extension CreateViewController: UICollectionViewDelegate, UICollectionViewDataSo
                 if snapshot.childrenCount>0{
                     for user in snapshot.children.allObjects as! [DataSnapshot]{
                         if user.key == name{
-                            let abc = user.value as? [String:Any]
-                            cell.friendLabel.text = abc!["fname"]! as? String
+                            let attr = user.value as? [String:Any]
+                            cell.friendLabel.text = attr!["fname"]! as? String
                         }
-                        
                     }
                 }
             })

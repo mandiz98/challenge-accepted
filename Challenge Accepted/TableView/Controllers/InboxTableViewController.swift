@@ -7,18 +7,14 @@
 //
 
 import UIKit
+import Firebase
 
 class InboxTableViewController: UITableViewController  {
     
-    var inboxChallenges: [Challenge] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // MARK: - get inboxed challenges from database : AMANDA
-        inboxChallenges = [
-            Challenge(title: "String", description: "String", creator: userJacob,imageState: UIImage(named: "unread")!)
-        ]
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
@@ -54,10 +50,22 @@ class InboxTableViewController: UITableViewController  {
                 destination.challenge = challenge
             }
         }
+        if let destination = segue.destination as? SendViewController {
+            if let indexPath = sender as? IndexPath {
+                let challenge = inboxChallenges[indexPath.row]
+                destination.challenge = challenge
+            }
+        }
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "unreadSegue", sender: indexPath)
+        if inboxChallenges[indexPath.row].getStatus() == "unread"{
+            performSegue(withIdentifier: "unreadSegue", sender: indexPath)
+        }
+        if inboxChallenges[indexPath.row].getStatus() == "accepted" || inboxChallenges[indexPath.row].getStatus() == "pending"
+        {
+            performSegue(withIdentifier: "acceptedSegue", sender: indexPath)
+        }
     }
 
     /*
