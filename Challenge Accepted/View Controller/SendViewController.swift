@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class SendViewController: UIViewController {
 
@@ -27,7 +28,30 @@ class SendViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func sendPressed(_ sender: Any) {
+        var ref: DatabaseReference!
+        ref = Database.database().reference()
+        var challengeKey = ""
+        
+        ref.child("challenges").observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
+            if snapshot.childrenCount>0{
+                for challenge in snapshot.children.allObjects as! [DataSnapshot]{
+                    let attr = challenge.value as? [String:Any]
+                    if (attr!["receiverId"] as? String == globalUserID && attr!["title"] as? String == self.challengeTitle.text){
+                        challengeKey = challenge.key
+                        ref.child("challenges/\(challengeKey)/state").setValue("accepted")
+                    }
+                }
+            }
+        })
+        
+        if let navController = self.navigationController {
+            navController.popViewController(animated: false)
+            navController.popViewController(animated: true)
+            
+        }
+    }
+    
     /*
     // MARK: - Navigation
 
