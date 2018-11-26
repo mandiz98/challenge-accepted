@@ -9,12 +9,21 @@
 import UIKit
 import Firebase
 
-class SendViewController: UIViewController {
+class SendViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate{
 
     @IBOutlet weak var challengeTitle: UILabel!
     @IBOutlet weak var creator: UILabel!
     @IBOutlet weak var status: UIImageView!
     @IBOutlet weak var Description: UILabel!
+    @IBOutlet weak var addedImage: UIImageView!
+    
+    var imagePicker: UIImagePickerController!
+    var photoimage: UIImage!
+    
+    enum imageSource {
+        case camera
+        case photoLibrary
+    }
     
     var challenge = Challenge(title:"",description:"",creator: "",imageState: UIImage(named:"unread")!, state: Challenge.Status(rawValue: "unread")!)
     
@@ -26,6 +35,32 @@ class SendViewController: UIViewController {
         status.image = challenge.imageState
         Description.text = challenge.getDescription()
         // Do any additional setup after loading the view.
+    }
+    
+    func addNewPicture(_ source: imageSource) {
+        imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        switch source {
+        case .camera:
+            imagePicker.sourceType = .camera
+        case .photoLibrary:
+            imagePicker.sourceType = .photoLibrary
+        }
+        present(imagePicker,animated: true,completion: nil)
+    }
+    //Change button to be button in collection view
+    @IBAction func addNewPictureBtn(_ sender: Any) {
+        addNewPicture(.photoLibrary)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        imagePicker.dismiss(animated: true, completion: nil)
+        guard let selectedItem = info[.originalImage] as? UIImage else{
+            return print("image not found")
+        }
+        addedImage.image = selectedItem
+        photoimage = selectedItem
+        
     }
     
     @IBAction func sendPressed(_ sender: Any) {

@@ -12,7 +12,25 @@ import AVFoundation //The api we use are available in the AVFoundation framework
 class CameraViewController: UIViewController {
     
     
-    @IBOutlet var tapRecognizer: UITapGestureRecognizer!
+    /*
+    let cameraController = CameraController()
+    
+    override func viewDidLoad() {
+        func configureCameraController(){
+            cameraController.prepare {(error) in
+                if let error = error{
+                    print(error)
+                }
+                try? self.cameraController.displayPreview(on: self.capturePreviewView)
+            }
+        }
+        
+        configureCameraController()
+    }*/
+        
+    
+    ///DENNIS CAMERA
+    
     var tapGesture = UITapGestureRecognizer()
     //Koden som är "bortkommenterad" funkar troligen på mobilkamera.
     
@@ -47,7 +65,7 @@ class CameraViewController: UIViewController {
     @IBAction func cameraButton(_ sender: Any) {
         let settings = AVCapturePhotoSettings()
         photoOutput?.capturePhoto(with: settings, delegate: self)
-        //performSegue(withIdentifier: "photoSegue", sender: nil) //sender is the object we want to use to initiate the segue
+        performSegue(withIdentifier: "photoSegue", sender: nil) //sender is the object we want to use to initiate the segue
     }
     
     @objc func doubleTapped() {
@@ -125,8 +143,8 @@ class CameraViewController: UIViewController {
      }
      
      }
-    
-    /*func switchCamera(){
+    /*
+    func switchCamera(){
         switch currentPosition{
             case .unspecified, .back:
                 preferredPosition = .front
@@ -137,7 +155,7 @@ class CameraViewController: UIViewController {
                 preferredDeviceType = .builtInTrueDepthCamera
             }
         }
-   */
+*/
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "photoSegue"{
@@ -156,5 +174,6 @@ extension CameraViewController: AVCapturePhotoCaptureDelegate{
         
     }
 }
+
 
 
