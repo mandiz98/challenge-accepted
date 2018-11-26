@@ -43,14 +43,14 @@
                                 </userDefinedRuntimeAttributes>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="fL6-al-B9H"/>
                                         <exclude reference="Qlb-2Z-3PY"/>
+                                        <exclude reference="fL6-al-B9H"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=regular">
                                     <mask key="constraints">
-                                        <include reference="fL6-al-B9H"/>
                                         <include reference="Qlb-2Z-3PY"/>
+                                        <include reference="fL6-al-B9H"/>
                                     </mask>
                                 </variation>
                                 <connections>
