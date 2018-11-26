@@ -294,7 +294,7 @@
                                 <rect key="frame" x="32" y="404.5" width="311" height="230.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ScoreboardTableViewCell" rowHeight="118" id="vvi-fV-FW7">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ScoreboardTableViewCell" rowHeight="118" id="vvi-fV-FW7" customClass="ScoreboardTableViewCell" customModule="Challenge_Accepted" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="311" height="118"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vvi-fV-FW7" id="4HC-Ss-YCA">
@@ -335,8 +335,17 @@
                                                 <constraint firstItem="kDd-XM-3Fp" firstAttribute="top" secondItem="4HC-Ss-YCA" secondAttribute="top" constant="8" id="zZJ-hV-wm7"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="friendsImage" destination="kDd-XM-3Fp" id="8GO-cj-peO"/>
+                                            <outlet property="friendsName" destination="lHr-xg-kul" id="vgT-h8-r0i"/>
+                                            <outlet property="friendsScore" destination="lZL-AJ-2dL" id="iec-Sj-ZIJ"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="tfK-Jf-rDi" id="8KG-DW-cXg"/>
+                                    <outlet property="delegate" destination="tfK-Jf-rDi" id="3LB-Mh-76R"/>
+                                </connections>
                             </tableView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="16c-iK-813" customClass="RoundImageView" customModule="Challenge_Accepted" customModuleProvider="target">
                                 <rect key="frame" x="87.5" y="96" width="200" height="200"/>
