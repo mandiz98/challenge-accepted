@@ -26,7 +26,7 @@ class ProfileViewController: UIViewController{
         self.ProfileScore.text = "Score: \(profileCache.score ?? 0)"
         getFreindsID()
     }
-    
+
     
     func getFreindsID(){
         let parameters = ["fields": "id"]

@@ -5,16 +5,16 @@
 //  Created by Amanda Axelsson on 2018-10-29.
 //  Copyright © 2018 Amanda Axelsson. All rights reserved.
 //
-
+import Firebase
 import UIKit
 
 class HomeScreenViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // Do any additional setup after loading the view.
     }
+    
 
     @IBAction func CreateBtn(_ sender: UIButton) {
         performSegue(withIdentifier: "CreateChallengeSegue", sender: self)
