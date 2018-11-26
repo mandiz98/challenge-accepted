@@ -44,6 +44,18 @@ class SendViewController: UIViewController {
                 }
             }
         })
+        ref.child("users").observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
+            if snapshot.childrenCount>0{
+                for users in snapshot.children.allObjects as! [DataSnapshot]{
+                    if users.key == profileCache.userID{
+                        let attr = users.value as? [String:Any]
+                        let point = attr!["score"] as! integer_t + 100
+                        ref.child("users/\(users.key)/score").setValue(point)
+                    }
+
+                }
+            }
+        })
         
         if let navController = self.navigationController {
             navController.popViewController(animated: false)

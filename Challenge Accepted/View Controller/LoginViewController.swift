@@ -115,7 +115,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
             let data:[String:Any] = result as! [String : Any]
             //print(data["data"]!)
             
-            
+            names.removeAll()
             if let users = data["data"] as? [[String : Any]] {
                 for user in users {
                     names.append(user["id"] as! String)
