@@ -28,6 +28,18 @@ class ProfileViewController: UIViewController {
         
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
 //    override func didReceiveMemoryWarning() {
 //        getNameFromDatabase()
 //        getPicFromDatabase()
