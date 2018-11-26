@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FirebaseStorage
 
 class SendViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate{
 
@@ -93,6 +94,8 @@ class SendViewController: UIViewController, UINavigationControllerDelegate, UIIm
             }
         })
         
+        
+        
         if let navController = self.navigationController {
             navController.popViewController(animated: false)
             navController.popViewController(animated: true)
@@ -106,6 +109,18 @@ class SendViewController: UIViewController, UINavigationControllerDelegate, UIIm
             let points = value?["score"] as? Int
             profileCache.score = points
         })
+    }
+    
+    var imageReference: StorageReference {
+        return Storage.storage().reference().child("images")
+    }
+    
+    func saveImage(){
+        FirebaseApp.configure()
+        let storage = Storage.storage()
+        let storageRef = storage.reference()
+        let imagesRef = storageRef.child("images")
+        
     }
 }
     /*
