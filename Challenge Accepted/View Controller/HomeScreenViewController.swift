@@ -110,19 +110,7 @@ class HomeScreenViewController: UIViewController {
     
     @IBAction func ProfileBtn(_ sender: UIButton) {
         performSegue(withIdentifier: "ProfileSegue", sender: self)
-    }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ProfileSegue"{
-            let ref = Database.database().reference()
-            ref.child("users").child(profileCache.userID!).observeSingleEvent(of: .value, with: { (snapshot) in
-                let value = snapshot.value as? NSDictionary
-                let points = value?["score"] as? Int
-                profileCache.score = points
-                
-            })
-        }
-    }
-        
+    }        
     
 }
     /*

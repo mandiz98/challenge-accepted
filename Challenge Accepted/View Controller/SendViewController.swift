@@ -51,6 +51,7 @@ class SendViewController: UIViewController {
                         let attr = users.value as? [String:Any]
                         let point = attr!["score"] as! integer_t + 100
                         ref.child("users/\(users.key)/score").setValue(point)
+                        self.updateScore()
                     }
 
                 }
@@ -63,7 +64,15 @@ class SendViewController: UIViewController {
             
         }
     }
-    
+    func updateScore(){
+        let ref = Database.database().reference()
+        ref.child("users").child(profileCache.userID!).observeSingleEvent(of: .value, with: { (snapshot) in
+            let value = snapshot.value as? NSDictionary
+            let points = value?["score"] as? Int
+            profileCache.score = points
+        })
+    }
+}
     /*
     // MARK: - Navigation
 
@@ -74,4 +83,4 @@ class SendViewController: UIViewController {
     }
     */
 
-}
+
