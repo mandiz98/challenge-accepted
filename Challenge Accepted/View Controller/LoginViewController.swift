@@ -59,8 +59,8 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     @IBAction func startPressed(_ sender: Any) {
         if(fbLoginSuccess){
             UIButton.animate(withDuration: 1, animations:{
-                self.startButton.transform = CGAffineTransform(scaleX: -2, y: -2)
-                self.startButton.transform = CGAffineTransform(scaleX: 2, y: 2) 
+                self.startButton.transform = CGAffineTransform(scaleX: -1, y: -1)
+                self.startButton.transform = CGAffineTransform(scaleX: 1, y: 1) 
             }, completion:{
                 (finished: Bool) in
                 self.performSegue(withIdentifier: "loginSegue", sender: self)
