@@ -50,7 +50,7 @@ class CreateViewController: UIViewController {
                 print("Challenge added to database")
                 
                 for a in sendTo{
-                    ref.child("challenges").childByAutoId().setValue(["description": self.challengeDescription.text!, "title":self.challengeTitle.text!, "state": "unread", "creatorId": data["id"]!, "receiverId": a])
+                    ref.child("challenges").childByAutoId().setValue(["description": self.challengeDescription.text!, "title":self.challengeTitle.text!, "state": "unread", "creatorId": data["id"]!, "receiverId": a, "proof": ""])
                 }
                 
             }

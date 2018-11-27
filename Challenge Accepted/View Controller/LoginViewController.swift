@@ -17,8 +17,9 @@ var profileCache: Profile = Profile()
 
 class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     var fbLoginSuccess = false
-
-    
+    @IBOutlet weak var startButton: UIButton!
+    @IBOutlet weak var heightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var widthConstraint: NSLayoutConstraint!
     
     
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
@@ -30,8 +31,6 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
         print("utloggad")
     }
-    
-    
 
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
@@ -45,10 +44,8 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         }
     }
 
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        
 
         let loginButton = FBSDKLoginButton()
         loginButton.delegate = self
@@ -56,19 +53,35 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         loginButton.center = view.center
         
         view.addSubview(loginButton)
-        // Do any additional setup after loading the view.
-        
-        
-
-        
-        
     }
+   
     
     @IBAction func startPressed(_ sender: Any) {
         if(fbLoginSuccess){
-            performSegue(withIdentifier: "loginSegue", sender: self)
+            UIButton.animate(withDuration: 1, animations:{
+                self.startButton.transform = CGAffineTransform(scaleX: -2, y: -2)
+                self.startButton.transform = CGAffineTransform(scaleX: 2, y: 2) 
+            }, completion:{
+                (finished: Bool) in
+                self.performSegue(withIdentifier: "loginSegue", sender: self)
+            })
+        }
+        else{
+            showAlert(startButton)
         }
     }
+    
+    @IBAction func showAlert(_ sender: UIButton){
+        //create the alert
+        let alert = UIAlertController(title: "Error!", message: "Login to continue.", preferredStyle: UIAlertController.Style.alert)
+        
+        //Add Action
+        alert.addAction(UIAlertAction(title: "Ok",style: UIAlertAction.Style.default, handler: nil))
+        
+        //Show Alert
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     func fetchProfile(){
         var ref: DatabaseReference!
         
@@ -142,17 +155,4 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
             
         })
     }
-
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
