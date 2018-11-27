@@ -52,6 +52,7 @@ class SentTableViewController: UITableViewController {
             if let indexPath = sender as? IndexPath {
                 let challenge = sentChallenges[indexPath.row]
                 destination.challenge = challenge
+                destination.checkIfSentOrRecieved = 0
             }
         }
     }

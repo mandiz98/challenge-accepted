@@ -325,7 +325,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Score" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lZL-AJ-2dL">
-                                                    <rect key="frame" x="433" y="46" width="309" height="24"/>
+                                                    <rect key="frame" x="223" y="46" width="99" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -338,7 +338,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lHr-xg-kul">
-                                                    <rect key="frame" x="116" y="46" width="309" height="24"/>
+                                                    <rect key="frame" x="116" y="46" width="99" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1344,6 +1344,8 @@
                         <outlet property="StateImage" destination="Pai-Cq-o00" id="wGM-X6-DEm"/>
                         <outlet property="StateLabel" destination="r7m-kA-Dge" id="WR1-QD-rVX"/>
                         <outlet property="TitleLabel" destination="scd-R8-8pj" id="hXz-Kf-icx"/>
+                        <outlet property="recieverNameLabel" destination="mEC-T6-P74" id="M56-hR-7bZ"/>
+                        <outlet property="senderNameLabel" destination="cJC-Vm-L9H" id="gLa-kE-X7m"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UNC-ZY-hoO" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1392,7 +1394,7 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="O1o-uW-9L5"/>
+        <segue reference="SlA-fq-JEd"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
