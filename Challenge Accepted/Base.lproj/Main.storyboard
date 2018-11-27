@@ -328,7 +328,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Score" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lZL-AJ-2dL">
-                                                    <rect key="frame" x="281.5" y="47.5" width="44.5" height="20.5"/>
+                                                    <rect key="frame" x="281.5" y="48" width="44.5" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" name="YellowByAmanda"/>
                                                     <nil key="highlightedColor"/>
@@ -341,7 +341,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lHr-xg-kul">
-                                                    <rect key="frame" x="116" y="47.5" width="161.5" height="20.5"/>
+                                                    <rect key="frame" x="116" y="48" width="161.5" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" name="YellowByAmanda"/>
                                                     <nil key="highlightedColor"/>
@@ -724,6 +724,7 @@
                         <color key="badgeColor" name="YellowByAmanda"/>
                     </tabBarItem>
                     <connections>
+                        <outlet property="inboxTabel" destination="VDI-Xn-K56" id="WOP-9A-aAE"/>
                         <segue destination="8OZ-pN-DHO" kind="show" identifier="unreadSegue" id="USl-i9-K7j"/>
                         <segue destination="AcV-Ui-EtW" kind="show" identifier="acceptedSegue" id="FK5-N0-hgk"/>
                         <segue destination="Orf-1d-Slf" kind="show" identifier="doneSegue" id="O1o-uW-9L5"/>
@@ -1198,6 +1199,7 @@
                         <color key="badgeColor" name="YellowByAmanda"/>
                     </tabBarItem>
                     <connections>
+                        <outlet property="sentTabel" destination="zkM-iS-eHM" id="PbN-RA-Qvv"/>
                         <segue destination="Orf-1d-Slf" kind="show" identifier="pendingSegue" id="SlA-fq-JEd"/>
                     </connections>
                 </tableViewController>
@@ -1434,7 +1436,7 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="O1o-uW-9L5"/>
+        <segue reference="SlA-fq-JEd"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
