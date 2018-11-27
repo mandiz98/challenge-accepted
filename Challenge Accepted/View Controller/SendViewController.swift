@@ -8,6 +8,8 @@
 
 import UIKit
 import Firebase
+import FirebaseStorage
+
 
 class SendViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate{
 
@@ -19,6 +21,8 @@ class SendViewController: UIViewController, UINavigationControllerDelegate, UIIm
     
     var imagePicker: UIImagePickerController!
     var photoimage: UIImage!
+    var urlString = ""
+
     
     enum imageSource {
         case camera
@@ -60,43 +64,48 @@ class SendViewController: UIViewController, UINavigationControllerDelegate, UIIm
         }
         addedImage.image = selectedItem
         photoimage = selectedItem
-        
+        saveImage(image: selectedItem)
     }
     
     @IBAction func sendPressed(_ sender: Any) {
-        var ref: DatabaseReference!
-        ref = Database.database().reference()
-        var challengeKey = ""
-        
-        ref.child("challenges").observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
-            if snapshot.childrenCount>0{
-                for challenge in snapshot.children.allObjects as! [DataSnapshot]{
-                    let attr = challenge.value as? [String:Any]
-                    if (attr!["receiverId"] as? String == profileCache.userID && attr!["title"] as? String == self.challengeTitle.text){
-                        challengeKey = challenge.key
-                        ref.child("challenges/\(challengeKey)/state").setValue("accepted")
-                    }
-                }
-            }
-        })
-        ref.child("users").observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
-            if snapshot.childrenCount>0{
-                for users in snapshot.children.allObjects as! [DataSnapshot]{
-                    if users.key == profileCache.userID{
-                        let attr = users.value as? [String:Any]
-                        let point = attr!["score"] as! integer_t + 100
-                        ref.child("users/\(users.key)/score").setValue(point)
-                        self.updateScore()
-                    }
-
-                }
-            }
-        })
-        
-        if let navController = self.navigationController {
-            navController.popViewController(animated: false)
-            navController.popViewController(animated: true)
+        if(urlString != ""){
+            var ref: DatabaseReference!
+            ref = Database.database().reference()
+            var challengeKey = ""
             
+            ref.child("challenges").observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
+                if snapshot.childrenCount>0{
+                    for challenge in snapshot.children.allObjects as! [DataSnapshot]{
+                        let attr = challenge.value as? [String:Any]
+                        if (attr!["receiverId"] as? String == profileCache.userID && attr!["title"] as? String == self.challengeTitle.text){
+                            challengeKey = challenge.key
+                            ref.child("challenges/\(challengeKey)/state").setValue("accepted")
+                            ref.child("challenges/\(challengeKey)/proof").setValue(self.urlString)
+                        }
+                    }
+                }
+            })
+            ref.child("users").observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
+                if snapshot.childrenCount>0{
+                    for users in snapshot.children.allObjects as! [DataSnapshot]{
+                        if users.key == profileCache.userID{
+                            let attr = users.value as? [String:Any]
+                            let point = attr!["score"] as! integer_t + 100
+                            ref.child("users/\(users.key)/score").setValue(point)
+                            self.updateScore()
+                        }
+
+                    }
+                }
+            })
+            
+            
+            
+            if let navController = self.navigationController {
+                navController.popViewController(animated: false)
+                navController.popViewController(animated: true)
+                
+            }
         }
     }
     func updateScore(){
@@ -106,6 +115,38 @@ class SendViewController: UIViewController, UINavigationControllerDelegate, UIIm
             let points = value?["score"] as? Int
             profileCache.score = points
         })
+    }
+    
+    var imageReference: StorageReference {
+        return Storage.storage().reference().child("images")
+    }
+    
+    func saveImage(image: UIImage){
+        let storage = Storage.storage()
+        let storageRef = storage.reference()
+        let imagesRef = storageRef.child("images")
+        let random = NSUUID().uuidString
+
+        let finalImage = imagesRef.child(random+".jpg")
+        
+        let data = image.jpegData(compressionQuality: 0.5)!
+        
+         finalImage.putData(data, metadata: nil) { (metadata, error) in
+            if let error = error{
+                print(error)
+            }
+            
+            // Metadata contains file metadata such as size, content-type.
+            //let size = metadata.size
+            // You can also access to download URL after upload.
+            finalImage.downloadURL { (url, error) in
+                guard let downloadURL = url else {
+                    // Uh-oh, an error occurred!
+                    return
+                }
+                self.urlString = downloadURL.absoluteString
+            }
+        }
     }
 }
     /*
