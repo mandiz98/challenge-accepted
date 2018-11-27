@@ -15,9 +15,6 @@ class SentTableViewController: UITableViewController {
     @IBOutlet var sentTabel: UITableView!
     
     override func viewDidAppear(_ animated: Bool) {
-        super.viewDidLoad()
-        
-        
         var ref: DatabaseReference!
         var sentState=""
         ref = Database.database().reference()

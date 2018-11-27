@@ -16,11 +16,7 @@ class InboxTableViewController: UITableViewController{
 
     
     @IBOutlet var inboxTabel: UITableView!
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidLoad()
-        
-        
-        
+    override func viewDidAppear(_ animated: Bool) {        
         var ref: DatabaseReference!
         var inboxState=""
         ref = Database.database().reference()
