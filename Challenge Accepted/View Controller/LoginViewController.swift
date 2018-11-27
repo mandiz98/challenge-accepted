@@ -66,6 +66,20 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
                 self.performSegue(withIdentifier: "loginSegue", sender: self)
             })
         }
+        else{
+            showAlert(startButton)
+        }
+    }
+    
+    @IBAction func showAlert(_ sender: UIButton){
+        //create the alert
+        let alert = UIAlertController(title: "Error!", message: "Login to continue.", preferredStyle: UIAlertController.Style.alert)
+        
+        //Add Action
+        alert.addAction(UIAlertAction(title: "Ok",style: UIAlertAction.Style.default, handler: nil))
+        
+        //Show Alert
+        self.present(alert, animated: true, completion: nil)
     }
     
     func fetchProfile(){
