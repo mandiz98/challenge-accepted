@@ -7,12 +7,60 @@
 //
 
 import UIKit
+import Firebase
 
 class SentTableViewController: UITableViewController {
-    
+    var sentChallenges: [Challenge] = []
+
+    @IBOutlet var sentTabel: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        var ref: DatabaseReference!
+        var sentState=""
+        ref = Database.database().reference()
+        
+        ref.child("challenges").observe(DataEventType.value, with: { (snapshot) in
+            if snapshot.childrenCount>0{
+                self.sentChallenges = []
+                for challenge in snapshot.children.allObjects as! [DataSnapshot]{
+                    let attr = challenge.value as? [String:Any]
+                    if attr!["creatorId"] as? String == profileCache.userID{
+                        var sentName = ""
+                        
+                        ref.child("users").observe(DataEventType.value, with: { (snapshot) in
+                            if snapshot.childrenCount>0{
+                                for user in snapshot.children.allObjects as! [DataSnapshot]{
+                                    if user.key == attr!["receiverId"] as! String{
+                                        let attr2 = user.value as? [String:Any]
+                                        sentName = attr2!["fname"] as! String
+                                        if attr!["state"] as! String == "accepted"{
+                                            sentState="accepted"
+                                        }
+                                        if attr!["state"] as! String == "pending"{
+                                            sentState="pending"
+                                        }
+                                        if attr!["state"] as! String == "done"{
+                                            sentState="done"
+                                        }
+                                        if attr!["state"] as! String == "unread"{
+                                            sentState="unread"
+                                        }
+                                        self.sentChallenges.append(Challenge(title: attr!["title"] as! String, description: attr!["description"] as! String, creator: sentName,imageState: UIImage(named: sentState)!, state: Challenge.Status(rawValue: sentState)!, proof: attr!["proof"] as! String))
+                                    }
+                                    self.sentTabel.reloadData()
+
+                                }
+                                
+                            }
+                        })
+                        
+                    }
+                }
+            }
+        })
 
         //sentTableView.tableFooterView = UIView()
 
@@ -29,11 +77,11 @@ class SentTableViewController: UITableViewController {
         return 1
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ sentTabel: UITableView, numberOfRowsInSection section: Int) -> Int {
         return sentChallenges.count
     }
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ sentTabel: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "SentTableViewCell", for: indexPath) as? SentTableViewCell{
             let challenge = sentChallenges[indexPath.row]
             cell.nameLabel.text = challenge.getCreator()
@@ -57,7 +105,7 @@ class SentTableViewController: UITableViewController {
         }
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    override func tableView(_ sentTabel: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "pendingSegue", sender: indexPath)
     }
 

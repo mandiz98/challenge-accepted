@@ -54,7 +54,19 @@ class SendViewController: UIViewController, UINavigationControllerDelegate, UIIm
     }
     //Change button to be button in collection view
     @IBAction func addNewPictureBtn(_ sender: Any) {
-        addNewPicture(.photoLibrary)
+            // create the alert
+        let alert = UIAlertController(title: "Picture from:", message: "", preferredStyle: UIAlertController.Style.alert)
+            
+        // add the actions (buttons)
+        alert.addAction(UIAlertAction(title: "PhotoLibrary", style: UIAlertAction.Style.default, handler: {action in self.addNewPicture(.photoLibrary)}))
+        alert.addAction(UIAlertAction(title: "Camera", style: UIAlertAction.Style.default, handler: {action in
+            self.addNewPicture(.camera)
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
+            
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
+        
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
