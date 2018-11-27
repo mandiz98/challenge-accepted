@@ -15,6 +15,7 @@ import Firebase
 class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var friendsID: [String] = []
+    var friendInfo: [User] = []
     
     @IBOutlet weak var ProfilePicture: UIImageView!
     @IBOutlet weak var ProfileName: UILabel!
@@ -23,7 +24,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        listFriends()
+        listFriendsID()
         print("********\nIn viewDidLoad\n*******", self.friendsID.count)
         self.ProfileName.text = profileCache.name
         self.ProfilePicture.image = profileCache.image
@@ -33,8 +34,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         
     }
     
-    func listFriends(){
-        
+    func listFriendsID(){
         let parameters = ["fields": "id"]
         friendsID.append(profileCache.userID ?? "")
         FBSDKGraphRequest(graphPath: "/me/friends", parameters: parameters).start{
@@ -44,40 +44,55 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
                 return
             }
             let data:[String:Any] = result as! [String : Any]
-            if let friends = data["data"] as? [[String : Any]]{
-                for friend in friends {
+            if let friendIDs = data["data"] as? [[String : Any]]{
+                for friend in friendIDs {
                     self.friendsID.append(friend["id"] as! String)
                     print("*****\n Listing friends\n*****" ,self.friendsID, self.friendsID.count)
                 }
             }
-            self.scoreTableView.reloadData()
+            //self.scoreTableView.reloadData()
+            self.createListForCell()
         }
     }
-    
-    
-    func tableView(_ scoreTableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("******\n1***********", self.friendsID.count)
-        return self.friendsID.count
-    }
-    
-    func tableView(_ scoreTableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print("TEST NR 2*******\n*******\n*******\n******")
-        if let cell = scoreTableView.dequeueReusableCell(withIdentifier: "ScoreboardTableViewCell", for: indexPath) as? ScoreboardTableViewCell{
-            let friend = self.friendsID[indexPath.row]
+    func createListForCell(){
+        for friend in friendsID{
             let ref = Database.database().reference()
             ref.child("users").child(friend).observe(DataEventType.value, with: { (snapshot) in
                 let value = snapshot.value as? NSDictionary
                 let name = "\(value?["fname"] as! String) \(value?["lname"] as! String)"
                 let points = value?["score"] as? Int
+                ref.child("users").child(friend).child("profileImage").child("data").observeSingleEvent(of: .value, with: { (snapshot) in
+                    let value = snapshot.value as? NSDictionary
+                    let imageURL = value?["url"]
+                    let data = NSData(contentsOf: URL(string: imageURL! as! String)!)
+                    let friend: User = User(name: name, score: points ?? 0, image: UIImage(data: data! as Data))
+                    self.friendInfo.append(friend)
+                    print("creating friendsList\n**********", self.friendInfo.count)
+                    if self.friendInfo.count == self.friendsID.count{
+                        self.friendInfo.sort(by: { $0.score > $1.score } )
+                        self.scoreTableView.reloadData()
+                    }
+                })
+            })
+            
+        }
+        
+    }
+    
+    func tableView(_ scoreTableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("******\n1***********", self.friendsID.count)
+        return self.friendInfo.count
+    }
+    
+    func tableView(_ scoreTableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        print("TEST NR 2*******\n*******\n*******\n******")
+        if let cell = scoreTableView.dequeueReusableCell(withIdentifier: "ScoreboardTableViewCell", for: indexPath) as? ScoreboardTableViewCell{
+                let name = friendInfo[indexPath.row].name
+                let points = friendInfo[indexPath.row].score
+                let image = friendInfo[indexPath.row].image
                 cell.friendsName.text = name
-                cell.friendsScore.text = "\(points ?? 0)"
-            })
-            ref.child("users").child(friend).child("profileImage").child("data").observeSingleEvent(of: .value, with: { (snapshot) in
-                let value = snapshot.value as? NSDictionary
-                let imageURL = value?["url"]
-                let data = NSData(contentsOf: URL(string: imageURL! as! String)!)
-                cell.friendsImage.image = UIImage(data: data! as Data)
-            })
+                cell.friendsScore.text = "\(points)"
+                cell.friendsImage.image = image
             print("********Testar*********\n*****Testar*****\n*****Testar****", cell.friendsName, cell.friendsScore)
             return cell
         }
@@ -86,6 +101,28 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
 }
+
+//**************************
+//let friend = self.friendsID[indexPath.row]
+//let ref = Database.database().reference()
+//ref.child("users").child(friend).observe(DataEventType.value, with: { (snapshot) in
+//    let value = snapshot.value as? NSDictionary
+//    let name = "\(value?["fname"] as! String) \(value?["lname"] as! String)"
+//    let points = value?["score"] as? Int
+//***************************
+//ref.child("users").child(friend).child("profileImage").child("data").observeSingleEvent(of: .value, with: { (snapshot) in
+//    let value = snapshot.value as? NSDictionary
+//    let imageURL = value?["url"]
+//    let data = NSData(contentsOf: URL(string: imageURL! as! String)!)
+//    cell.friendsImage.image = UIImage(data: data! as Data)
+//})
+//*************************
+
+
+
+
+
+
 
 //    func getFacebookName(){
 //        let parameters = ["fields": "first_name, last_name"]
