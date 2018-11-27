@@ -53,9 +53,7 @@ class InboxDetailViewController: UIViewController {
         })
         
         if let navController = self.navigationController {
-            navController.popViewController(animated: false)
             navController.popViewController(animated: true)
-            
         }
 
     }
@@ -77,7 +75,6 @@ class InboxDetailViewController: UIViewController {
         })
         
         if let navController = self.navigationController {
-            navController.popViewController(animated: false)
             navController.popViewController(animated: true)
 
         }

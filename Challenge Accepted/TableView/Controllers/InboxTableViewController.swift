@@ -16,7 +16,7 @@ class InboxTableViewController: UITableViewController{
 
     
     @IBOutlet var inboxTabel: UITableView!
-    override func viewDidLoad() {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidLoad()
         
         
