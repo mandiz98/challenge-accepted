@@ -642,7 +642,9 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="VDI-Xn-K56">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="SecondaryGrayByAmanda"/>
+                        <color key="sectionIndexColor" name="YellowByAmanda"/>
+                        <color key="sectionIndexBackgroundColor" name="SecondaryGrayByAmanda"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="InboxTableViewCell" rowHeight="164" id="uZ4-kB-bTQ" customClass="InboxTableViewCell" customModule="Challenge_Accepted" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="164"/>
@@ -1114,7 +1116,9 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="zkM-iS-eHM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="SecondaryGrayByAmanda"/>
+                        <color key="sectionIndexColor" name="YellowByAmanda"/>
+                        <color key="sectionIndexBackgroundColor" name="SecondaryGrayByAmanda"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SentTableViewCell" rowHeight="164" id="R9R-xB-3hM" customClass="SentTableViewCell" customModule="Challenge_Accepted" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="164"/>

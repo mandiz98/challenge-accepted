@@ -18,16 +18,29 @@ class HomeScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        
+       
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        
+        let alert = UIAlertController(title: nil, message: "Please wait...", preferredStyle: .alert)
+        
+        let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
+        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.style = UIActivityIndicatorView.Style.gray
+        loadingIndicator.startAnimating();
+        
+        alert.view.addSubview(loadingIndicator)
+        present(alert, animated: true, completion: nil)
+        
         var ref: DatabaseReference!
+        var sentState=""
+        var inboxState=""
         ref = Database.database().reference()
         inboxChallenges = []
         sentChallenges = []
-        var sentState=""
-        var inboxState=""
-        
         ref.child("challenges").observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
             if snapshot.childrenCount>0{
                 for challenge in snapshot.children.allObjects as! [DataSnapshot]{
@@ -35,7 +48,7 @@ class HomeScreenViewController: UIViewController {
                     if attr!["receiverId"] as? String == profileCache.userID{
                         var creatorName = ""
                         
-                        ref.child("users").observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
+                        ref.child("users").observe(DataEventType.value, with: { (snapshot) in
                             if snapshot.childrenCount>0{
                                 for user in snapshot.children.allObjects as! [DataSnapshot]{
                                     if user.key == attr!["creatorId"] as! String{
@@ -101,8 +114,16 @@ class HomeScreenViewController: UIViewController {
                     }
                 }
             }
+            self.killalert()
         })
+        
     }
+    
+    func killalert(){
+        dismiss(animated: false, completion: nil)
+    }
+    
+
 
     @IBAction func CreateBtn(_ sender: UIButton) {
         performSegue(withIdentifier: "CreateChallengeSegue", sender: self)
