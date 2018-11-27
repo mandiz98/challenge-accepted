@@ -110,7 +110,9 @@ class HomeScreenViewController: UIViewController {
     
     @IBAction func ProfileBtn(_ sender: UIButton) {
         performSegue(withIdentifier: "ProfileSegue", sender: self)
+        
     }
+    
 }
 
 

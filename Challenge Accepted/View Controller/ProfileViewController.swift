@@ -12,7 +12,7 @@ import FBSDKCoreKit
 import Firebase
 
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var friendsID: [String] = []
     
@@ -22,21 +22,21 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var scoreTableView: UITableView!
     
     override func viewDidLoad() {
-        listFriends()
         super.viewDidLoad()
-        
+        listFriends()
+        print("********\nIn viewDidLoad\n*******", self.friendsID.count)
         self.ProfileName.text = profileCache.name
         self.ProfilePicture.image = profileCache.image
         self.ProfileScore.text = "Score: \(profileCache.score ?? 0)"
         scoreTableView.tableFooterView = UIView()
         
+        
     }
     
-}
-extension ProfileViewController: UITableViewDelegate, UITableViewDataSource{
-    
     func listFriends(){
+        
         let parameters = ["fields": "id"]
+        friendsID.append(profileCache.userID ?? "")
         FBSDKGraphRequest(graphPath: "/me/friends", parameters: parameters).start{
             (connection, result, err) in
             if err != nil{
@@ -50,21 +50,22 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource{
                     print("*****\n Listing friends\n*****" ,self.friendsID, self.friendsID.count)
                 }
             }
+            self.scoreTableView.reloadData()
         }
     }
     
+    
     func tableView(_ scoreTableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("*******\n*******\n*******\n******:", friendsID.count)
-        return friendsID.count
+        print("******\n1***********", self.friendsID.count)
+        return self.friendsID.count
     }
     
     func tableView(_ scoreTableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        print("2*******\n*******\n*******\n******")
-        if let cell = scoreTableView.dequeueReusableCell(withIdentifier: "scoreboardTableViewCell", for: indexPath) as? ScoreboardTableViewCell{
-            let friend = friendsID[indexPath.row]
+        print("TEST NR 2*******\n*******\n*******\n******")
+        if let cell = scoreTableView.dequeueReusableCell(withIdentifier: "ScoreboardTableViewCell", for: indexPath) as? ScoreboardTableViewCell{
+            let friend = self.friendsID[indexPath.row]
             let ref = Database.database().reference()
-            ref.child("users").child(friend).observeSingleEvent(of: .value, with: { (snapshot) in
+            ref.child("users").child(friend).observe(DataEventType.value, with: { (snapshot) in
                 let value = snapshot.value as? NSDictionary
                 let name = "\(value?["fname"] as! String) \(value?["lname"] as! String)"
                 let points = value?["score"] as? Int
