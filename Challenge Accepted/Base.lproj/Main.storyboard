@@ -1371,6 +1371,8 @@
                         <outlet property="StateImage" destination="Pai-Cq-o00" id="wGM-X6-DEm"/>
                         <outlet property="StateLabel" destination="r7m-kA-Dge" id="WR1-QD-rVX"/>
                         <outlet property="TitleLabel" destination="scd-R8-8pj" id="hXz-Kf-icx"/>
+                        <outlet property="recieverNameLabel" destination="mEC-T6-P74" id="M56-hR-7bZ"/>
+                        <outlet property="senderNameLabel" destination="cJC-Vm-L9H" id="gLa-kE-X7m"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UNC-ZY-hoO" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -46,10 +46,12 @@ class InboxTableViewController: UITableViewController{
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         if let destination = segue.destination as? InboxDetailViewController {
             if let indexPath = sender as? IndexPath {
                 let challenge = inboxChallenges[indexPath.row]
                 destination.challenge = challenge
+                
             }
         }
         if let destination = segue.destination as? SendViewController {
@@ -62,6 +64,7 @@ class InboxTableViewController: UITableViewController{
             if let indexPath = sender as? IndexPath {
                 let challenge = inboxChallenges[indexPath.row]
                 destination.challenge = challenge
+                destination.checkIfSentOrRecieved = 1
             }
         }
     }
