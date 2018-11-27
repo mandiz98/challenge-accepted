@@ -54,7 +54,7 @@ class SendViewController: UIViewController, UINavigationControllerDelegate, UIIm
     }
     //Change button to be button in collection view
     @IBAction func addNewPictureBtn(_ sender: Any) {
-        addNewPicture(.photoLibrary)
+        addNewPicture(.camera)
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {

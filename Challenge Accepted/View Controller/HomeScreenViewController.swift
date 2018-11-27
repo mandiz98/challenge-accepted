@@ -35,7 +35,7 @@ class HomeScreenViewController: UIViewController {
                     if attr!["receiverId"] as? String == profileCache.userID{
                         var creatorName = ""
                         
-                        ref.child("users").observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
+                        ref.child("users").observe(DataEventType.value, with: { (snapshot) in
                             if snapshot.childrenCount>0{
                                 for user in snapshot.children.allObjects as! [DataSnapshot]{
                                     if user.key == attr!["creatorId"] as! String{
