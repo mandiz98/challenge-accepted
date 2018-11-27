@@ -53,7 +53,7 @@ class HomeScreenViewController: UIViewController {
                                         if attr!["state"] as! String == "unread"{
                                             inboxState="unread"
                                         }
-                                        inboxChallenges.append(Challenge(title: attr!["title"] as! String, description: attr!["description"] as! String, creator: creatorName,imageState: UIImage(named: inboxState)!, state: Challenge.Status(rawValue: inboxState)!))
+                                        inboxChallenges.append(Challenge(title: attr!["title"] as! String, description: attr!["description"] as! String, creator: creatorName,imageState: UIImage(named: inboxState)!, state: Challenge.Status(rawValue: inboxState)!, proof: attr!["proof"] as! String))
                                     }
                                 }
                                 
@@ -91,7 +91,7 @@ class HomeScreenViewController: UIViewController {
                                         if attr!["state"] as! String == "unread"{
                                             sentState="unread"
                                         }
-                                        sentChallenges.append(Challenge(title: attr!["title"] as! String, description: attr!["description"] as! String, creator: sentName,imageState: UIImage(named: sentState)!, state: Challenge.Status(rawValue: sentState)!))
+                                        sentChallenges.append(Challenge(title: attr!["title"] as! String, description: attr!["description"] as! String, creator: sentName,imageState: UIImage(named: sentState)!, state: Challenge.Status(rawValue: sentState)!, proof: attr!["proof"] as! String))
                                     }
                                 }
                                 

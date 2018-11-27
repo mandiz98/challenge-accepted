@@ -29,7 +29,7 @@ class SendViewController: UIViewController, UINavigationControllerDelegate, UIIm
         case photoLibrary
     }
     
-    var challenge = Challenge(title:"",description:"",creator: "",imageState: UIImage(named:"unread")!, state: Challenge.Status(rawValue: "unread")!)
+    var challenge = Challenge(title:"",description:"",creator: "",imageState: UIImage(named:"unread")!, state: Challenge.Status(rawValue: "unread")!,proof:"")
     
     override func viewDidLoad() {
         super.viewDidLoad()

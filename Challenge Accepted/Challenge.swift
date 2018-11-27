@@ -16,6 +16,7 @@ class Challenge {
     var description: String
     var state: Status
     var imageState: UIImage
+    var proof: String
     enum Status: String{
         case accepted = "accepted"
         case denied = "denied"
@@ -23,12 +24,13 @@ class Challenge {
         case pending = "pending"
     }
     
-    init(title: String, description: String, creator: String, imageState: UIImage, state: Status){
+    init(title: String, description: String, creator: String, imageState: UIImage, state: Status, proof: String){
         self.creator = creator
         self.title = title
         self.description = description
         self.imageState = imageState
         self.state = state
+        self.proof = proof
     }
     
     

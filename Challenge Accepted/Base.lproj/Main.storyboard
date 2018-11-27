@@ -1347,6 +1347,7 @@
                         <outlet property="StateImage" destination="Pai-Cq-o00" id="wGM-X6-DEm"/>
                         <outlet property="StateLabel" destination="r7m-kA-Dge" id="WR1-QD-rVX"/>
                         <outlet property="TitleLabel" destination="scd-R8-8pj" id="hXz-Kf-icx"/>
+                        <outlet property="imageProof" destination="adq-4z-RD8" id="Eie-oZ-6MN"/>
                         <outlet property="recieverNameLabel" destination="mEC-T6-P74" id="M56-hR-7bZ"/>
                         <outlet property="senderNameLabel" destination="cJC-Vm-L9H" id="gLa-kE-X7m"/>
                     </connections>
@@ -1397,7 +1398,7 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="SlA-fq-JEd"/>
+        <segue reference="O1o-uW-9L5"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
