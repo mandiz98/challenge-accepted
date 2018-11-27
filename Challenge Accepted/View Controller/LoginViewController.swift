@@ -12,6 +12,7 @@ import FacebookCore
 import FBSDKCoreKit
 import FBSDKLoginKit
 import Firebase
+import UserNotifications
 
 var profileCache: Profile = Profile()
 
@@ -20,7 +21,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var heightConstraint: NSLayoutConstraint!
     @IBOutlet weak var widthConstraint: NSLayoutConstraint!
-    
+    let center = UNUserNotificationCenter.current()
     
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
         print("inloggad")
@@ -52,9 +53,22 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         loginButton.readPermissions = ["email", "public_profile", "user_friends"]
         loginButton.center = view.center
         
+        let options: UNAuthorizationOptions = [.alert, .sound]
+    
+        center.requestAuthorization(options: options) {
+            (granted, error) in if !granted {
+                print("Something went wrong")
+            }
+        }
+        
+        center.getNotificationSettings { (settings) in
+            if settings.authorizationStatus != .authorized{
+                //Notifications not allowed
+            }                                                                                                           
+        }
+        
         view.addSubview(loginButton)
     }
-   
     
     @IBAction func startPressed(_ sender: Any) {
         if(fbLoginSuccess){
