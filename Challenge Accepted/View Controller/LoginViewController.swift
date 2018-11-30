@@ -13,6 +13,7 @@ import FBSDKCoreKit
 import FBSDKLoginKit
 import Firebase
 
+
 var profileCache: Profile = Profile()
 
 class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
@@ -21,7 +22,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     @IBOutlet weak var heightConstraint: NSLayoutConstraint!
     @IBOutlet weak var widthConstraint: NSLayoutConstraint!
     
-    
+    // If user completes logging in with facebook, we fetch the profile data and sets success to true.
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
         print("inloggad")
         fbLoginSuccess = true
@@ -32,9 +33,9 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         print("utloggad")
     }
 
+    
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-
         if FBSDKAccessToken.currentAccessTokenIsActive() {
             // User is logged in, use 'accessToken' here.
             fbLoginSuccess = true
@@ -46,18 +47,17 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         let loginButton = FBSDKLoginButton()
         loginButton.delegate = self
         loginButton.readPermissions = ["email", "public_profile", "user_friends"]
         loginButton.center = view.center
-        
         view.addSubview(loginButton)
     }
    
     
     @IBAction func startPressed(_ sender: Any) {
         if(fbLoginSuccess){
+            // MARK: Animation
             UIButton.animate(withDuration: 1, animations:{
                 self.startButton.transform = CGAffineTransform(scaleX: -1, y: -1)
                 self.startButton.transform = CGAffineTransform(scaleX: 1, y: 1) 
@@ -84,24 +84,20 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     
     func fetchProfile(){
         var ref: DatabaseReference!
-        
         ref = Database.database().reference()
         let parameters = ["fields": "first_name, last_name, email, id, picture.width(512).height(512)"]
-
         
+        // MARK: Facebook data request.
         FBSDKGraphRequest(graphPath: "/me", parameters: parameters).start{
             (connection, result, err) in
-            
             if err != nil{
                 print(err!)
                 return
             }
-            
             let data:[String:Any] = result as! [String : Any]
             
-            // ***** USING GLOBAL VARIABLE FOR DATABASE USER ID!!! *****
-            //globalUserID = data["id"] as! String
-
+            // MARK: Add user to database
+            // If the the user is not in the database, we take the facebook data and add the user to our database.
             ref.child("users").observeSingleEvent(of: .value, with: { (snapshot) in
                 if snapshot.hasChild(data["id"] as! String){
                     
