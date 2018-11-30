@@ -12,6 +12,7 @@
 		027DC32A219211D900D6520E /* SentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027DC329219211D900D6520E /* SentTableViewCell.swift */; };
 		027DC32D2192124A00D6520E /* InboxTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027DC32C2192124A00D6520E /* InboxTableViewCell.swift */; };
 		027DC3312192181100D6520E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027DC3302192181100D6520E /* ProfileViewController.swift */; };
+		0294696F21B13A250015AE5C /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0294696E21B13A250015AE5C /* Notification.swift */; };
 		02A63D192195AAC4004E11C9 /* SentDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A63D182195AAC4004E11C9 /* SentDetailViewController.swift */; };
 		02A63D1B2195AAD5004E11C9 /* InboxDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A63D1A2195AAD5004E11C9 /* InboxDetailViewController.swift */; };
 		02B19E42218730EF00118C70 /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B19E41218730EF00118C70 /* HomeScreenViewController.swift */; };
@@ -42,6 +43,7 @@
 		027DC329219211D900D6520E /* SentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentTableViewCell.swift; sourceTree = "<group>"; };
 		027DC32C2192124A00D6520E /* InboxTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxTableViewCell.swift; sourceTree = "<group>"; };
 		027DC3302192181100D6520E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		0294696E21B13A250015AE5C /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		02A63D182195AAC4004E11C9 /* SentDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentDetailViewController.swift; sourceTree = "<group>"; };
 		02A63D1A2195AAD5004E11C9 /* InboxDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxDetailViewController.swift; sourceTree = "<group>"; };
 		02B19E41218730EF00118C70 /* HomeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewController.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 				D7661A702199BA8C00405E18 /* GoogleService-Info.plist */,
 				D76E76CE219B23F50040A702 /* FriendCollectionViewCell.swift */,
 				D643D2C721A4336200A5FDF1 /* Profile.swift */,
+				0294696E21B13A250015AE5C /* Notification.swift */,
 			);
 			path = "Challenge Accepted";
 			sourceTree = "<group>";
@@ -347,6 +350,7 @@
 				D7DD625E21A4652E003EC1B3 /* SendViewController.swift in Sources */,
 				D6F8F4BE2191DE6100F30CE8 /* CreateViewController.swift in Sources */,
 				02A63D1B2195AAD5004E11C9 /* InboxDetailViewController.swift in Sources */,
+				0294696F21B13A250015AE5C /* Notification.swift in Sources */,
 				027DC3312192181100D6520E /* ProfileViewController.swift in Sources */,
 				02A63D192195AAC4004E11C9 /* SentDetailViewController.swift in Sources */,
 				027DC32A219211D900D6520E /* SentTableViewCell.swift in Sources */,
@@ -510,13 +514,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = RZ74CWU858;
+				DEVELOPMENT_TEAM = XW37HS7W2A;
 				INFOPLIST_FILE = "Challenge Accepted/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "AmandaA.Challenge-Accepted";
+				PRODUCT_BUNDLE_IDENTIFIER = "AmandaAxelsson.Challenge-Accepted";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
@@ -531,13 +535,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = RZ74CWU858;
+				DEVELOPMENT_TEAM = XW37HS7W2A;
 				INFOPLIST_FILE = "Challenge Accepted/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "AmandaA.Challenge-Accepted";
+				PRODUCT_BUNDLE_IDENTIFIER = "AmandaAxelsson.Challenge-Accepted";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;

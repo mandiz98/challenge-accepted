@@ -64,7 +64,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         center.getNotificationSettings { (settings) in
             if settings.authorizationStatus != .authorized{
                 //Notifications not allowed
-            }                                                                                                           
+            }
         }
         
         view.addSubview(loginButton)
