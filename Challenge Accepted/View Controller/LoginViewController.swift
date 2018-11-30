@@ -18,11 +18,17 @@ import UserNotifications
 var profileCache: Profile = Profile()
 
 class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
-    var fbLoginSuccess = false
+    
+    // MARK: Outlets
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var heightConstraint: NSLayoutConstraint!
     @IBOutlet weak var widthConstraint: NSLayoutConstraint!
+    
+    // MARK: Variables
+    var fbLoginSuccess = false
     let center = UNUserNotificationCenter.current()
+    
+    // MARK: Functions
     
     // If user completes logging in with facebook, we fetch the profile data and sets success to true.
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
@@ -30,12 +36,9 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         fbLoginSuccess = true
         fetchProfile()
     }
-    
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
         print("utloggad")
     }
-
-    
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         if FBSDKAccessToken.currentAccessTokenIsActive() {
@@ -55,19 +58,16 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         loginButton.center = view.center
         
         let options: UNAuthorizationOptions = [.alert, .sound]
-    
         center.requestAuthorization(options: options) {
             (granted, error) in if !granted {
                 print("Something went wrong")
             }
         }
-        
         center.getNotificationSettings { (settings) in
             if settings.authorizationStatus != .authorized{
                 //Notifications not allowed
             }
         }
-        
         view.addSubview(loginButton)
     }
     
@@ -87,14 +87,11 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         }
     }
     
+    
     @IBAction func showAlert(_ sender: UIButton){
-        //create the alert
+        // MARK: Login alert.
         let alert = UIAlertController(title: "Error!", message: "Login to continue.", preferredStyle: UIAlertController.Style.alert)
-        
-        //Add Action
         alert.addAction(UIAlertAction(title: "Ok",style: UIAlertAction.Style.default, handler: nil))
-        
-        //Show Alert
         self.present(alert, animated: true, completion: nil)
     }
     
@@ -115,9 +112,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
             // MARK: Add user to database
             // If the the user is not in the database, we take the facebook data and add the user to our database.
             ref.child("users").observeSingleEvent(of: .value, with: { (snapshot) in
-                if snapshot.hasChild(data["id"] as! String){
-                    print("User exist")
-                }else{
+                if  !snapshot.hasChild(data["id"] as! String){
                     print("User added to database")
                     ref.child("users").child(data["id"] as! String).setValue(["fname": data["first_name"], "lname":data["last_name"], "email":data["email"], "score":0, "profileImage":data["picture"]])
                 }
@@ -127,14 +122,11 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         
         FBSDKGraphRequest(graphPath: "/me/friends", parameters: parameters).start{
             (connection, result, err) in
-            
             if err != nil{
                 print(err!)
                 return
             }
-            
             let data:[String:Any] = result as! [String : Any]
-        
             names.removeAll()
             if let users = data["data"] as? [[String : Any]] {
                 for user in users {
@@ -146,6 +138,8 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     }
     
     func cacheProfile(ref: DatabaseReference, userID: String){
+        // MARK: Caching userdata
+        // Fetching userdata from the database and adding it to the cache object.
         ref.child("users").child(userID).child("profileImage").child("data").observeSingleEvent(of: .value, with: { (snapshot) in
             let value = snapshot.value as? NSDictionary
             let imageURL = value?["url"]
