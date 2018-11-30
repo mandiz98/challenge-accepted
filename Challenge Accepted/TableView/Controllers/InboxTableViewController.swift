@@ -16,16 +16,13 @@ class InboxTableViewController: UITableViewController{
 
     
     @IBOutlet var inboxTabel: UITableView!
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        
-        
+    
+    
+    override func viewDidAppear(_ animated: Bool) {        
         var ref: DatabaseReference!
         var inboxState=""
         ref = Database.database().reference()
         ref.child("challenges").observe(DataEventType.value, with: { (snapshot) in
-            if snapshot.childrenCount>0{
                 self.inboxChallenges = []
                 for challenge in snapshot.children.allObjects as! [DataSnapshot]{
                     let attr = challenge.value as? [String:Any]
@@ -45,13 +42,16 @@ class InboxTableViewController: UITableViewController{
                                         if attr!["state"] as! String == "pending"{
                                             inboxState="pending"
                                         }
-                                        if attr!["state"] as! String == "done"{
-                                            inboxState="done"
+                                        if attr!["state"] as! String == "denied"{
+                                            inboxState="denied"
                                         }
                                         if attr!["state"] as! String == "unread"{
                                             inboxState="unread"
                                         }
-                                        self.inboxChallenges.append(Challenge(title: attr!["title"] as! String, description: attr!["description"] as! String, creator: creatorName,imageState: UIImage(named: inboxState)!, state: Challenge.Status(rawValue: inboxState)!, proof: attr!["proof"] as! String))
+                                        if inboxState != "denied"{
+                                            self.inboxChallenges.append(Challenge(title: attr!["title"] as! String, description: attr!["description"] as! String, creator: creatorName,imageState: UIImage(named: inboxState)!, state: Challenge.Status(rawValue: inboxState)!, proof: attr!["proof"] as! String))
+                                        }
+                                        
                                     }
                                     self.inboxTabel.reloadData()
 
@@ -63,7 +63,6 @@ class InboxTableViewController: UITableViewController{
                         
                     }
                 }
-            }
 
         })
         
