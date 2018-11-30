@@ -12,6 +12,7 @@ import FacebookCore
 import FBSDKCoreKit
 import FBSDKLoginKit
 import Firebase
+import UserNotifications
 
 
 var profileCache: Profile = Profile()
@@ -21,6 +22,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var heightConstraint: NSLayoutConstraint!
     @IBOutlet weak var widthConstraint: NSLayoutConstraint!
+    let center = UNUserNotificationCenter.current()
     
     // If user completes logging in with facebook, we fetch the profile data and sets success to true.
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
@@ -51,9 +53,23 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         loginButton.delegate = self
         loginButton.readPermissions = ["email", "public_profile", "user_friends"]
         loginButton.center = view.center
+        
+        let options: UNAuthorizationOptions = [.alert, .sound]
+    
+        center.requestAuthorization(options: options) {
+            (granted, error) in if !granted {
+                print("Something went wrong")
+            }
+        }
+        
+        center.getNotificationSettings { (settings) in
+            if settings.authorizationStatus != .authorized{
+                //Notifications not allowed
+            }
+        }
+        
         view.addSubview(loginButton)
     }
-   
     
     @IBAction func startPressed(_ sender: Any) {
         if(fbLoginSuccess){
@@ -100,16 +116,12 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
             // If the the user is not in the database, we take the facebook data and add the user to our database.
             ref.child("users").observeSingleEvent(of: .value, with: { (snapshot) in
                 if snapshot.hasChild(data["id"] as! String){
-                    
                     print("User exist")
-                    
                 }else{
                     print("User added to database")
-                    
                     ref.child("users").child(data["id"] as! String).setValue(["fname": data["first_name"], "lname":data["last_name"], "email":data["email"], "score":0, "profileImage":data["picture"]])
                 }
                 self.cacheProfile(ref: ref, userID: data["id"] as! String)
-                
             })
         }
         
@@ -122,8 +134,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
             }
             
             let data:[String:Any] = result as! [String : Any]
-            //print(data["data"]!)
-            
+        
             names.removeAll()
             if let users = data["data"] as? [[String : Any]] {
                 for user in users {
@@ -148,7 +159,6 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
             profileCache.name = name
             profileCache.score = points
             profileCache.userID = userID
-            
         })
     }
 }

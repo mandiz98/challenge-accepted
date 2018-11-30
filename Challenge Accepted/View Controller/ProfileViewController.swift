@@ -11,7 +11,6 @@ import FacebookCore
 import FBSDKCoreKit
 import Firebase
 
-
 class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var friendsID: [String] = []
@@ -30,11 +29,13 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.ProfilePicture.image = profileCache.image
         self.ProfileScore.text = "Score: \(profileCache.score ?? 0)"
         scoreTableView.tableFooterView = UIView()
-        
-        
     }
     
+<<<<<<< HEAD
+    func listFriends(){
+=======
     func listFriendsID(){
+>>>>>>> c11b0ac920f80f82a61943d2759d2723d0238423
         let parameters = ["fields": "id"]
         friendsID.append(profileCache.userID ?? "")
         FBSDKGraphRequest(graphPath: "/me/friends", parameters: parameters).start{
@@ -101,6 +102,8 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
 }
+<<<<<<< HEAD
+=======
 
 //**************************
 //let friend = self.friendsID[indexPath.row]
@@ -210,3 +213,4 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
 //
 // }
 //
+>>>>>>> c11b0ac920f80f82a61943d2759d2723d0238423
