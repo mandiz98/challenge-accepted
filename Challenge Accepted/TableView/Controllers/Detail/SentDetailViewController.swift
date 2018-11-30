@@ -34,7 +34,6 @@ class SentDetailViewController: UIViewController {
             imageProof.image = UIImage(data: data! as Data)
         }
         
-        
         if checkIfSentOrRecieved == 0 {
             self.senderNameLabel.text = profileCache.name
             self.recieverNameLabel.text = challenge.getCreator()
@@ -43,19 +42,5 @@ class SentDetailViewController: UIViewController {
             self.senderNameLabel.text = challenge.getCreator()
             self.recieverNameLabel.text = profileCache.name
         }
-        
-        // Do any additional setup after loading the view.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

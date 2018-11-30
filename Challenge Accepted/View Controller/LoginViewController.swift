@@ -66,7 +66,6 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
                 //Notifications not allowed
             }
         }
-        
         view.addSubview(loginButton)
     }
     
@@ -102,7 +101,6 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         ref = Database.database().reference()
         let parameters = ["fields": "first_name, last_name, email, id, picture.width(512).height(512)"]
 
-        
         FBSDKGraphRequest(graphPath: "/me", parameters: parameters).start{
             (connection, result, err) in
             
@@ -113,21 +111,14 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
             
             let data:[String:Any] = result as! [String : Any]
             
-            // ***** USING GLOBAL VARIABLE FOR DATABASE USER ID!!! *****
-            //globalUserID = data["id"] as! String
-
             ref.child("users").observeSingleEvent(of: .value, with: { (snapshot) in
                 if snapshot.hasChild(data["id"] as! String){
-                    
                     print("User exist")
-                    
                 }else{
                     print("User added to database")
-                    
                     ref.child("users").child(data["id"] as! String).setValue(["fname": data["first_name"], "lname":data["last_name"], "email":data["email"], "score":0, "profileImage":data["picture"]])
                 }
                 self.cacheProfile(ref: ref, userID: data["id"] as! String)
-                
             })
         }
         
@@ -140,8 +131,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
             }
             
             let data:[String:Any] = result as! [String : Any]
-            //print(data["data"]!)
-            
+        
             names.removeAll()
             if let users = data["data"] as? [[String : Any]] {
                 for user in users {
@@ -166,7 +156,6 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
             profileCache.name = name
             profileCache.score = points
             profileCache.userID = userID
-            
         })
     }
 }

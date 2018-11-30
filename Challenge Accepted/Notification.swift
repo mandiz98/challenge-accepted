@@ -19,15 +19,15 @@ let center = UNUserNotificationCenter.current()
 //Create the content for the notification
 func Content() -> UNMutableNotificationContent{
     let content = UNMutableNotificationContent()
-    content.title = "New Challenge recieved"
-    content.body = "A new Challenge can be found in your inbox."
+    content.title = "New Challenge Recieved"
+    content.body = "A new challenge can be found in your inbox."
     content.sound = UNNotificationSound.default
     return content
 }
 
 //Notification trigger
 func Trigger() -> UNTimeIntervalNotificationTrigger{
-    let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.2, repeats: false)
+    let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
     return trigger
 }
 
@@ -39,7 +39,7 @@ func Request() -> UNNotificationRequest {
 
 
 //Add a Notification
-func addNotification(){
+func AddNotification(){
     center.add(Request()){ (error) in
         if error != nil{
             print("error \(String(describing: error))")
@@ -51,9 +51,4 @@ class NotificationDelegate: NSObject, UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping() -> Void){
         completionHandler()
     }
-    
-    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent: UNNotification, withCompletionHandler completionHandler: @escaping(UNNotificationPresentationOptions) -> Void) {
-        completionHandler([.alert, .sound, .badge])
-    }
-                                
 }
