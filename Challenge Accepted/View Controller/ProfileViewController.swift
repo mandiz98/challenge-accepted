@@ -34,6 +34,9 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         scoreTableView.tableFooterView = UIView()
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        AddNotification()
+    }
     // MARK: Scoreboard functions
     
     func listFriendsID(){

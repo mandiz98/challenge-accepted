@@ -10,9 +10,13 @@ import UIKit
 import Firebase
 
 class InboxTableViewController: UITableViewController{
+    //MARK: Outlets
+    @IBOutlet var inboxTable: UITableView!
+    
+    //MARK: Variables
     var inboxChallenges: [Challenge] = []
 
-    @IBOutlet var inboxTable: UITableView!
+    //MARK: Functions
     override func viewDidAppear(_ animated: Bool) {
         var ref: DatabaseReference!
         var inboxState=""

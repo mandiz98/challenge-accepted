@@ -15,7 +15,7 @@ class HomeScreenViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
         AddNotification()
     }
     

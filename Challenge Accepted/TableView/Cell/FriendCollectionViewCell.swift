@@ -9,6 +9,7 @@
 import UIKit
 
 class FriendCollectionViewCell: UICollectionViewCell {
+    //MARK: Outlet
     @IBOutlet weak var friendLabel: UILabel!
 }
 
