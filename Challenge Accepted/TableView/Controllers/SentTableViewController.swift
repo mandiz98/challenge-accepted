@@ -20,7 +20,6 @@ class SentTableViewController: UITableViewController {
         ref = Database.database().reference()
         
         ref.child("challenges").observe(DataEventType.value, with: { (snapshot) in
-            if snapshot.childrenCount>0{
                 self.sentChallenges = []
                 for challenge in snapshot.children.allObjects as! [DataSnapshot]{
                     let attr = challenge.value as? [String:Any]
@@ -39,13 +38,15 @@ class SentTableViewController: UITableViewController {
                                         if attr!["state"] as! String == "pending"{
                                             sentState="pending"
                                         }
-                                        if attr!["state"] as! String == "done"{
-                                            sentState="done"
+                                        if attr!["state"] as! String == "denied"{
+                                            sentState="denied"
                                         }
                                         if attr!["state"] as! String == "unread"{
                                             sentState="unread"
                                         }
-                                        self.sentChallenges.append(Challenge(title: attr!["title"] as! String, description: attr!["description"] as! String, creator: sentName,imageState: UIImage(named: sentState)!, state: Challenge.Status(rawValue: sentState)!, proof: attr!["proof"] as! String))
+                                        if sentState != "denied"{
+                                            self.sentChallenges.append(Challenge(title: attr!["title"] as! String, description: attr!["description"] as! String, creator: sentName,imageState: UIImage(named: sentState)!, state: Challenge.Status(rawValue: sentState)!, proof: attr!["proof"] as! String))
+                                        }
                                     }
                                     self.sentTabel.reloadData()
 
@@ -56,7 +57,6 @@ class SentTableViewController: UITableViewController {
                         
                     }
                 }
-            }
         })
 
         //sentTableView.tableFooterView = UIView()

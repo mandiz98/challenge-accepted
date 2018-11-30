@@ -68,6 +68,7 @@ class InboxDetailViewController: UIViewController {
                     let attr = challenge.value as? [String:Any]
                     if (attr!["receiverId"] as? String == profileCache.userID && attr!["title"] as? String == self.TitleLabel.text){
                         challengeKey = challenge.key
+                        ref.child("challenges/\(challengeKey)/state").setValue("denied")
                         ref.child("challenges").child(challengeKey).removeValue()
                     }
                 }
