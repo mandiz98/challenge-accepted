@@ -29,8 +29,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     let center = UNUserNotificationCenter.current()
     
     // MARK: Functions
-    
-    // If user completes logging in with facebook, we fetch the profile data and sets success to true.
+    // If user completes logging in with facebook, we fetch the profile data and set success to true.
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
         print("inloggad")
         fbLoginSuccess = true
@@ -39,6 +38,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
         print("utloggad")
     }
+    
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         if FBSDKAccessToken.currentAccessTokenIsActive() {
