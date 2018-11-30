@@ -15,6 +15,10 @@ class HomeScreenViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        AddNotification()
+    }
+    
     @IBAction func CreateBtn(_ sender: UIButton) {
         performSegue(withIdentifier: "CreateChallengeSegue", sender: self)
     }

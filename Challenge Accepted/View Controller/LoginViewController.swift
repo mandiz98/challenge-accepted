@@ -66,6 +66,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
                 //Notifications not allowed
             }
         }
+        
         view.addSubview(loginButton)
     }
     

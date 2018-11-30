@@ -19,8 +19,8 @@ let center = UNUserNotificationCenter.current()
 //Create the content for the notification
 func Content() -> UNMutableNotificationContent{
     let content = UNMutableNotificationContent()
-    content.title = "New Challenge Recieved"
-    content.body = "A new challenge can be found in your inbox."
+    content.title = "Bye Bye"
+    content.body = "Have a good day!"
     content.sound = UNNotificationSound.default
     return content
 }
@@ -45,6 +45,7 @@ func AddNotification(){
             print("error \(String(describing: error))")
         }
     }
+    print("Notification")
 }
 
 class NotificationDelegate: NSObject, UNUserNotificationCenterDelegate {
