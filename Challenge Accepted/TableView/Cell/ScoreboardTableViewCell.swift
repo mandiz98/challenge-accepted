@@ -10,6 +10,11 @@ import UIKit
 
 class ScoreboardTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var friendsImage: UIImageView!
+    @IBOutlet weak var friendsName: UILabel!
+    @IBOutlet weak var friendsScore: UILabel!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

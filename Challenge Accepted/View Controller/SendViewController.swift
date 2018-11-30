@@ -114,9 +114,7 @@ class SendViewController: UIViewController, UINavigationControllerDelegate, UIIm
             
             
             if let navController = self.navigationController {
-                navController.popViewController(animated: false)
                 navController.popViewController(animated: true)
-                
             }
         }
     }

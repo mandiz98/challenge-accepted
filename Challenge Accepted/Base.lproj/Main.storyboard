@@ -313,24 +313,24 @@
                                     <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 </variation>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ok3-q6-0U1">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ok3-q6-0U1">
                                 <rect key="frame" x="32" y="428.5" width="350" height="401.5"/>
                                 <color key="backgroundColor" name="SecondaryGrayByAmanda"/>
                                 <color key="separatorColor" name="SecondaryGrayByAmanda"/>
                                 <color key="sectionIndexColor" name="YellowByAmanda"/>
                                 <color key="sectionIndexBackgroundColor" name="SecondaryGrayByAmanda"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ScoreboardTableViewCell" rowHeight="118" id="vvi-fV-FW7">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ScoreboardTableViewCell" rowHeight="118" id="vvi-fV-FW7" customClass="ScoreboardTableViewCell" customModule="Challenge_Accepted" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="350" height="118"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vvi-fV-FW7" id="4HC-Ss-YCA">
-                                            <rect key="frame" x="0.0" y="0.0" width="350" height="117.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="350" height="118"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Score" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lZL-AJ-2dL">
-                                                    <rect key="frame" x="223" y="46" width="99" height="24"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                    <nil key="textColor"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Score" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lZL-AJ-2dL">
+                                                    <rect key="frame" x="281.5" y="48" width="44.5" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" name="YellowByAmanda"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kDd-XM-3Fp">
@@ -341,28 +341,36 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lHr-xg-kul">
-                                                    <rect key="frame" x="116" y="46" width="99" height="24"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                    <nil key="textColor"/>
+                                                    <rect key="frame" x="116" y="48" width="161.5" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" name="YellowByAmanda"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <color key="backgroundColor" name="SecondaryGrayByAmanda"/>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="kDd-XM-3Fp" secondAttribute="bottom" constant="8" id="25K-gb-DYm"/>
                                                 <constraint firstItem="lZL-AJ-2dL" firstAttribute="centerY" secondItem="4HC-Ss-YCA" secondAttribute="centerY" id="HdO-su-Zx6"/>
                                                 <constraint firstItem="kDd-XM-3Fp" firstAttribute="leading" secondItem="4HC-Ss-YCA" secondAttribute="leading" constant="8" id="I4a-Q6-RnC"/>
+                                                <constraint firstItem="lZL-AJ-2dL" firstAttribute="leading" secondItem="lHr-xg-kul" secondAttribute="trailing" constant="4" id="S4E-up-wIy"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="lZL-AJ-2dL" secondAttribute="trailing" constant="4" id="V7e-1A-mjS"/>
                                                 <constraint firstItem="lHr-xg-kul" firstAttribute="leading" secondItem="kDd-XM-3Fp" secondAttribute="trailing" constant="8" id="bhV-15-Jnv"/>
-                                                <constraint firstItem="lZL-AJ-2dL" firstAttribute="leading" secondItem="lHr-xg-kul" secondAttribute="trailing" constant="8" id="c0G-pM-kKB"/>
-                                                <constraint firstItem="lZL-AJ-2dL" firstAttribute="leading" secondItem="lHr-xg-kul" secondAttribute="trailing" constant="8" id="hu1-8m-uu2"/>
                                                 <constraint firstItem="kDd-XM-3Fp" firstAttribute="centerY" secondItem="lHr-xg-kul" secondAttribute="centerY" id="nFl-Wo-TB5"/>
-                                                <constraint firstItem="lZL-AJ-2dL" firstAttribute="width" secondItem="lHr-xg-kul" secondAttribute="width" id="oyy-rz-POf"/>
                                                 <constraint firstItem="lHr-xg-kul" firstAttribute="centerY" secondItem="4HC-Ss-YCA" secondAttribute="centerY" id="tSb-FI-6Zz"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="lZL-AJ-2dL" secondAttribute="trailing" constant="8" id="vHc-Jo-AYg"/>
                                                 <constraint firstItem="kDd-XM-3Fp" firstAttribute="top" secondItem="4HC-Ss-YCA" secondAttribute="top" constant="8" id="zZJ-hV-wm7"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="friendsImage" destination="kDd-XM-3Fp" id="RCl-fM-mYf"/>
+                                            <outlet property="friendsName" destination="lHr-xg-kul" id="XHM-tv-xgH"/>
+                                            <outlet property="friendsScore" destination="lZL-AJ-2dL" id="Hlv-gc-Qmz"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="tfK-Jf-rDi" id="ma6-aa-lDe"/>
+                                    <outlet property="delegate" destination="tfK-Jf-rDi" id="hgm-fc-VS4"/>
+                                </connections>
                             </tableView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="16c-iK-813" customClass="RoundImageView" customModule="Challenge_Accepted" customModuleProvider="target">
                                 <rect key="frame" x="107" y="120" width="200" height="200"/>
@@ -634,7 +642,9 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="VDI-Xn-K56">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="SecondaryGrayByAmanda"/>
+                        <color key="sectionIndexColor" name="YellowByAmanda"/>
+                        <color key="sectionIndexBackgroundColor" name="SecondaryGrayByAmanda"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="InboxTableViewCell" rowHeight="164" id="uZ4-kB-bTQ" customClass="InboxTableViewCell" customModule="Challenge_Accepted" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="164"/>
@@ -714,6 +724,7 @@
                         <color key="badgeColor" name="YellowByAmanda"/>
                     </tabBarItem>
                     <connections>
+                        <outlet property="inboxTabel" destination="VDI-Xn-K56" id="WOP-9A-aAE"/>
                         <segue destination="8OZ-pN-DHO" kind="show" identifier="unreadSegue" id="USl-i9-K7j"/>
                         <segue destination="AcV-Ui-EtW" kind="show" identifier="acceptedSegue" id="FK5-N0-hgk"/>
                         <segue destination="Orf-1d-Slf" kind="show" identifier="doneSegue" id="O1o-uW-9L5"/>
@@ -1106,7 +1117,9 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="zkM-iS-eHM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="SecondaryGrayByAmanda"/>
+                        <color key="sectionIndexColor" name="YellowByAmanda"/>
+                        <color key="sectionIndexBackgroundColor" name="SecondaryGrayByAmanda"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SentTableViewCell" rowHeight="164" id="R9R-xB-3hM" customClass="SentTableViewCell" customModule="Challenge_Accepted" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="164"/>
@@ -1186,6 +1199,7 @@
                         <color key="badgeColor" name="YellowByAmanda"/>
                     </tabBarItem>
                     <connections>
+                        <outlet property="sentTabel" destination="zkM-iS-eHM" id="PbN-RA-Qvv"/>
                         <segue destination="Orf-1d-Slf" kind="show" identifier="pendingSegue" id="SlA-fq-JEd"/>
                     </connections>
                 </tableViewController>
@@ -1422,7 +1436,7 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="O1o-uW-9L5"/>
+        <segue reference="SlA-fq-JEd"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

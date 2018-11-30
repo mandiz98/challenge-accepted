@@ -9,11 +9,59 @@
 import UIKit
 import Firebase
 
+
+
 class InboxTableViewController: UITableViewController{
+    var inboxChallenges: [Challenge] = []
+
     
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    @IBOutlet var inboxTabel: UITableView!
+    override func viewDidAppear(_ animated: Bool) {        
+        var ref: DatabaseReference!
+        var inboxState=""
+        ref = Database.database().reference()
+        ref.child("challenges").observe(DataEventType.value, with: { (snapshot) in
+            if snapshot.childrenCount>0{
+                self.inboxChallenges = []
+                for challenge in snapshot.children.allObjects as! [DataSnapshot]{
+                    let attr = challenge.value as? [String:Any]
+                    if attr!["receiverId"] as? String == profileCache.userID{
+                        var creatorName = ""
+
+                        ref.child("users").observe(DataEventType.value, with: { (snapshot) in
+                            if snapshot.childrenCount>0{
+
+                                for user in snapshot.children.allObjects as! [DataSnapshot]{
+                                    if user.key == attr!["creatorId"] as! String{
+                                        let attr2 = user.value as? [String:Any]
+                                        creatorName = attr2!["fname"] as! String
+                                        if attr!["state"] as! String == "accepted"{
+                                            inboxState="accepted"
+                                        }
+                                        if attr!["state"] as! String == "pending"{
+                                            inboxState="pending"
+                                        }
+                                        if attr!["state"] as! String == "done"{
+                                            inboxState="done"
+                                        }
+                                        if attr!["state"] as! String == "unread"{
+                                            inboxState="unread"
+                                        }
+                                        self.inboxChallenges.append(Challenge(title: attr!["title"] as! String, description: attr!["description"] as! String, creator: creatorName,imageState: UIImage(named: inboxState)!, state: Challenge.Status(rawValue: inboxState)!, proof: attr!["proof"] as! String))
+                                    }
+                                    self.inboxTabel.reloadData()
+
+                                }
+                                
+                            }
+
+                        })
+                        
+                    }
+                }
+            }
+
+        })
         
         //inboxTableView.tableFooterView = UIView()
         
@@ -27,11 +75,12 @@ class InboxTableViewController: UITableViewController{
         return 1
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ inboxTabel: UITableView, numberOfRowsInSection section: Int) -> Int {
+
         return inboxChallenges.count
     }
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ inboxTabel: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "InboxTableViewCell", for: indexPath) as? InboxTableViewCell{
             let challenge = inboxChallenges[indexPath.row]
             cell.nameLabel.text = challenge.getCreator()
@@ -69,7 +118,7 @@ class InboxTableViewController: UITableViewController{
         }
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    override func tableView(_ inboxTabel: UITableView, didSelectRowAt indexPath: IndexPath) {
         if inboxChallenges[indexPath.row].getStatus() == "unread"{
             performSegue(withIdentifier: "unreadSegue", sender: indexPath)
         }
