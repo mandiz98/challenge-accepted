@@ -27,4 +27,8 @@ class PreviewViewController: UIViewController {
         super.viewDidLoad()
         photo.image = self.image
     }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        AddNotification()
+    }
 }

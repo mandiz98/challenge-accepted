@@ -10,10 +10,14 @@ import UIKit
 import Firebase
 
 class SentTableViewController: UITableViewController {
-    var sentChallenges: [Challenge] = []
 
+    //MARK: Outlets
     @IBOutlet var sentTable: UITableView!
+
+    //MARK: Variables
+    var sentChallenges: [Challenge] = []
     
+    //MARK: Functions
     override func viewDidAppear(_ animated: Bool) {
         var ref: DatabaseReference!
         var sentState=""
@@ -54,6 +58,10 @@ class SentTableViewController: UITableViewController {
                 }
         })
         sentTable.tableFooterView = UIView()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        AddNotification()
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {

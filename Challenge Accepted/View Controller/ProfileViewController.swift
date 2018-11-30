@@ -31,11 +31,11 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         scoreTableView.tableFooterView = UIView()
     }
     
-<<<<<<< HEAD
-    func listFriends(){
-=======
+    override func viewDidDisappear(_ animated: Bool) {
+        AddNotification()
+    }
+    
     func listFriendsID(){
->>>>>>> c11b0ac920f80f82a61943d2759d2723d0238423
         let parameters = ["fields": "id"]
         friendsID.append(profileCache.userID ?? "")
         FBSDKGraphRequest(graphPath: "/me/friends", parameters: parameters).start{
@@ -102,9 +102,6 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
 }
-<<<<<<< HEAD
-=======
-
 //**************************
 //let friend = self.friendsID[indexPath.row]
 //let ref = Database.database().reference()
@@ -213,4 +210,3 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
 //
 // }
 //
->>>>>>> c11b0ac920f80f82a61943d2759d2723d0238423

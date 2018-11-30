@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 
 class InboxDetailViewController: UIViewController {
-    
+    //MARK: Outlets
     @IBOutlet weak var TitleLabel: UILabel!
     @IBOutlet weak var NameLabel: UILabel!
     @IBOutlet weak var StateImage: UIImageView!
@@ -19,8 +19,10 @@ class InboxDetailViewController: UIViewController {
     @IBOutlet weak var AcceptButton: UIButton!
     @IBOutlet weak var DenyButton: UIButton!
     
+    //MARK: Variables
     var challenge = Challenge(title:"",description:"",creator: "",imageState: UIImage(named:"unread")!, state: Challenge.Status(rawValue: "unread")!, proof: "")
 
+    //MARK: Functions
     override func viewDidLoad() {
         super.viewDidLoad()
 
