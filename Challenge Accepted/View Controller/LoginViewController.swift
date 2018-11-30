@@ -12,6 +12,7 @@ import FacebookCore
 import FBSDKCoreKit
 import FBSDKLoginKit
 import Firebase
+import UserNotifications
 
 var profileCache: Profile = Profile()
 
@@ -20,7 +21,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var heightConstraint: NSLayoutConstraint!
     @IBOutlet weak var widthConstraint: NSLayoutConstraint!
-    
+    let center = UNUserNotificationCenter.current()
     
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
         print("inloggad")
@@ -52,9 +53,22 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         loginButton.readPermissions = ["email", "public_profile", "user_friends"]
         loginButton.center = view.center
         
+        let options: UNAuthorizationOptions = [.alert, .sound]
+    
+        center.requestAuthorization(options: options) {
+            (granted, error) in if !granted {
+                print("Something went wrong")
+            }
+        }
+        
+        center.getNotificationSettings { (settings) in
+            if settings.authorizationStatus != .authorized{
+                //Notifications not allowed
+            }
+        }
+        
         view.addSubview(loginButton)
     }
-   
     
     @IBAction func startPressed(_ sender: Any) {
         if(fbLoginSuccess){
@@ -88,7 +102,6 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         ref = Database.database().reference()
         let parameters = ["fields": "first_name, last_name, email, id, picture.width(512).height(512)"]
 
-        
         FBSDKGraphRequest(graphPath: "/me", parameters: parameters).start{
             (connection, result, err) in
             
@@ -99,21 +112,14 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
             
             let data:[String:Any] = result as! [String : Any]
             
-            // ***** USING GLOBAL VARIABLE FOR DATABASE USER ID!!! *****
-            //globalUserID = data["id"] as! String
-
             ref.child("users").observeSingleEvent(of: .value, with: { (snapshot) in
                 if snapshot.hasChild(data["id"] as! String){
-                    
                     print("User exist")
-                    
                 }else{
                     print("User added to database")
-                    
                     ref.child("users").child(data["id"] as! String).setValue(["fname": data["first_name"], "lname":data["last_name"], "email":data["email"], "score":0, "profileImage":data["picture"]])
                 }
                 self.cacheProfile(ref: ref, userID: data["id"] as! String)
-                
             })
         }
         
@@ -126,8 +132,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
             }
             
             let data:[String:Any] = result as! [String : Any]
-            //print(data["data"]!)
-            
+        
             names.removeAll()
             if let users = data["data"] as? [[String : Any]] {
                 for user in users {
@@ -152,7 +157,6 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
             profileCache.name = name
             profileCache.score = points
             profileCache.userID = userID
-            
         })
     }
 }

@@ -13,15 +13,11 @@ import Firebase
 var names:[String]=[]
 var sendTo:[String]=[]
 
-
 var selectedCellTapped: [Bool] = []
-
 
 class CreateViewController: UIViewController {
     let parameters = ["fields": "first_name, last_name, email, id, picture"]
 
-    
-    
     @IBOutlet weak var challengeTitle: UITextField!
     @IBOutlet weak var challengeDescription: UITextView!
     @IBOutlet weak var createButton: UIButton!
@@ -32,7 +28,6 @@ class CreateViewController: UIViewController {
         if(challengeTitle.text != "" && challengeDescription.text != "" && !sendTo.isEmpty){
             
             var ref: DatabaseReference!
-            
             ref = Database.database().reference()
             
             FBSDKGraphRequest(graphPath: "/me", parameters: parameters).start{
@@ -44,40 +39,28 @@ class CreateViewController: UIViewController {
                 }
                 
                 let data:[String:Any] = result as! [String : Any]
-                
-                
-               
                 print("Challenge added to database")
                 
                 for a in sendTo{
                     ref.child("challenges").childByAutoId().setValue(["description": self.challengeDescription.text!, "title":self.challengeTitle.text!, "state": "unread", "creatorId": data["id"]!, "receiverId": a, "proof": ""])
                 }
-                
             }
             
             if let navController = self.navigationController {
                 navController.popViewController(animated: true)
             }
-            
         }
-        
         else {print("Didn't add challenge")}
-        
-        
     }
 
-   
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         var count=0
         while count<names.count{
             selectedCellTapped.append(false)
             count += 1
         }
-        
-        // Do any additional setup after loading the view.
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
@@ -119,8 +102,6 @@ extension CreateViewController: UICollectionViewDelegate, UICollectionViewDataSo
         
         let selectedCell:UICollectionViewCell = collectionView.cellForItem(at: indexPath!)!
         
-        
-        
         if !selectedCellTapped[(indexPath?.row)!]{
             selectedCell.layer.cornerRadius = 5
             selectedCell.layer.borderWidth = 5
@@ -143,7 +124,6 @@ extension CreateViewController: UICollectionViewDelegate, UICollectionViewDataSo
             }
             sendTo = temp
             print(sendTo)
-
         }
     }
 }

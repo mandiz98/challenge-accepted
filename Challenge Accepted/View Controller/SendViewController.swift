@@ -10,7 +10,6 @@ import UIKit
 import Firebase
 import FirebaseStorage
 
-
 class SendViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate{
 
     @IBOutlet weak var challengeTitle: UILabel!
@@ -22,7 +21,6 @@ class SendViewController: UIViewController, UINavigationControllerDelegate, UIIm
     var imagePicker: UIImagePickerController!
     var photoimage: UIImage!
     var urlString = ""
-
     
     enum imageSource {
         case camera
@@ -52,12 +50,12 @@ class SendViewController: UIViewController, UINavigationControllerDelegate, UIIm
         }
         present(imagePicker,animated: true,completion: nil)
     }
-    //Change button to be button in collection view
+    
     @IBAction func addNewPictureBtn(_ sender: Any) {
-            // create the alert
+        // create the alert
         let alert = UIAlertController(title: "Picture from:", message: "", preferredStyle: UIAlertController.Style.alert)
             
-        // add the actions (buttons)
+        // add the buttons (actions)
         alert.addAction(UIAlertAction(title: "PhotoLibrary", style: UIAlertAction.Style.default, handler: {action in self.addNewPicture(.photoLibrary)}))
         alert.addAction(UIAlertAction(title: "Camera", style: UIAlertAction.Style.default, handler: {action in
             self.addNewPicture(.camera)
@@ -66,7 +64,6 @@ class SendViewController: UIViewController, UINavigationControllerDelegate, UIIm
             
         // show the alert
         self.present(alert, animated: true, completion: nil)
-        
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -110,9 +107,6 @@ class SendViewController: UIViewController, UINavigationControllerDelegate, UIIm
                     }
                 }
             })
-            
-            
-            
             if let navController = self.navigationController {
                 navController.popViewController(animated: true)
             }
@@ -136,22 +130,16 @@ class SendViewController: UIViewController, UINavigationControllerDelegate, UIIm
         let storageRef = storage.reference()
         let imagesRef = storageRef.child("images")
         let random = NSUUID().uuidString
-
         let finalImage = imagesRef.child(random+".jpg")
-        
         let data = image.jpegData(compressionQuality: 0.5)!
-        
-         finalImage.putData(data, metadata: nil) { (metadata, error) in
-            if let error = error{
+
+            finalImage.putData(data, metadata: nil) { (metadata, error) in
+                if let error = error{
                 print(error)
-            }
-            
-            // Metadata contains file metadata such as size, content-type.
-            //let size = metadata.size
-            // You can also access to download URL after upload.
+                }
             finalImage.downloadURL { (url, error) in
                 guard let downloadURL = url else {
-                    // Uh-oh, an error occurred!
+                    print("error occured")
                     return
                 }
                 self.urlString = downloadURL.absoluteString
@@ -159,14 +147,3 @@ class SendViewController: UIViewController, UINavigationControllerDelegate, UIIm
         }
     }
 }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-
