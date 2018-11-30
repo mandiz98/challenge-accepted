@@ -34,6 +34,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         scoreTableView.tableFooterView = UIView()
     }
     
+    // MARK: Scoreboard functions
     
     func listFriendsID(){
         let parameters = ["fields": "id"]
@@ -78,10 +79,8 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
                     }
                 })
             })
-            
         }
     }
-    
     func tableView(_ scoreTableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.friendInfo.count
     }
