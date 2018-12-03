@@ -39,10 +39,6 @@ class SendViewController: UIViewController, UINavigationControllerDelegate, UIIm
         // Do any additional setup after loading the view.
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        AddNotification()
-    }
-    
     func addNewPicture(_ source: imageSource) {
         imagePicker = UIImagePickerController()
         imagePicker.delegate = self

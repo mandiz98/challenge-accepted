@@ -10,13 +10,14 @@ import Foundation
 import UIKit
 
 class Challenge {
-    
+    //MARK: variables
     var creator: String
     var title: String
     var description: String
     var state: Status
     var imageState: UIImage
     var proof: String
+    //MARK: Status enum
     enum Status: String{
         case accepted = "accepted"
         case denied = "denied"
@@ -24,6 +25,8 @@ class Challenge {
         case pending = "pending"
     }
     
+    //MARK: Functions
+    //Initializer
     init(title: String, description: String, creator: String, imageState: UIImage, state: Status, proof: String){
         self.creator = creator
         self.title = title
@@ -33,11 +36,7 @@ class Challenge {
         self.proof = proof
     }
     
-    
-    func getChallenge() -> Challenge{
-        return self
-    }
-    
+    //MARK: Setters
     func setStatus(status: Status){
         switch status {
         case .accepted:
@@ -60,6 +59,11 @@ class Challenge {
     func setDescription(description: String){
         self.description = description
     }
+    
+    //MARK: Getters
+    func getChallenge() -> Challenge{
+        return self
+    }
     func getCreator()->String{
         return self.creator
     }
@@ -75,5 +79,6 @@ class Challenge {
     func getStatusImage() -> UIImage {
         return self.imageState
     }
-    
 }
+
+

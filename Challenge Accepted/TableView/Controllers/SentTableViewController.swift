@@ -60,10 +60,6 @@ class SentTableViewController: UITableViewController {
         sentTable.tableFooterView = UIView()
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        AddNotification()
-    }
-    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }

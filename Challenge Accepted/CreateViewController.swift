@@ -11,7 +11,6 @@ import FacebookCore
 import FBSDKCoreKit
 import Firebase
 
-var names:[String]=[]
 
 class CreateViewController: UIViewController {
     //MARK: Outlets
@@ -24,7 +23,8 @@ class CreateViewController: UIViewController {
     var sendTo:[String]=[]
     var selectedCellTapped: [Bool] = []
     let parameters = ["fields": "first_name, last_name, email, id, picture"]
-
+    var names:[String]=[]
+    
     //MARK: Functions
     @IBAction func buttonPressed(_ sender: Any) {
         if(challengeTitle.text != "" && challengeDescription.text != "" && !sendTo.isEmpty){
@@ -56,19 +56,31 @@ class CreateViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        var count=0
-        while count<names.count{
-            selectedCellTapped.append(false)
-            count += 1
+        FBSDKGraphRequest(graphPath: "/me/friends", parameters: parameters).start{
+            (connection, result, err) in
+            if err != nil{
+                print(err!)
+                return
+            }
+            let data:[String:Any] = result as! [String : Any]
+            self.names.removeAll()
+            if let users = data["data"] as? [[String : Any]] {
+                for user in users {
+                    self.names.append(user["id"] as! String)
+                    print(user["first_name"]!,user["last_name"]!)
+                }
+                var count=0
+                while count<self.names.count{
+                    self.selectedCellTapped.append(false)
+                    count += 1
+                }
+                self.collectionView.reloadData()
+            }
         }
+        
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        AddNotification()
     }
 }
 

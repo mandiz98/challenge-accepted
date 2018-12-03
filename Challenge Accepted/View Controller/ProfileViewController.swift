@@ -33,10 +33,6 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.ProfileScore.text = "Score: \(profileCache.score ?? 0)"
         scoreTableView.tableFooterView = UIView()
     }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        AddNotification()
-    }
     // MARK: Scoreboard functions
     
     func listFriendsID(){

@@ -120,21 +120,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
             })
         }
         
-        FBSDKGraphRequest(graphPath: "/me/friends", parameters: parameters).start{
-            (connection, result, err) in
-            if err != nil{
-                print(err!)
-                return
-            }
-            let data:[String:Any] = result as! [String : Any]
-            names.removeAll()
-            if let users = data["data"] as? [[String : Any]] {
-                for user in users {
-                    names.append(user["id"] as! String)
-                    print(user["first_name"]!,user["last_name"]!)
-                }
-            }
-        }
+     
     }
     
     func cacheProfile(ref: DatabaseReference, userID: String){
