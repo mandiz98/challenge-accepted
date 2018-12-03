@@ -19,6 +19,7 @@ class HomeScreenViewController: UIViewController {
         AddNotification()
     }
     
+    // MARK: Menu buttons
     @IBAction func CreateBtn(_ sender: UIButton) {
         performSegue(withIdentifier: "CreateChallengeSegue", sender: self)
     }
