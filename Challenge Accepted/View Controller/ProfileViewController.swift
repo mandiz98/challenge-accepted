@@ -33,7 +33,6 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.ProfileScore.text = "Score: \(profileCache.score ?? 0)"
         scoreTableView.tableFooterView = UIView()
     }
-    
     // MARK: Scoreboard functions
     
     func listFriendsID(){

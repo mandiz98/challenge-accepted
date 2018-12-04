@@ -10,23 +10,25 @@ import UIKit
 import FacebookCore
 import FBSDKCoreKit
 import Firebase
-var names:[String]=[]
-var sendTo:[String]=[]
 
-var selectedCellTapped: [Bool] = []
 
 class CreateViewController: UIViewController {
-    let parameters = ["fields": "first_name, last_name, email, id, picture"]
-
+    //MARK: Outlets
     @IBOutlet weak var challengeTitle: UITextField!
     @IBOutlet weak var challengeDescription: UITextView!
     @IBOutlet weak var createButton: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
     
+    //MARK: Variables
+    var sendTo:[String]=[]
+    var selectedCellTapped: [Bool] = []
+    let parameters = ["fields": "first_name, last_name, email, id, picture"]
+    var names:[String]=[]
     
+    //MARK: Functions
     @IBAction func buttonPressed(_ sender: Any) {
         if(challengeTitle.text != "" && challengeDescription.text != "" && !sendTo.isEmpty){
-            
+            //MARK: Database reference
             var ref: DatabaseReference!
             ref = Database.database().reference()
             
@@ -37,11 +39,11 @@ class CreateViewController: UIViewController {
                     print(err!)
                     return
                 }
-                
+    
                 let data:[String:Any] = result as! [String : Any]
                 print("Challenge added to database")
                 
-                for a in sendTo{
+                for a in self.sendTo{
                     ref.child("challenges").childByAutoId().setValue(["description": self.challengeDescription.text!, "title":self.challengeTitle.text!, "state": "unread", "creatorId": data["id"]!, "receiverId": a, "proof": ""])
                 }
             }
@@ -49,24 +51,38 @@ class CreateViewController: UIViewController {
             if let navController = self.navigationController {
                 navController.popViewController(animated: true)
             }
-        }
-        else {print("Didn't add challenge")}
+        } else {print("Didn't add challenge")}
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        var count=0
-        while count<names.count{
-            selectedCellTapped.append(false)
-            count += 1
+        FBSDKGraphRequest(graphPath: "/me/friends", parameters: parameters).start{
+            (connection, result, err) in
+            if err != nil{
+                print(err!)
+                return
+            }
+            let data:[String:Any] = result as! [String : Any]
+            self.names.removeAll()
+            if let users = data["data"] as? [[String : Any]] {
+                for user in users {
+                    self.names.append(user["id"] as! String)
+                    print(user["first_name"]!,user["last_name"]!)
+                }
+                var count=0
+                while count<self.names.count{
+                    self.selectedCellTapped.append(false)
+                    count += 1
+                }
+                self.collectionView.reloadData()
+            }
         }
+        
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
 }
-
 
 extension CreateViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

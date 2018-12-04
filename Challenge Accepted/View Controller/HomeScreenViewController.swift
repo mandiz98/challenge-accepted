@@ -15,9 +15,7 @@ class HomeScreenViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        AddNotification()
-    }
+  
     
     // MARK: Menu buttons
     @IBAction func CreateBtn(_ sender: UIButton) {

@@ -27,7 +27,7 @@ func Content() -> UNMutableNotificationContent{
 
 //Notification trigger
 func Trigger() -> UNTimeIntervalNotificationTrigger{
-    let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+    let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1.0, repeats: false)
     return trigger
 }
 
