@@ -12,12 +12,14 @@ import FirebaseStorage
 
 class SendViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate{
 
+    //MARK: Outlets
     @IBOutlet weak var challengeTitle: UILabel!
     @IBOutlet weak var creator: UILabel!
     @IBOutlet weak var status: UIImageView!
     @IBOutlet weak var Description: UILabel!
     @IBOutlet weak var addedImage: UIImageView!
     
+    //MARK: Variables
     var imagePicker: UIImagePickerController!
     var photoimage: UIImage!
     var urlString = ""
@@ -29,6 +31,8 @@ class SendViewController: UIViewController, UINavigationControllerDelegate, UIIm
     
     var challenge = Challenge(title:"",description:"",creator: "",imageState: UIImage(named:"unread")!, state: Challenge.Status(rawValue: "unread")!,proof:"")
     
+    
+    //MARK: Functions
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -36,7 +40,6 @@ class SendViewController: UIViewController, UINavigationControllerDelegate, UIIm
         creator.text = challenge.getCreator()
         status.image = challenge.imageState
         Description.text = challenge.getDescription()
-        // Do any additional setup after loading the view.
     }
     
     func addNewPicture(_ source: imageSource) {
