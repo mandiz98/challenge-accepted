@@ -1,0 +1,45 @@
+Challenge Accepted
+Developers: Erik Andreasson, Dennis Molund, Amanda Axelsson, Jacob Carlquist
+
+#The IOS Application "Challenge Accepted"
+
+It's a social app where you challenge your friends with challenges you have created. 
+For each challenge you complete you get points. A challenge could be anything between 
+doing 10 pushups and asking a stranger for their number.
+
+CHALLENGES
+The challenge page has a table view with challenges that have been sent to your profile. 
+Challenges can have 5 different states: Done, Accepted, Denied, Unread and pending. 
+To show this we’re gonna have 4 different icons in the cell depending on what state the 
+challenge is in ,Done becomes gray and unclickable, and has no icon. Unread has a yellow 
+exclamation point icon. Completed has a green checkmark icon, and pending has a blue hourglass icon.
+
+Done state means that the challenge is completed and finished. This will appear after a user has finished a challenge.
+Accepted means that a friend that you have sent a challenge to have chosen to accept your challenge.
+Unread means that you have not read that challenge/ not accepted or denied it yet.
+Pending means that you have created and sent a challenge to a friend but you have not got an answer yet.
+
+
+CREATE CHALLENGE
+the create a challenge page is where you make challenges and send them to your friends. 
+Step one: name your challenge. 
+Step two: write the description of what the challenge is. 
+Step three: send to one or more of your facebook friends. 
+Step 4: wait for your challenge to be completed and then choose if that person has done the 
+challenge correctly and deserve points or if they should try again or don’t do it at all.
+
+
+POINTS/SCOREBOARD
+The point system is easy. You earn 10 points for each person that completes your 
+challenge and 100 points if you complete a challenge. Each user has a scoreboard with 
+all their friends and their points.
+
+FACEBOOK/PROFILE
+Users profiles will be connected to their facebook page because it makes it easier 
+to challenge their friends. Firstname, lastname and friends are the main things that
+will be taken from facebook. By using facebook the sign up/login process will be very 
+smooth and it is very important that things are not too complicated because then people 
+will not use the app. 
+
+On the profile page the user is able to see their total earned score and personal information
+about them. There will also be an avatar on the profile page(it could be the profile picture from facebook). 
